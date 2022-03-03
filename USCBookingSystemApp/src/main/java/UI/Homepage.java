@@ -6,7 +6,12 @@
 package UI;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 /**
  *
@@ -19,6 +24,7 @@ public class Homepage extends javax.swing.JFrame {
      */
     public Homepage() {
         initComponents();
+        dt();
     }
 
     /**
@@ -40,20 +46,42 @@ public class Homepage extends javax.swing.JFrame {
         lblAttend = new javax.swing.JLabel();
         btnBooking = new javax.swing.JPanel();
         lblBooking = new javax.swing.JLabel();
-        btnBook3 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        btnLessonReport = new javax.swing.JPanel();
+        lblLessonReport = new javax.swing.JLabel();
+        btnExerciseReport = new javax.swing.JPanel();
+        lblExerciseReport = new javax.swing.JLabel();
+        btnBook5 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
         pgDashboard = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jpDate = new javax.swing.JPanel();
+        lblDateTime = new javax.swing.JLabel();
         jpTitle = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pgBook = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jpDate1 = new javax.swing.JPanel();
+        lblDateTime1 = new javax.swing.JLabel();
         pgAttend = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        jpDate2 = new javax.swing.JPanel();
+        lblDateTime2 = new javax.swing.JLabel();
         pgBookings = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        pgDashboard3 = new javax.swing.JPanel();
+        jpDate3 = new javax.swing.JPanel();
+        lblDateTime3 = new javax.swing.JLabel();
+        pgLessonReport = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jpDate4 = new javax.swing.JPanel();
+        lblDateTime4 = new javax.swing.JLabel();
+        pgExerciseReport = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jpDate5 = new javax.swing.JPanel();
+        lblDateTime5 = new javax.swing.JLabel();
+        pgDashboard5 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jpDate6 = new javax.swing.JPanel();
+        lblDateTime6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +98,9 @@ public class Homepage extends javax.swing.JFrame {
         });
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblDashboard.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        lblDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home.png"))); // NOI18N
         lblDashboard.setText("Dashboard");
         lblDashboard.setToolTipText("Dashboard");
         lblDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -78,7 +108,7 @@ public class Homepage extends javax.swing.JFrame {
                 lblDashboardMouseClicked(evt);
             }
         });
-        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
         btnBook.setBackground(new java.awt.Color(54, 33, 89));
         btnBook.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,7 +118,9 @@ public class Homepage extends javax.swing.JFrame {
         });
         btnBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblBook.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblBook.setForeground(new java.awt.Color(255, 255, 255));
+        lblBook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/add.png"))); // NOI18N
         lblBook.setText("Book a Lesson");
         lblBook.setToolTipText("Book a Lesson");
         lblBook.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -96,12 +128,14 @@ public class Homepage extends javax.swing.JFrame {
                 lblBookMouseClicked(evt);
             }
         });
-        btnBook.add(lblBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        btnBook.add(lblBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
         btnAttend.setBackground(new java.awt.Color(54, 33, 89));
         btnAttend.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblAttend.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblAttend.setForeground(new java.awt.Color(255, 255, 255));
+        lblAttend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/attend.png"))); // NOI18N
         lblAttend.setText("Attend Lesson");
         lblAttend.setToolTipText("Attend Lesson");
         lblAttend.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,12 +143,14 @@ public class Homepage extends javax.swing.JFrame {
                 lblAttendMouseClicked(evt);
             }
         });
-        btnAttend.add(lblAttend, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        btnAttend.add(lblAttend, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
         btnBooking.setBackground(new java.awt.Color(54, 33, 89));
         btnBooking.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblBooking.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblBooking.setForeground(new java.awt.Color(255, 255, 255));
+        lblBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/manage.png"))); // NOI18N
         lblBooking.setText("Manage Bookings");
         lblBooking.setToolTipText("Manage Bookings");
         lblBooking.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,15 +158,47 @@ public class Homepage extends javax.swing.JFrame {
                 lblBookingMouseClicked(evt);
             }
         });
-        btnBooking.add(lblBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        btnBooking.add(lblBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
-        btnBook3.setBackground(new java.awt.Color(54, 33, 89));
-        btnBook3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnLessonReport.setBackground(new java.awt.Color(54, 33, 89));
+        btnLessonReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Attend Lesson");
-        jLabel12.setToolTipText("Attend Lesson");
-        btnBook3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 50));
+        lblLessonReport.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblLessonReport.setForeground(new java.awt.Color(255, 255, 255));
+        lblLessonReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lesson.png"))); // NOI18N
+        lblLessonReport.setText("Lesson Report");
+        lblLessonReport.setToolTipText("Lesson Report");
+        lblLessonReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLessonReportMouseClicked(evt);
+            }
+        });
+        btnLessonReport.add(lblLessonReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
+
+        btnExerciseReport.setBackground(new java.awt.Color(54, 33, 89));
+        btnExerciseReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblExerciseReport.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblExerciseReport.setForeground(new java.awt.Color(255, 255, 255));
+        lblExerciseReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/exercise.png"))); // NOI18N
+        lblExerciseReport.setText("Champion Exercise Report");
+        lblExerciseReport.setToolTipText("Champion Exercise Report");
+        lblExerciseReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblExerciseReportMouseClicked(evt);
+            }
+        });
+        btnExerciseReport.add(lblExerciseReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
+
+        btnBook5.setBackground(new java.awt.Color(54, 33, 89));
+        btnBook5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/new.png"))); // NOI18N
+        jLabel18.setText("Attend Lesson");
+        jLabel18.setToolTipText("Attend Lesson");
+        btnBook5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
         javax.swing.GroupLayout jpSidebarLayout = new javax.swing.GroupLayout(jpSidebar);
         jpSidebar.setLayout(jpSidebarLayout);
@@ -140,7 +208,9 @@ public class Homepage extends javax.swing.JFrame {
             .addComponent(btnBook, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnAttend, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btnBook3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnLessonReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnExerciseReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnBook5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jpSidebarLayout.setVerticalGroup(
             jpSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,8 +223,12 @@ public class Homepage extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(btnBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
-                .addComponent(btnBook3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 358, Short.MAX_VALUE))
+                .addComponent(btnLessonReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(btnExerciseReport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(btnBook5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 252, Short.MAX_VALUE))
         );
 
         jPanel1.add(jpSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, 620));
@@ -165,20 +239,27 @@ public class Homepage extends javax.swing.JFrame {
         jLabel13.setText("Dashboard");
         pgDashboard.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
+        jpDate.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate.add(lblDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgDashboard.add(jpDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
         jPanel1.add(pgDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
         jpTitle.setBackground(new java.awt.Color(122, 72, 221));
         jpTitle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("+");
-        jpTitle.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 100));
-
-        jLabel2.setFont(new java.awt.Font("Algerian", 3, 45)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Algerian", 3, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("UNIVERSITY SPORTS CENTER BOOKING SYSTEM");
-        jpTitle.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 1160, 100));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo.png"))); // NOI18N
+        jLabel2.setText(" UNIVERSITY SPORTS CENTER BOOKING SYSTEM");
+        jpTitle.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
 
         jPanel1.add(jpTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
 
@@ -188,6 +269,16 @@ public class Homepage extends javax.swing.JFrame {
         jLabel14.setText("Book a Lesson");
         pgBook.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
+        jpDate1.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime1.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate1.add(lblDateTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgBook.add(jpDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
         jPanel1.add(pgBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
         pgAttend.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -195,6 +286,16 @@ public class Homepage extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel15.setText("Attend a Lesson");
         pgAttend.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jpDate2.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime2.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate2.add(lblDateTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgAttend.add(jpDate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
 
         jPanel1.add(pgAttend, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
@@ -204,10 +305,71 @@ public class Homepage extends javax.swing.JFrame {
         jLabel16.setText("Bookings");
         pgBookings.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
+        jpDate3.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime3.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate3.add(lblDateTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgBookings.add(jpDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
         jPanel1.add(pgBookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
-        pgDashboard3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(pgDashboard3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
+        pgLessonReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel17.setText("Lesson Report");
+        pgLessonReport.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jpDate4.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime4.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate4.add(lblDateTime4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgLessonReport.add(jpDate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        jPanel1.add(pgLessonReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
+
+        pgExerciseReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel19.setText("Exercise Report");
+        pgExerciseReport.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jpDate5.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime5.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate5.add(lblDateTime5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgExerciseReport.add(jpDate5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        jPanel1.add(pgExerciseReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
+
+        pgDashboard5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel20.setText("Lesson Report");
+        pgDashboard5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jpDate6.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime6.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime6.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate6.add(lblDateTime6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgDashboard5.add(jpDate6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        jPanel1.add(pgDashboard5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,14 +401,16 @@ public class Homepage extends javax.swing.JFrame {
         resetPanelColor(btnBook);
         resetPanelColor(btnAttend);
         resetPanelColor(btnBooking);
-        resetPanelColor(btnBook3);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
         
         //pages
         pgDashboard.setVisible(true);
         pgBook.setVisible(false);
         pgAttend.setVisible(false);
         pgBookings.setVisible(false);
-        pgDashboard3.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
     }//GEN-LAST:event_lblDashboardMouseClicked
 
     private void lblBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookMouseClicked
@@ -256,14 +420,16 @@ public class Homepage extends javax.swing.JFrame {
         setPanelColor(btnBook);
         resetPanelColor(btnAttend);
         resetPanelColor(btnBooking);
-        resetPanelColor(btnBook3);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
         
         //pages
         pgDashboard.setVisible(false);
         pgBook.setVisible(true);
         pgAttend.setVisible(false);
         pgBookings.setVisible(false);
-        pgDashboard3.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
     }//GEN-LAST:event_lblBookMouseClicked
 
     private void lblAttendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendMouseClicked
@@ -273,14 +439,16 @@ public class Homepage extends javax.swing.JFrame {
         resetPanelColor(btnBook);
         setPanelColor(btnAttend);
         resetPanelColor(btnBooking);
-        resetPanelColor(btnBook3);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
         
         //pages
         pgDashboard.setVisible(false);
         pgBook.setVisible(false);
         pgAttend.setVisible(true);
         pgBookings.setVisible(false);
-        pgDashboard3.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
     }//GEN-LAST:event_lblAttendMouseClicked
 
     private void lblBookingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookingMouseClicked
@@ -290,15 +458,55 @@ public class Homepage extends javax.swing.JFrame {
         resetPanelColor(btnBook);
         resetPanelColor(btnAttend);
         setPanelColor(btnBooking);
-        resetPanelColor(btnBook3);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
         
         //pages
         pgDashboard.setVisible(false);
         pgBook.setVisible(false);
         pgAttend.setVisible(false);
         pgBookings.setVisible(true);
-        pgDashboard3.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
     }//GEN-LAST:event_lblBookingMouseClicked
+
+    private void lblLessonReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLessonReportMouseClicked
+        // TODO add your handling code here:
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        setPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
+        
+        //pages
+        pgDashboard.setVisible(false);
+        pgBook.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(true);
+        pgExerciseReport.setVisible(false);
+    }//GEN-LAST:event_lblLessonReportMouseClicked
+
+    private void lblExerciseReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExerciseReportMouseClicked
+        // TODO add your handling code here:
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        setPanelColor(btnExerciseReport);
+        
+        //pages
+        pgDashboard.setVisible(false);
+        pgBook.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(true);
+    }//GEN-LAST:event_lblExerciseReportMouseClicked
 
     
     //Set Colour
@@ -308,6 +516,30 @@ public class Homepage extends javax.swing.JFrame {
     
     public void resetPanelColor(JPanel panel){
         panel.setBackground(new java.awt.Color(54,33,89));
+    }
+    
+    Timer t;
+    public void dt(){
+        t = new Timer(0, new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                Date d = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd-MM-yyyy");
+                SimpleDateFormat st = new SimpleDateFormat("hh:mm:ss a");
+                String dd = sdf.format(d);
+                String tt = st.format(d);
+                String dst = dd + ".  " + tt;
+                lblDateTime.setText(dst);
+                lblDateTime1.setText(dst);
+                lblDateTime2.setText(dst);
+                lblDateTime3.setText(dst);
+                lblDateTime4.setText(dst);
+                lblDateTime5.setText(dst);
+                lblDateTime6.setText(dst);
+            }
+        });
+        
+        t.start();
     }
     
     /**
@@ -321,7 +553,7 @@ public class Homepage extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -348,27 +580,49 @@ public class Homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnAttend;
     private javax.swing.JPanel btnBook;
-    private javax.swing.JPanel btnBook3;
+    private javax.swing.JPanel btnBook5;
     private javax.swing.JPanel btnBooking;
     private javax.swing.JPanel btnDashboard;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JPanel btnExerciseReport;
+    private javax.swing.JPanel btnLessonReport;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jpDate;
+    private javax.swing.JPanel jpDate1;
+    private javax.swing.JPanel jpDate2;
+    private javax.swing.JPanel jpDate3;
+    private javax.swing.JPanel jpDate4;
+    private javax.swing.JPanel jpDate5;
+    private javax.swing.JPanel jpDate6;
     private javax.swing.JPanel jpSidebar;
     private javax.swing.JPanel jpTitle;
     private javax.swing.JLabel lblAttend;
     private javax.swing.JLabel lblBook;
     private javax.swing.JLabel lblBooking;
     private javax.swing.JLabel lblDashboard;
+    private javax.swing.JLabel lblDateTime;
+    private javax.swing.JLabel lblDateTime1;
+    private javax.swing.JLabel lblDateTime2;
+    private javax.swing.JLabel lblDateTime3;
+    private javax.swing.JLabel lblDateTime4;
+    private javax.swing.JLabel lblDateTime5;
+    private javax.swing.JLabel lblDateTime6;
+    private javax.swing.JLabel lblExerciseReport;
+    private javax.swing.JLabel lblLessonReport;
     private javax.swing.JPanel pgAttend;
     private javax.swing.JPanel pgBook;
     private javax.swing.JPanel pgBookings;
     private javax.swing.JPanel pgDashboard;
-    private javax.swing.JPanel pgDashboard3;
+    private javax.swing.JPanel pgDashboard5;
+    private javax.swing.JPanel pgExerciseReport;
+    private javax.swing.JPanel pgLessonReport;
     // End of variables declaration//GEN-END:variables
 }
