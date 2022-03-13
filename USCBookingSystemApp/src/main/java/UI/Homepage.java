@@ -10,8 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import UI.Lesson;
+import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;  
 
 /**
  *
@@ -25,6 +30,42 @@ public class Homepage extends javax.swing.JFrame {
     public Homepage() {
         initComponents();
         dt();
+        addRowToTable();
+    }
+    
+    public ArrayList listOfLessons(){
+        ArrayList<Lesson> lessons = new ArrayList<Lesson>();
+        lessons.add( new Lesson("Week 1","Yoga","Saturday","Morning",40.23,4));
+        lessons.add( new Lesson("Week 1","Yoga","Saturday","Afternoon",40.23,4));
+        lessons.add( new Lesson("Week 1","Yoga","Saturday","Evening",40.23,2));
+        lessons.add( new Lesson("Week 1","Yoga","Sunday","Morning",40.23,4));
+        lessons.add( new Lesson("Week 1","Yoga","Sunday","Afternoon",40.23,3));
+        lessons.add( new Lesson("Week 1","Yoga","Sunday","Evening",40.23,1));
+        
+        return lessons;
+    }
+    
+    public void addRowToTable(){
+        
+        jtSaturday.setDefaultRenderer(Object.class, new Render());
+        JButton btn1 = new JButton("Book");
+        btn1.setName("b");
+        
+        DefaultTableModel model = (DefaultTableModel) jtSaturday.getModel();
+        ArrayList<Lesson> lessons = listOfLessons();
+        Object rowData[] = new Object[lessons.size()];
+        for (int i = 0; i < lessons.size(); i++){
+            rowData[0] = lessons.get(i).getWeek();
+            rowData[1] = lessons.get(i).getName();
+            rowData[2] = lessons.get(i).getPeriod();
+            rowData[3] = lessons.get(i).getPrice();
+            rowData[4] = lessons.get(i).getSlot();
+            rowData[5] = btn1;  
+            
+            model.addRow(rowData);
+        }
+        
+        jtSaturday.setRowHeight(30);
     }
 
     /**
@@ -82,8 +123,19 @@ public class Homepage extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jpDate6 = new javax.swing.JPanel();
         lblDateTime6 = new javax.swing.JLabel();
+        pgYoga = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jpDate7 = new javax.swing.JPanel();
+        lblDateTime7 = new javax.swing.JLabel();
+        pgSaturday = new javax.swing.JPanel();
+        jpDate8 = new javax.swing.JPanel();
+        lblDateTime8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtSaturday = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Booking System");
+        setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
         jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -136,8 +188,8 @@ public class Homepage extends javax.swing.JFrame {
         lblAttend.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblAttend.setForeground(new java.awt.Color(255, 255, 255));
         lblAttend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/attend.png"))); // NOI18N
-        lblAttend.setText("Attend Lesson");
-        lblAttend.setToolTipText("Attend Lesson");
+        lblAttend.setText("Manage Bookings");
+        lblAttend.setToolTipText("Manage Bookings");
         lblAttend.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblAttendMouseClicked(evt);
@@ -151,8 +203,8 @@ public class Homepage extends javax.swing.JFrame {
         lblBooking.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblBooking.setForeground(new java.awt.Color(255, 255, 255));
         lblBooking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/manage.png"))); // NOI18N
-        lblBooking.setText("Manage Bookings");
-        lblBooking.setToolTipText("Manage Bookings");
+        lblBooking.setText("Bookings History");
+        lblBooking.setToolTipText("Bookings History");
         lblBooking.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblBookingMouseClicked(evt);
@@ -254,12 +306,12 @@ public class Homepage extends javax.swing.JFrame {
         jpTitle.setBackground(new java.awt.Color(122, 72, 221));
         jpTitle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Algerian", 3, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Algerian", 3, 45)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logo.png"))); // NOI18N
         jLabel2.setText(" UNIVERSITY SPORTS CENTER BOOKING SYSTEM");
-        jpTitle.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
+        jpTitle.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 60));
 
         jPanel1.add(jpTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
 
@@ -371,6 +423,73 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgDashboard5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgYoga.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel21.setText("Exercise Report");
+        pgYoga.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jpDate7.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime7.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime7.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate7.add(lblDateTime7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgYoga.add(jpDate7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        jPanel1.add(pgYoga, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
+
+        pgSaturday.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpDate8.setBackground(new java.awt.Color(122, 72, 221));
+        jpDate8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDateTime8.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
+        lblDateTime8.setForeground(new java.awt.Color(255, 255, 255));
+        lblDateTime8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
+        jpDate8.add(lblDateTime8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+
+        pgSaturday.add(jpDate8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        jtSaturday.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jtSaturday.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Weeks", "Lesson", "Period", "Price", "Slot", "Action"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtSaturday.getTableHeader().setReorderingAllowed(false);
+        jtSaturday.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtSaturdayMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtSaturday);
+        if (jtSaturday.getColumnModel().getColumnCount() > 0) {
+            jtSaturday.getColumnModel().getColumn(0).setPreferredWidth(170);
+            jtSaturday.getColumnModel().getColumn(1).setPreferredWidth(270);
+            jtSaturday.getColumnModel().getColumn(2).setPreferredWidth(270);
+            jtSaturday.getColumnModel().getColumn(3).setPreferredWidth(100);
+            jtSaturday.getColumnModel().getColumn(4).setPreferredWidth(70);
+            jtSaturday.getColumnModel().getColumn(5).setPreferredWidth(100);
+        }
+
+        pgSaturday.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));
+
+        jPanel1.add(pgSaturday, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -425,11 +544,37 @@ public class Homepage extends javax.swing.JFrame {
         
         //pages
         pgDashboard.setVisible(false);
-        pgBook.setVisible(true);
+        pgBook.setVisible(false);
         pgAttend.setVisible(false);
         pgBookings.setVisible(false);
         pgLessonReport.setVisible(false);
         pgExerciseReport.setVisible(false);
+        
+        //Dialog
+        String[] responses = {"By Day", "By Lesson"};
+        int ans = JOptionPane.showOptionDialog(rootPane, "How do you want to check the timetable?", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, responses, 0);
+        
+        if (ans == 0){
+            String[] responses1 = {"Saturday", "Sunday"};
+            int ans1 = JOptionPane.showOptionDialog(rootPane, "Select Day", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses1, 0);
+            
+            if (ans1 == 0){
+                pgSaturday.setVisible(true);
+                pgDashboard.setVisible(false);
+                pgBook.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgDashboard5.setVisible(false);
+                pgYoga.setVisible(false);
+            }
+            
+        }else if(ans == 1){
+            String[] responses2 = {"Yoga", "Zumba", "Aquacise", "Box Fit", "Body Blitz"};
+            int ans2 = JOptionPane.showOptionDialog(rootPane, "Select Lesson", "Check Timetable", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses2, 0);           
+        }
+        
     }//GEN-LAST:event_lblBookMouseClicked
 
     private void lblAttendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendMouseClicked
@@ -508,6 +653,41 @@ public class Homepage extends javax.swing.JFrame {
         pgExerciseReport.setVisible(true);
     }//GEN-LAST:event_lblExerciseReportMouseClicked
 
+    private void jtSaturdayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtSaturdayMouseClicked
+        // TODO add your handling code here:
+        int column = jtSaturday.getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/jtSaturday.getRowHeight();
+        
+        if(row < jtSaturday.getRowCount() && row >= 0 && column < jtSaturday.getColumnCount() && column >= 0){
+            Object value = jtSaturday.getValueAt(row, column);
+            
+            if(value instanceof JButton){
+                ((JButton)value).doClick();
+                JButton botn = (JButton) value;
+                
+                if(botn.getName().equals("b")){
+                    int a = jtSaturday.getSelectedRow();
+                    ArrayList<Lesson> lessons = listOfLessons();
+                    int remSlot = lessons.get(a).getSlot();
+                    
+                    if(remSlot <= 4 && remSlot != 0){
+                        int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to book " + lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lessons @ £" + lessons.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                        if(opt1 == 0){
+                            JOptionPane.showMessageDialog(rootPane, lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            
+                        }
+                        
+                    }else if(remSlot == 0){
+                        JOptionPane.showMessageDialog(rootPane, "Sorry, This Lesson has no slot available at this Week and Period.", "Slot Fully Booked", JOptionPane.WARNING_MESSAGE);
+                    }
+                    
+                    System.out.println(remSlot);
+                }
+            }
+        }
+    }//GEN-LAST:event_jtSaturdayMouseClicked
+
     
     //Set Colour
     public void setPanelColor(JPanel panel){
@@ -536,6 +716,7 @@ public class Homepage extends javax.swing.JFrame {
                 lblDateTime4.setText(dst);
                 lblDateTime5.setText(dst);
                 lblDateTime6.setText(dst);
+                lblDateTime8.setText(dst);
             }
         });
         
@@ -594,7 +775,9 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel jpDate;
     private javax.swing.JPanel jpDate1;
     private javax.swing.JPanel jpDate2;
@@ -602,8 +785,11 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel jpDate4;
     private javax.swing.JPanel jpDate5;
     private javax.swing.JPanel jpDate6;
+    private javax.swing.JPanel jpDate7;
+    private javax.swing.JPanel jpDate8;
     private javax.swing.JPanel jpSidebar;
     private javax.swing.JPanel jpTitle;
+    private javax.swing.JTable jtSaturday;
     private javax.swing.JLabel lblAttend;
     private javax.swing.JLabel lblBook;
     private javax.swing.JLabel lblBooking;
@@ -615,6 +801,8 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel lblDateTime4;
     private javax.swing.JLabel lblDateTime5;
     private javax.swing.JLabel lblDateTime6;
+    private javax.swing.JLabel lblDateTime7;
+    private javax.swing.JLabel lblDateTime8;
     private javax.swing.JLabel lblExerciseReport;
     private javax.swing.JLabel lblLessonReport;
     private javax.swing.JPanel pgAttend;
@@ -624,5 +812,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel pgDashboard5;
     private javax.swing.JPanel pgExerciseReport;
     private javax.swing.JPanel pgLessonReport;
+    private javax.swing.JPanel pgSaturday;
+    private javax.swing.JPanel pgYoga;
     // End of variables declaration//GEN-END:variables
 }
