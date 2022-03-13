@@ -41,8 +41,17 @@ public class Homepage extends javax.swing.JFrame {
         lessons.add( new Lesson("Week 1","Yoga","Sunday","Morning",40.23,4));
         lessons.add( new Lesson("Week 1","Yoga","Sunday","Afternoon",40.23,3));
         lessons.add( new Lesson("Week 1","Yoga","Sunday","Evening",40.23,1));
+        lessons.add( new Lesson("Week 2", "Box Fit", "Saturday", "Evening", 30.08, 3));
+        lessons.add( new Lesson("Week 1", "Box Fit", "Saturday", "Evening", 30.08, 0));
         
         return lessons;
+    }
+    
+    public ArrayList listOfBookings(){
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        bookings.add( new Booking("BIY001", "James", "Bull", "Yoga", "Week 1", "Sunday", "Morning", "Booked", "", 'M', 197890, 2, 9, 40.23));
+        
+        return bookings;
     }
     
     public void addRowToTable(){
@@ -132,6 +141,7 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtSaturday = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Booking System");
@@ -488,6 +498,11 @@ public class Homepage extends javax.swing.JFrame {
 
         pgSaturday.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Lessons on Saturdays");
+        pgSaturday.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 980, 50));
+
         jPanel1.add(pgSaturday, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -673,13 +688,18 @@ public class Homepage extends javax.swing.JFrame {
                     if(remSlot <= 4 && remSlot != 0){
                         int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to book " + lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lessons @ £" + lessons.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                         if(opt1 == 0){
+                            remSlot--;
+                            lessons.get(a).setSlot(remSlot);
+                            DefaultTableModel model = (DefaultTableModel) jtSaturday.getModel();
+                            model.setRowCount(0);
+                            addRowToTable();
                             JOptionPane.showMessageDialog(rootPane, lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
                         }else{
                             
                         }
                         
                     }else if(remSlot == 0){
-                        JOptionPane.showMessageDialog(rootPane, "Sorry, This Lesson has no slot available at this Week and Period.", "Slot Fully Booked", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Sorry, This Lesson has no slot available at this Week and Period.", "Slot Fully Booked", JOptionPane.ERROR_MESSAGE);
                     }
                     
                     System.out.println(remSlot);
@@ -766,6 +786,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnExerciseReport;
     private javax.swing.JPanel btnLessonReport;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
