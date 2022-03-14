@@ -47,6 +47,8 @@ public class Homepage extends javax.swing.JFrame {
         return lessons;
     }
     
+    ArrayList<Lesson> lessons = listOfLessons();
+    
     public ArrayList listOfBookings(){
         ArrayList<Booking> bookings = new ArrayList<Booking>();
         bookings.add( new Booking("BIY001", "James", "Bull", "Yoga", "Week 1", "Sunday", "Morning", "Booked", "", 'M', 197890, 2, 9, 40.23));
@@ -682,8 +684,8 @@ public class Homepage extends javax.swing.JFrame {
                 
                 if(botn.getName().equals("b")){
                     int a = jtSaturday.getSelectedRow();
-                    ArrayList<Lesson> lessons = listOfLessons();
                     int remSlot = lessons.get(a).getSlot();
+                    System.out.println("Line = "+ a + " & value = " + remSlot);
                     
                     if(remSlot <= 4 && remSlot != 0){
                         int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to book " + lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lessons @ £" + lessons.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -692,7 +694,21 @@ public class Homepage extends javax.swing.JFrame {
                             lessons.get(a).setSlot(remSlot);
                             DefaultTableModel model = (DefaultTableModel) jtSaturday.getModel();
                             model.setRowCount(0);
-                            addRowToTable();
+                            jtSaturday.setDefaultRenderer(Object.class, new Render());
+                            JButton btn1 = new JButton("Book");
+                            btn1.setName("b");
+                            
+                            Object rowData[] = new Object[lessons.size()];
+                            for (int i = 0; i < lessons.size(); i++){
+                                rowData[0] = lessons.get(i).getWeek();
+                                rowData[1] = lessons.get(i).getName();
+                                rowData[2] = lessons.get(i).getPeriod();
+                                rowData[3] = lessons.get(i).getPrice();
+                                rowData[4] = lessons.get(i).getSlot();
+                                rowData[5] = btn1;  
+
+                                model.addRow(rowData);
+                            }
                             JOptionPane.showMessageDialog(rootPane, lessons.get(a).getPeriod() + " " + lessons.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
                         }else{
                             
