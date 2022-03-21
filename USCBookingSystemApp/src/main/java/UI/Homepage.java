@@ -928,10 +928,13 @@ public class Homepage extends javax.swing.JFrame {
                                             modelBook.setRowCount(0);
                                             jtAttend.setDefaultRenderer(Object.class, new Render());
                                             JButton btn2 = new JButton("Attend");
-                                        btn2.setName("at");
+                                            btn2.setName("at");
 
-                                        JButton btn3 = new JButton("Cancel");
-                                        btn3.setName("x");
+                                            JButton btn3 = new JButton("Change");
+                                            btn3.setName("ch");
+
+                                            JButton btn4 = new JButton("Cancel");
+                                            btn3.setName("x");
 
                                             Object rowBookData[] = new Object[bookings.size()];
                                             for (int k = 0; k < bookings.size(); k++){
@@ -941,8 +944,10 @@ public class Homepage extends javax.swing.JFrame {
                                                 rowBookData[3] = bookings.get(k).getLessonDay();
                                                 rowBookData[4] = bookings.get(k).getLessonPeriod();
                                                 rowBookData[5] = bookings.get(k).getLessonStatus();
-                                                rowBookData[6] = btn2;
-                                                rowBookData[7] = btn3;
+
+                                                rowData[6] = btn2;
+                                                rowData[7] = btn3;
+                                                rowData[8] = btn4;
 
                                                 modelBook.addRow(rowBookData);
                                             }
