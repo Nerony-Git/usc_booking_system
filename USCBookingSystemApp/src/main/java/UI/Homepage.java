@@ -945,9 +945,9 @@ public class Homepage extends javax.swing.JFrame {
                                                 rowBookData[4] = bookings.get(k).getLessonPeriod();
                                                 rowBookData[5] = bookings.get(k).getLessonStatus();
 
-                                                rowData[6] = btn2;
-                                                rowData[7] = btn3;
-                                                rowData[8] = btn4;
+                                                rowBookData[6] = btn2;
+                                                rowBookData[7] = btn3;
+                                                rowBookData[8] = btn4;
 
                                                 modelBook.addRow(rowBookData);
                                             }
