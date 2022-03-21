@@ -12,21 +12,22 @@ package UI;
 public class Booking {
     private String BookingID, StudentFName, StudentLName, LessonName, LessonWeek, LessonDay, LessonPeriod, LessonStatus, LessonReview;
     private char StudentSex;
-    private int StudentID, LessonRating, BookingMonth;
+    private int StudentID, LessonRating, BookingMonth, StudentAge;
     private double LessonPrice;
 
-    public Booking(String BookingID, String StudentFName, String StudentLName, String LessonName, String LessonWeek, String LessonDay, String LessonPeriod, String LessonStatus, String LessonReview, char StudentSex, int StudentID, int LessonRating, int BookingMonth, double LessonPrice) {
+    public Booking(String BookingID, int StudentID, String StudentFName, String StudentLName, int StudentAge, char StudentSex, String LessonName, String LessonWeek, String LessonDay, String LessonPeriod, String LessonStatus, String LessonReview, int LessonRating, int BookingMonth, double LessonPrice) {
         this.BookingID = BookingID;
+        this.StudentID = StudentID;
         this.StudentFName = StudentFName;
         this.StudentLName = StudentLName;
+        this.StudentAge = StudentAge;
+        this.StudentSex = StudentSex;
         this.LessonName = LessonName;
         this.LessonWeek = LessonWeek;
         this.LessonDay = LessonDay;
         this.LessonPeriod = LessonPeriod;
         this.LessonStatus = LessonStatus;
         this.LessonReview = LessonReview;
-        this.StudentSex = StudentSex;
-        this.StudentID = StudentID;
         this.LessonRating = LessonRating;
         this.BookingMonth = BookingMonth;
         this.LessonPrice = LessonPrice;
@@ -142,6 +143,14 @@ public class Booking {
 
     public void setLessonPrice(double LessonPrice) {
         this.LessonPrice = LessonPrice;
+    }
+
+    public int getStudentAge() {
+        return StudentAge;
+    }
+
+    public void setStudentAge(int StudentAge) {
+        this.StudentAge = StudentAge;
     }
     
 }
