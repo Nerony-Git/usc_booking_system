@@ -363,7 +363,7 @@ public class Homepage extends javax.swing.JFrame {
         btn3.setName("ch");
         
         JButton btn4 = new JButton("Cancel");
-        btn3.setName("x");
+        btn4.setName("x");
         
         DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
         Object rowData[] = new Object[bookings.size()];
@@ -411,9 +411,20 @@ public class Homepage extends javax.swing.JFrame {
         
         for (Booking b : bookings){
             if(b.getStudentID() == StudentID && b.getLessonName() == LessonName && b.getLessonWeek() == LessonWeek && b.getLessonPeriod() == LessonPeriod && b.getLessonDay() == LessonDay){
-            return false;
+                return false;
+            }
         }
+        return true;
+    }
+    
+    public boolean isStudentFree(int StudentID, String LessonWeek, String LessonPeriod, String LessonDay){
+        
+        for(Booking b : bookings){
+            if(b.getStudentID() == StudentID && b.getLessonWeek() == LessonWeek && b.getLessonDay() == LessonDay && b.getLessonPeriod() == LessonPeriod && b.getLessonStatus() == "Booked"){
+                return false;
+            }
         }
+        
         return true;
     }
     
@@ -421,6 +432,68 @@ public class Homepage extends javax.swing.JFrame {
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to attend " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson?", "Attend Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
             String userReview = JOptionPane.showInputDialog(rootPane, bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson has been attended Sucessfuly. Please leave a review.", "Lesson attended successfuly.", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            return;
+        }
+    }
+    
+    public void changeLesson(int a){
+        int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to change " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson?", "Change Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(opt == 0){
+            
+        }else{
+            return;
+        }
+    }
+    
+    public void increaseSlot(ArrayList<Lesson> listArray, int a){
+        
+        String LesName, LesDay, LesWeek, LesPeriod;
+        LesName = bookings.get(a).getLessonName();
+        LesWeek = bookings.get(a).getLessonWeek();
+        LesDay = bookings.get(a).getLessonDay();
+        LesPeriod = bookings.get(a).getLessonPeriod();
+        for(Lesson l : listArray){
+            if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
+                int remslot = l.getSlot();
+                remslot = remslot + 1;
+                l.setSlot(remslot);
+            }
+        }
+        
+    }
+    
+    public void cancelLesson(int a){
+        int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to cancel " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Booking?", "Cancel Bookings", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(opt == 0){
+            String LesName = bookings.get(a).getLessonName();
+            String LesDay = bookings.get(a).getLessonDay();
+            if(LesName == "Yoga" && LesDay == "Saturday"){
+                increaseSlot(saturdayLessons, a);
+                increaseSlot(yogaLessons, a);
+            }else if(LesName == "Yoga" && LesDay == "Sunday"){
+                increaseSlot(sundayLessons, a);
+                increaseSlot(yogaLessons, a);
+            }else if(LesName == "Zumba" && LesDay == "Saturday"){
+                increaseSlot(saturdayLessons, a);
+                increaseSlot(zumbaLessons, a);
+            }else if(LesName == "Zumba" && LesDay == "Sunday"){
+                increaseSlot(sundayLessons, a);
+                increaseSlot(zumbaLessons, a);
+            }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
+                increaseSlot(saturdayLessons, a);
+                increaseSlot(bodyblitzLessons, a);
+            }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
+                increaseSlot(sundayLessons, a);
+                increaseSlot(bodyblitzLessons, a);
+            }else if(LesName == "Box Fit" && LesDay == "Saturday"){
+                increaseSlot(saturdayLessons, a);
+                increaseSlot(boxfitLessons, a);
+            }else if(LesName == "Box Fit" && LesDay == "Sunday"){
+                increaseSlot(sundayLessons, a);
+                increaseSlot(boxfitLessons, a);
+            }
+            
         }else{
             return;
         }
@@ -444,142 +517,145 @@ public class Homepage extends javax.swing.JFrame {
 
         if (isStudent(studentID)){
             if (canBookLesson(studentID, LesName, LesWeek, LesPeriod, LesDay)){
-                int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to book " + listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lessons @ £" + listArray.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                if (opt1 == 0){
-                    for (Students s : student){
-                        if(s.getStudenID() == studentID){
-                            FName = s.getStudentFName();
-                            LName = s.getStudentLName();
-                            Age = s.getStudentAge();
-                            Sex = s.getStudentSex();
+                if(isStudentFree(studentID, LesWeek, LesPeriod, LesDay)){
+                    int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to book " + listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lessons @ £" + listArray.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (opt1 == 0){
+                        for (Students s : student){
+                            if(s.getStudenID() == studentID){
+                                FName = s.getStudentFName();
+                                LName = s.getStudentLName();
+                                Age = s.getStudentAge();
+                                Sex = s.getStudentSex();
+                            }
                         }
-                    }
 
-                    //Generating Booking ID                                  
-                    for (int b = 0; b < bookings.size(); b++){
-                        if (bookings.get(b).getLessonName() == "Yoga"){
-                            bookingYoga.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
+                        //Generating Booking ID                                  
+                        for (int b = 0; b < bookings.size(); b++){
+                            if (bookings.get(b).getLessonName() == "Yoga"){
+                                bookingYoga.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
 
-                        }else if (bookings.get(b).getLessonName() == "Zumba"){
-                            bookingZumba.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
+                            }else if (bookings.get(b).getLessonName() == "Zumba"){
+                                bookingZumba.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
 
-                        }else if (bookings.get(b).getLessonName() == "Box Fit"){
-                            bookingBoxFit.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
+                            }else if (bookings.get(b).getLessonName() == "Box Fit"){
+                                bookingBoxFit.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
 
-                        }else if (bookings.get(b).getLessonName() == "Body Blitz"){
-                            bookingBodyBlitz.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
+                            }else if (bookings.get(b).getLessonName() == "Body Blitz"){
+                                bookingBodyBlitz.add( new Booking(bookings.get(b).getBookingID(), bookings.get(b).getStudentID(), bookings.get(b).getStudentFName(), bookings.get(b).getStudentLName(), bookings.get(b).getStudentAge(), bookings.get(b).getStudentSex(), bookings.get(b).getLessonName(), bookings.get(b).getLessonWeek(), bookings.get(b).getLessonDay(), bookings.get(b).getLessonPeriod(), bookings.get(b).getLessonStatus(), bookings.get(b).getLessonReview(), bookings.get(b).getLessonRating(), bookings.get(b).getBookingMonth(), bookings.get(b).getLessonPrice()));
+
+                            }
+                        }    
+
+                        if (LesName == "Yoga"){
+                            bok = bookingYoga.size();
+                            lastBook = bookingYoga.get(bok -1).getBookingID();
+                            lastBookID = Integer.parseInt(lastBook.substring(4));
+                            lastBookName = "BIYG";
+
+                        }else if (LesName == "Zumba"){
+                            bok = bookingZumba.size();
+                            lastBook = bookingZumba.get(bok -1).getBookingID();
+                            lastBookID = Integer.parseInt(lastBook.substring(4));
+                            lastBookName = "BIZB";
+
+                        }else if (LesName == "Box Fit"){
+                            bok = bookingBoxFit.size();
+                            lastBook = bookingBoxFit.get(bok -1).getBookingID();
+                            lastBookID = Integer.parseInt(lastBook.substring(4));
+                            lastBookName = "BIBF";
+
+                        }else if (LesName == "Body Blitz"){
+                            bok = bookingBodyBlitz.size();
+                            lastBook = bookingBodyBlitz.get(bok -1).getBookingID();
+                            lastBookID = Integer.parseInt(lastBook.substring(4));
+                            lastBookName = "BIBB";
 
                         }
-                    }    
 
-                    if (LesName == "Yoga"){
-                        bok = bookingYoga.size();
-                        lastBook = bookingYoga.get(bok -1).getBookingID();
-                        lastBookID = Integer.parseInt(lastBook.substring(4));
-                        lastBookName = "BIYG";
+                        lastBookID = lastBookID + 1;
+                        curBookID = String.valueOf(lastBookID);
 
-                    }else if (LesName == "Zumba"){
-                        bok = bookingZumba.size();
-                        lastBook = bookingZumba.get(bok -1).getBookingID();
-                        lastBookID = Integer.parseInt(lastBook.substring(4));
-                        lastBookName = "BIZB";
-
-                    }else if (LesName == "Box Fit"){
-                        bok = bookingBoxFit.size();
-                        lastBook = bookingBoxFit.get(bok -1).getBookingID();
-                        lastBookID = Integer.parseInt(lastBook.substring(4));
-                        lastBookName = "BIBF";
-
-                    }else if (LesName == "Body Blitz"){
-                        bok = bookingBodyBlitz.size();
-                        lastBook = bookingBodyBlitz.get(bok -1).getBookingID();
-                        lastBookID = Integer.parseInt(lastBook.substring(4));
-                        lastBookName = "BIBB";
-
-                    }
-
-                    lastBookID = lastBookID + 1;
-                    curBookID = String.valueOf(lastBookID);
-
-                    if (curBookID.length() == 1){
-                        curBookID = "00" + curBookID;
-                    }else if (curBookID.length() == 2){
-                        curBookID = "0" + curBookID;
-                    }else{
-                        curBookID = curBookID;
-                    }
-
-                    bookID = lastBookName + curBookID;
-
-
-                    bookings.add(new Booking(bookID, studentID, FName, LName, Age, Sex, LesName, LesWeek, LesDay, LesPeriod, "Booked", "", 0, 9, LesPrice));
-
-                    remSlot--;
-                    listArray.get(a).setSlot(remSlot);
-                    DefaultTableModel model = (DefaultTableModel) jt.getModel();
-                    model.setRowCount(0);
-                    jt.setDefaultRenderer(Object.class, new Render());
-                    JButton btn1 = new JButton("Book");
-                    btn1.setName("b");
-
-                    Object[] rowData = new Object[listArray.size()];
-                    for (int j = 0; j < listArray.size(); j++){
-                        rowData[0] = listArray.get(j).getWeek();
-                        rowData[1] = listArray.get(j).getName();
-                        rowData[2] = listArray.get(j).getPeriod();
-                        rowData[3] = listArray.get(j).getPrice();
-                        rowData[4] = listArray.get(j).getSlot();
-                        rowData[5] = btn1;  
-
-                        model.addRow(rowData);
-                    }
-
-                    DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
-                    modelBook.setRowCount(0);
-                    jtAttend.setDefaultRenderer(Object.class, new Render());
-                    JButton btn2 = new JButton("Attend");
-                    btn2.setName("at");
-
-                    JButton btn3 = new JButton("Change");
-                    btn3.setName("ch");
-
-                    JButton btn4 = new JButton("Cancel");
-                    btn3.setName("x");
-                    
-
-                    Object rowBookData[] = new Object[bookings.size()];
-                    for (int k = 0; k < bookings.size(); k++){
-                        rowBookData[0] = bookings.get(k).getBookingID();
-                        rowBookData[1] = bookings.get(k).getLessonName();
-                        rowBookData[2] = bookings.get(k).getLessonWeek();
-                        rowBookData[3] = bookings.get(k).getLessonDay();
-                        rowBookData[4] = bookings.get(k).getLessonPeriod();
-                        rowBookData[5] = bookings.get(k).getLessonStatus();
-                        
-                        if (bookings.get(k).getLessonStatus() == "Attended"){
-                            rowBookData[6] = "";
-                            rowBookData[7] = "";
-                            rowBookData[8] = "";
-                            
-                        }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
-                            rowBookData[6] = "";
-                            rowBookData[7] = "";
-                            rowBookData[8] = "";
-                            
+                        if (curBookID.length() == 1){
+                            curBookID = "00" + curBookID;
+                        }else if (curBookID.length() == 2){
+                            curBookID = "0" + curBookID;
                         }else{
-                            rowBookData[6] = btn2;
-                            rowBookData[7] = btn3;
-                            rowBookData[8] = btn4;
+                            curBookID = curBookID;
                         }
 
-                        
+                        bookID = lastBookName + curBookID;
 
-                        modelBook.addRow(rowBookData);
+
+                        bookings.add(new Booking(bookID, studentID, FName, LName, Age, Sex, LesName, LesWeek, LesDay, LesPeriod, "Booked", "", 0, 9, LesPrice));
+
+                        remSlot--;
+                        listArray.get(a).setSlot(remSlot);
+                        DefaultTableModel model = (DefaultTableModel) jt.getModel();
+                        model.setRowCount(0);
+                        jt.setDefaultRenderer(Object.class, new Render());
+                        JButton btn1 = new JButton("Book");
+                        btn1.setName("b");
+
+                        Object[] rowData = new Object[listArray.size()];
+                        for (int j = 0; j < listArray.size(); j++){
+                            rowData[0] = listArray.get(j).getWeek();
+                            rowData[1] = listArray.get(j).getName();
+                            rowData[2] = listArray.get(j).getPeriod();
+                            rowData[3] = listArray.get(j).getPrice();
+                            rowData[4] = listArray.get(j).getSlot();
+                            rowData[5] = btn1;  
+
+                            model.addRow(rowData);
+                        }
+
+                        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+                        modelBook.setRowCount(0);
+                        jtAttend.setDefaultRenderer(Object.class, new Render());
+                        JButton btn2 = new JButton("Attend");
+                        btn2.setName("at");
+
+                        JButton btn3 = new JButton("Change");
+                        btn3.setName("ch");
+
+                        JButton btn4 = new JButton("Cancel");
+                        btn4.setName("x");
+
+
+                        Object rowBookData[] = new Object[bookings.size()];
+                        for (int k = 0; k < bookings.size(); k++){
+                            rowBookData[0] = bookings.get(k).getBookingID();
+                            rowBookData[1] = bookings.get(k).getLessonName();
+                            rowBookData[2] = bookings.get(k).getLessonWeek();
+                            rowBookData[3] = bookings.get(k).getLessonDay();
+                            rowBookData[4] = bookings.get(k).getLessonPeriod();
+                            rowBookData[5] = bookings.get(k).getLessonStatus();
+
+                            if (bookings.get(k).getLessonStatus() == "Attended"){
+                                rowBookData[6] = "";
+                                rowBookData[7] = "";
+                                rowBookData[8] = "";
+
+                            }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
+                                rowBookData[6] = "";
+                                rowBookData[7] = "";
+                                rowBookData[8] = "";
+
+                            }else{
+                                rowBookData[6] = btn2;
+                                rowBookData[7] = btn3;
+                                rowBookData[8] = btn4;
+                            }
+
+
+
+                            modelBook.addRow(rowBookData);
+                        }
+
+                        JOptionPane.showMessageDialog(rootPane, listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
                     }
-
-                    JOptionPane.showMessageDialog(rootPane, listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Sorry, Student with Student ID: " + studentID + " has a Lesson already booked at this particular period.", "Student not Free", JOptionPane.ERROR_MESSAGE);
                 }
-
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Sorry, Student with Student ID: " + studentID + " has already booked this lesson.", "Lesson already booked", JOptionPane.ERROR_MESSAGE);
             }
@@ -1816,9 +1892,11 @@ public class Homepage extends javax.swing.JFrame {
                     
                 }else if(botn.getName().equals("ch")){
                     int a = jtAttend.getSelectedRow();
+                    changeLesson(a);
                     
                 }else if(botn.getName().equals("x")){
                     int a = jtAttend.getSelectedRow();
+                    cancelLesson(a);
                     
                 }
             }
