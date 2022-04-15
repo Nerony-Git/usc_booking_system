@@ -463,36 +463,166 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
+    public void decreaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
+        
+        for(Lesson l : listArray){
+            if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
+                int remslot = l.getSlot();
+                remslot = remslot - 1;
+                l.setSlot(remslot);
+            }
+        }
+    }
+    
     public void cancelLesson(int a){
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to cancel " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Booking?", "Cancel Bookings", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
+            JTable jt = jtAttend, jt2 = jt; 
+            ArrayList<Lesson> listArray = yogaLessons, listArray2 = listArray;
             String LesName = bookings.get(a).getLessonName();
             String LesDay = bookings.get(a).getLessonDay();
+            
+            bookings.get(a).setLessonStatus("Cancelled");
+            
             if(LesName == "Yoga" && LesDay == "Saturday"){
                 increaseSlot(saturdayLessons, a);
                 increaseSlot(yogaLessons, a);
+                jt = jtSaturday;
+                jt2 = jtYoga;
+                listArray = saturdayLessons;
+                listArray2 = yogaLessons;
             }else if(LesName == "Yoga" && LesDay == "Sunday"){
                 increaseSlot(sundayLessons, a);
                 increaseSlot(yogaLessons, a);
+                jt = jtSunday;
+                jt2 = jtYoga;
+                listArray = sundayLessons;
+                listArray2 = yogaLessons;
             }else if(LesName == "Zumba" && LesDay == "Saturday"){
                 increaseSlot(saturdayLessons, a);
                 increaseSlot(zumbaLessons, a);
+                jt = jtSaturday;
+                jt2 = jtZumba;
+                listArray = saturdayLessons;
+                listArray2 = zumbaLessons;
             }else if(LesName == "Zumba" && LesDay == "Sunday"){
                 increaseSlot(sundayLessons, a);
                 increaseSlot(zumbaLessons, a);
+                jt = jtSunday;
+                jt2 = jtZumba;
+                listArray = sundayLessons;
+                listArray2 = zumbaLessons;
             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
                 increaseSlot(saturdayLessons, a);
                 increaseSlot(bodyblitzLessons, a);
+                jt = jtSaturday;
+                jt2 = jtBodyBlitz;
+                listArray = saturdayLessons;
+                listArray2 = bodyblitzLessons;
             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
                 increaseSlot(sundayLessons, a);
                 increaseSlot(bodyblitzLessons, a);
+                jt = jtSunday;
+                jt2 = jtBodyBlitz;
+                listArray = sundayLessons;
+                listArray2 = bodyblitzLessons;
             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
                 increaseSlot(saturdayLessons, a);
                 increaseSlot(boxfitLessons, a);
+                jt = jtSaturday;
+                jt2 = jtBoxFit;
+                listArray = saturdayLessons;
+                listArray2 = boxfitLessons;
             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
                 increaseSlot(sundayLessons, a);
                 increaseSlot(boxfitLessons, a);
+                jt = jtSunday;
+                jt2 = jtBoxFit;
+                listArray = sundayLessons;
+                listArray2 = boxfitLessons;
             }
+            
+            DefaultTableModel model = (DefaultTableModel) jt.getModel();
+            model.setRowCount(0);
+            jt.setDefaultRenderer(Object.class, new Render());
+            JButton btn1 = new JButton("Book");
+            btn1.setName("b");
+
+            Object[] rowData = new Object[listArray.size()];
+            for (int j = 0; j < listArray.size(); j++){
+                rowData[0] = listArray.get(j).getWeek();
+                rowData[1] = listArray.get(j).getName();                            
+                rowData[2] = listArray.get(j).getPeriod();
+                rowData[3] = listArray.get(j).getPrice();
+                rowData[4] = listArray.get(j).getSlot();
+                rowData[5] = btn1;  
+
+                model.addRow(rowData);
+            }
+
+            DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
+            model2.setRowCount(0);
+            jt2.setDefaultRenderer(Object.class, new Render());
+            JButton btn1a = new JButton("Book");
+            btn1a.setName("b");
+
+            Object[] rowData2 = new Object[listArray2.size()];
+            for (int m = 0; m < listArray2.size(); m++){
+                rowData2[0] = listArray2.get(m).getWeek();
+                rowData2[1] = listArray2.get(m).getDay();
+                rowData2[2] = listArray2.get(m).getPeriod();
+                rowData2[3] = listArray2.get(m).getPrice();
+                rowData2[4] = listArray2.get(m).getSlot();
+                rowData2[5] = btn1a;  
+
+                model2.addRow(rowData2);
+            }
+
+            DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+            modelBook.setRowCount(0);
+            jtAttend.setDefaultRenderer(Object.class, new Render());
+            JButton btn2 = new JButton("Attend");
+            btn2.setName("at");
+
+            JButton btn3 = new JButton("Change");
+            btn3.setName("ch");
+
+            JButton btn4 = new JButton("Cancel");
+            btn4.setName("x");
+
+
+            Object rowBookData[] = new Object[bookings.size()];
+            for (int k = 0; k < bookings.size(); k++){
+                rowBookData[0] = bookings.get(k).getBookingID();
+                rowBookData[1] = bookings.get(k).getLessonName();
+                rowBookData[2] = bookings.get(k).getLessonWeek();
+                rowBookData[3] = bookings.get(k).getLessonDay();
+                rowBookData[4] = bookings.get(k).getLessonPeriod();
+                rowBookData[5] = bookings.get(k).getLessonStatus();
+
+                if (bookings.get(k).getLessonStatus() == "Attended"){
+                    rowBookData[6] = "";
+                    rowBookData[7] = "";
+                    rowBookData[8] = "";
+
+                }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
+                    rowBookData[6] = "";
+                    rowBookData[7] = "";
+                    rowBookData[8] = "";
+
+                }else{
+                    rowBookData[6] = btn2;
+                    rowBookData[7] = btn3;
+                    rowBookData[8] = btn4;
+                }
+
+
+
+                modelBook.addRow(rowBookData);
+            }
+
+            JOptionPane.showMessageDialog(rootPane, bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson has being Cancelled Successfully", "Booking Cancelled", JOptionPane.INFORMATION_MESSAGE);
+
             
         }else{
             return;
@@ -588,8 +718,100 @@ public class Homepage extends javax.swing.JFrame {
 
                         bookings.add(new Booking(bookID, studentID, FName, LName, Age, Sex, LesName, LesWeek, LesDay, LesPeriod, "Booked", "", 0, 9, LesPrice));
 
-                        remSlot--;
-                        listArray.get(a).setSlot(remSlot);
+                        JTable jt2 = jt; 
+                        ArrayList<Lesson> listArray2 = listArray;
+                        
+                        if(listArray == saturdayLessons || listArray == sundayLessons){
+                            
+                            if(LesName == "Yoga" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtYoga;
+                                listArray2 = yogaLessons;
+                            }else if(LesName == "Yoga" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtYoga;
+                                listArray2 = yogaLessons;
+                            }else if(LesName == "Zumba" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtZumba;
+                                listArray2 = zumbaLessons;
+                            }else if(LesName == "Zumba" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtZumba;
+                                listArray2 = zumbaLessons;
+                            }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtBodyBlitz;
+                                listArray2 = bodyblitzLessons;
+                            }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtBodyBlitz;
+                                listArray2 = bodyblitzLessons;
+                            }else if(LesName == "Box Fit" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtBoxFit;
+                                listArray2 = boxfitLessons;
+                            }else if(LesName == "Box Fit" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtBoxFit;
+                                listArray2 = boxfitLessons;
+                            }
+                            
+                        }else if(listArray == yogaLessons || listArray == zumbaLessons || listArray == bodyblitzLessons || listArray == boxfitLessons){
+                            if(LesName == "Yoga" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSaturday;
+                                listArray2 = saturdayLessons;
+                            }else if(LesName == "Yoga" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSunday;
+                                listArray2 = sundayLessons;
+                            }else if(LesName == "Zumba" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSaturday;
+                                listArray2 = saturdayLessons;
+                            }else if(LesName == "Zumba" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSunday;
+                                listArray2 = sundayLessons;
+                            }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSaturday;
+                                listArray2 = saturdayLessons;
+                            }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSunday;
+                                listArray2 = sundayLessons;
+                            }else if(LesName == "Box Fit" && LesDay == "Saturday"){
+                                decreaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSaturday;
+                                listArray2 = saturdayLessons;
+                            }else if(LesName == "Box Fit" && LesDay == "Sunday"){
+                                decreaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                decreaseSlot(boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                jt2 = jtSunday;
+                                listArray2 = sundayLessons;
+                            }
+                        }
+                        
+                        //remSlot--;
+                        //listArray.get(a).setSlot(remSlot);
+                        
                         DefaultTableModel model = (DefaultTableModel) jt.getModel();
                         model.setRowCount(0);
                         jt.setDefaultRenderer(Object.class, new Render());
@@ -599,13 +821,39 @@ public class Homepage extends javax.swing.JFrame {
                         Object[] rowData = new Object[listArray.size()];
                         for (int j = 0; j < listArray.size(); j++){
                             rowData[0] = listArray.get(j).getWeek();
-                            rowData[1] = listArray.get(j).getName();
+                            if(jt == jtSaturday || jt == jtSunday){
+                                rowData[1] = listArray.get(j).getName();
+                            }else{
+                                rowData[1] = listArray.get(j).getDay();
+                            }                            
                             rowData[2] = listArray.get(j).getPeriod();
                             rowData[3] = listArray.get(j).getPrice();
                             rowData[4] = listArray.get(j).getSlot();
                             rowData[5] = btn1;  
 
                             model.addRow(rowData);
+                        }
+                        
+                        DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
+                        model2.setRowCount(0);
+                        jt2.setDefaultRenderer(Object.class, new Render());
+                        JButton btn1a = new JButton("Book");
+                        btn1a.setName("b");
+
+                        Object[] rowData2 = new Object[listArray2.size()];
+                        for (int m = 0; m < listArray2.size(); m++){
+                            rowData2[0] = listArray2.get(m).getWeek();
+                            if(jt2 == jtSaturday || jt2 == jtSunday){
+                                rowData2[1] = listArray2.get(m).getName();
+                            }else{
+                                rowData2[1] = listArray2.get(m).getDay();
+                            }
+                            rowData2[2] = listArray2.get(m).getPeriod();
+                            rowData2[3] = listArray2.get(m).getPrice();
+                            rowData2[4] = listArray2.get(m).getSlot();
+                            rowData2[5] = btn1a;  
+
+                            model2.addRow(rowData2);
                         }
 
                         DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
