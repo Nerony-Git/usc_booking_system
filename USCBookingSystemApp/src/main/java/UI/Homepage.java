@@ -432,6 +432,61 @@ public class Homepage extends javax.swing.JFrame {
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to attend " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson?", "Attend Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
             String userReview = JOptionPane.showInputDialog(rootPane, bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson has been attended Sucessfuly. Please leave a review.", "Lesson attended successfuly.", JOptionPane.INFORMATION_MESSAGE);
+            
+            String[] rate = {"", "1", "2", "3", "4", "5"};
+            String ratings = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical ratings for the lesson. \n 1: Very dissatisfied  \n 2: Dissatisfied \n 3: Ok \n 4: Satisfied \n 5: Very Satisfied \n", "Lesson Ratings", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
+            int rating = Integer.valueOf(ratings);
+            
+            bookings.get(a).setLessonStatus("Attended");
+            bookings.get(a).setLessonReview(userReview);
+            bookings.get(a).setLessonRating(rating);
+            
+            DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+            modelBook.setRowCount(0);
+            jtAttend.setDefaultRenderer(Object.class, new Render());
+            JButton btn2 = new JButton("Attend");
+            btn2.setName("at");
+
+            JButton btn3 = new JButton("Change");
+            btn3.setName("ch");
+
+            JButton btn4 = new JButton("Cancel");
+            btn4.setName("x");
+
+
+            Object rowBookData[] = new Object[bookings.size()];
+            for (int k = 0; k < bookings.size(); k++){
+                rowBookData[0] = bookings.get(k).getBookingID();
+                rowBookData[1] = bookings.get(k).getLessonName();
+                rowBookData[2] = bookings.get(k).getLessonWeek();
+                rowBookData[3] = bookings.get(k).getLessonDay();
+                rowBookData[4] = bookings.get(k).getLessonPeriod();
+                rowBookData[5] = bookings.get(k).getLessonStatus();
+
+                if (bookings.get(k).getLessonStatus() == "Attended"){
+                    rowBookData[6] = "";
+                    rowBookData[7] = "";
+                    rowBookData[8] = "";
+
+                }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
+                    rowBookData[6] = "";
+                    rowBookData[7] = "";
+                    rowBookData[8] = "";
+
+                }else{
+                    rowBookData[6] = btn2;
+                    rowBookData[7] = btn3;
+                    rowBookData[8] = btn4;
+                }
+
+
+
+                modelBook.addRow(rowBookData);
+            }
+
+            JOptionPane.showMessageDialog(rootPane, bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson Attended Successfully", "Lesson Attended", JOptionPane.INFORMATION_MESSAGE);
+
+                        
         }else{
             return;
         }
