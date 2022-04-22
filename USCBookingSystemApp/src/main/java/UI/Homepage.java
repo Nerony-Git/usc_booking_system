@@ -39,6 +39,7 @@ public class Homepage extends javax.swing.JFrame {
         addRowToBodyBlitzTable();
         addRowToBooked();
         addRowToAllLessonsTable();
+        addRowToBookingHistory();
         
     }
     
@@ -428,6 +429,24 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
+    public void addRowToBookingHistory(){
+        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+        Object rowHistoryData[] = new Object[bookings.size()];
+        for (int i = 0; i < bookings.size(); i++){
+            rowHistoryData[0] = bookings.get(i).getBookingID();
+            rowHistoryData[1] = bookings.get(i).getStudentID();
+            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+            rowHistoryData[3] = bookings.get(i).getLessonName();
+            rowHistoryData[4] = bookings.get(i).getLessonWeek();
+            rowHistoryData[5] = bookings.get(i).getLessonDay();
+            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
+            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+            
+            modelHistory.addRow(rowHistoryData);
+        }
+        jtBookings.setRowHeight(30);
+    }
+    
     public boolean isStudent(int StudentID){
         
         for (Students s : student){
@@ -678,6 +697,21 @@ public class Homepage extends javax.swing.JFrame {
 
                             model2.addRow(rowData2);
                         }
+                        
+                        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+                        Object rowHistoryData[] = new Object[bookings.size()];
+                        for (int i = 0; i < bookings.size(); i++){
+                            rowHistoryData[0] = bookings.get(i).getBookingID();
+                            rowHistoryData[1] = bookings.get(i).getStudentID();
+                            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                            rowHistoryData[3] = bookings.get(i).getLessonName();
+                            rowHistoryData[4] = bookings.get(i).getLessonWeek();
+                            rowHistoryData[5] = bookings.get(i).getLessonDay();
+                            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
+                            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+
+                            modelHistory.addRow(rowHistoryData);
+                        }
 
                         DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
                         modelAllLessons.setRowCount(0);
@@ -876,6 +910,21 @@ public class Homepage extends javax.swing.JFrame {
                 rowData2[5] = btn1a;  
 
                 model2.addRow(rowData2);
+            }
+            
+            DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+            Object rowHistoryData[] = new Object[bookings.size()];
+            for (int i = 0; i < bookings.size(); i++){
+                rowHistoryData[0] = bookings.get(i).getBookingID();
+                rowHistoryData[1] = bookings.get(i).getStudentID();
+                rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                rowHistoryData[3] = bookings.get(i).getLessonName();
+                rowHistoryData[4] = bookings.get(i).getLessonWeek();
+                rowHistoryData[5] = bookings.get(i).getLessonDay();
+                rowHistoryData[6] = bookings.get(i).getLessonPeriod();
+                rowHistoryData[7] = bookings.get(i).getLessonStatus();
+
+                modelHistory.addRow(rowHistoryData);
             }
             
             DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
@@ -1205,6 +1254,21 @@ public class Homepage extends javax.swing.JFrame {
 
                             modelAllLessons.addRow(rowData3);
                         }
+                        
+                        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+                        Object rowHistoryData[] = new Object[bookings.size()];
+                        for (int i = 0; i < bookings.size(); i++){
+                            rowHistoryData[0] = bookings.get(i).getBookingID();
+                            rowHistoryData[1] = bookings.get(i).getStudentID();
+                            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                            rowHistoryData[3] = bookings.get(i).getLessonName();
+                            rowHistoryData[4] = bookings.get(i).getLessonWeek();
+                            rowHistoryData[5] = bookings.get(i).getLessonDay();
+                            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
+                            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+
+                            modelHistory.addRow(rowHistoryData);
+                        }
 
                         DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
                         modelBook.setRowCount(0);
@@ -1243,12 +1307,9 @@ public class Homepage extends javax.swing.JFrame {
                                 rowBookData[7] = btn3;
                                 rowBookData[8] = btn4;
                             }
-
-
-
+                            
                             modelBook.addRow(rowBookData);
                         }
-                        System.out.println(remSlot);
 
                         JOptionPane.showMessageDialog(rootPane, listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
                     }
@@ -1273,11 +1334,9 @@ public class Homepage extends javax.swing.JFrame {
         for(Lesson l : listArray){
             if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
                 int remslot = l.getSlot();
-                System.out.println("Previous Slot = " + remslot);
                 remslot = remslot + 1;
                 l.setSlot(remslot);
                 
-                System.out.println("Current Slot = " + remslot);
             }
         }        
     }
@@ -1287,11 +1346,9 @@ public class Homepage extends javax.swing.JFrame {
         for(Lesson l : listArray){
             if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
                 int remslot = l.getSlot();
-                System.out.println("Previous Slot = " + remslot);
                 remslot = remslot - 1;
                 l.setSlot(remslot);
                 
-                System.out.println("Current Slot = " + remslot);
             }
         }
     }
@@ -1350,6 +1407,7 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtBookings = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
         pgLessonReport = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jpDate4 = new javax.swing.JPanel();
@@ -1748,20 +1806,44 @@ public class Homepage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Booking ID", "Lesson", "Week", "Day", "Period", "Status"
+                "Booking ID", "Student ID", "Student Name", "Lesson", "Week", "Day", "Period", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jtBookings.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane2.setViewportView(jtBookings);
+        if (jtBookings.getColumnModel().getColumnCount() > 0) {
+            jtBookings.getColumnModel().getColumn(0).setResizable(false);
+            jtBookings.getColumnModel().getColumn(0).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(1).setResizable(false);
+            jtBookings.getColumnModel().getColumn(1).setPreferredWidth(140);
+            jtBookings.getColumnModel().getColumn(2).setResizable(false);
+            jtBookings.getColumnModel().getColumn(2).setPreferredWidth(230);
+            jtBookings.getColumnModel().getColumn(3).setResizable(false);
+            jtBookings.getColumnModel().getColumn(3).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(4).setResizable(false);
+            jtBookings.getColumnModel().getColumn(4).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(5).setResizable(false);
+            jtBookings.getColumnModel().getColumn(5).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(6).setResizable(false);
+            jtBookings.getColumnModel().getColumn(6).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(7).setResizable(false);
+            jtBookings.getColumnModel().getColumn(7).setPreferredWidth(150);
+        }
 
-        pgBookings.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 980, 550));
+        pgBookings.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("Booking History");
+        pgBookings.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 980, 50));
 
         jPanel1.add(pgBookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
@@ -2394,12 +2476,20 @@ public class Homepage extends javax.swing.JFrame {
         resetPanelColor(btnExerciseReport);
         
         //pages
+        pgAllTimeTable.setVisible(false);
+        pgSaturday.setVisible(false);
         pgDashboard.setVisible(false);
         pgBook.setVisible(false);
         pgAttend.setVisible(false);
         pgBookings.setVisible(true);
         pgLessonReport.setVisible(false);
         pgExerciseReport.setVisible(false);
+        pgDashboard5.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
     }//GEN-LAST:event_lblBookingMouseClicked
 
     private void lblLessonReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLessonReportMouseClicked
@@ -2742,6 +2832,7 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel btnExerciseReport;
     private javax.swing.JPanel btnLessonReport;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
