@@ -575,6 +575,348 @@ public class Homepage extends javax.swing.JFrame {
         jtStudents.setRowHeight(30);
     }
     
+    private void bookClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        setPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
+        resetPanelColor(btnStudents);
+        
+        //pages
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+        pgAllTimeTable.setVisible(false);
+        
+        //Dialog
+        String[] responses = {"By Day", "By Lesson"};
+        int ans = JOptionPane.showOptionDialog(rootPane, "How do you want to check the timetable?", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, responses, 0);
+        
+        if (ans == 0){
+            String[] responses1 = {"Saturday", "Sunday"};
+            int ans1 = JOptionPane.showOptionDialog(rootPane, "Select Day", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses1, 0);
+            
+            if (ans1 == 0){
+                pgSaturday.setVisible(true);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(false);
+                pgSunday.setVisible(false);
+                pgAllTimeTable.setVisible(false);
+                
+            }else if (ans1 == 1){
+                pgSaturday.setVisible(false);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(false);
+                pgSunday.setVisible(true);
+                pgAllTimeTable.setVisible(false);
+                
+            }
+            
+        }else if(ans == 1){
+            String[] responses2 = {"Yoga", "Zumba", "Box Fit", "Body Blitz"};
+            int ans2 = JOptionPane.showOptionDialog(rootPane, "Select Lesson", "Check Timetable", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses2, 0);
+            
+            if (ans2 == 0){
+                
+                pgSaturday.setVisible(false);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(true);
+                pgSunday.setVisible(false);
+                pgZumba.setVisible(false);
+                pgBoxFit.setVisible(false);
+                pgBodyBlitz.setVisible(false);
+                pgAllTimeTable.setVisible(false);
+            }else if (ans2 == 1){
+                pgSaturday.setVisible(false);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(false);
+                pgSunday.setVisible(false);
+                pgZumba.setVisible(true);
+                pgBoxFit.setVisible(false);
+                pgBodyBlitz.setVisible(false);
+                pgAllTimeTable.setVisible(false);
+            }else if (ans2 == 2){
+                pgSaturday.setVisible(false);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(false);
+                pgSunday.setVisible(false);
+                pgZumba.setVisible(false);
+                pgBoxFit.setVisible(true);
+                pgBodyBlitz.setVisible(false);
+                pgAllTimeTable.setVisible(false);
+            }else if (ans2 == 3){
+                pgSaturday.setVisible(false);
+                pgDashboard.setVisible(false);
+                pgAttend.setVisible(false);
+                pgBookings.setVisible(false);
+                pgLessonReport.setVisible(false);
+                pgExerciseReport.setVisible(false);
+                pgStudents.setVisible(false);
+                pgYoga.setVisible(false);
+                pgSunday.setVisible(false);
+                pgZumba.setVisible(false);
+                pgBoxFit.setVisible(false);
+                pgBodyBlitz.setVisible(true);
+                pgAllTimeTable.setVisible(false);
+            }
+        }
+    }
+    
+    private void manageBookingsClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        setPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
+        resetPanelColor(btnStudents);
+        
+        //pages
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(true);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+        pgAllTimeTable.setVisible(false);
+    }
+    
+    private void bookingHistoryClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        setPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
+        resetPanelColor(btnStudents);
+        
+        //pages
+        pgAllTimeTable.setVisible(false);
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(true);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+    }
+    
+    private void lessonReportClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        setPanelColor(btnLessonReport);
+        resetPanelColor(btnStudents);
+        resetPanelColor(btnExerciseReport);
+        
+        //pages
+        pgAllTimeTable.setVisible(false);
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+        
+        //Select Month
+        String mon = "";
+        String[] rate = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+        String resMonth = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical month.", "Select a Month", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
+        //int Month = Integer.valueOf(resMonth);
+        if(resMonth == "1"){
+            mon = "January";
+        }else if(resMonth == "2"){
+            mon = "February";
+        }else if(resMonth == "3"){
+            mon = "March";
+        }else if(resMonth == "4"){
+            mon = "April";
+        }else if(resMonth == "5"){
+            mon = "May";
+        }else if(resMonth == "6"){
+            mon = "June";
+        }else if(resMonth == "7"){
+            mon = "July";
+        }else if(resMonth == "8"){
+            mon = "August";
+        }else if(resMonth == "9"){
+            mon = "September";
+        }else if(resMonth == "10"){
+            mon = "October";
+        }else if(resMonth == "11"){
+            mon = "November";
+        }else if(resMonth == "12"){
+            mon = "December";
+        }else{
+            return;
+        }
+        
+        int m = Integer.parseInt(resMonth);
+        
+        monthlyReport(m);
+        
+        lblReport.setText(mon + " Lesson Report");
+        pgLessonReport.setVisible(true);
+        
+    }
+    
+    private void championExerciseReportClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnStudents);
+        setPanelColor(btnExerciseReport);
+        
+        //pages
+        pgAllTimeTable.setVisible(false);
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(false);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+        
+        //Select Month
+        String mon = "";
+        String[] rate = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+        String resMonth = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical month.", "Select a Month", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
+        //int Month = Integer.valueOf(resMonth);
+        if(resMonth == "1"){
+            mon = "January";
+        }else if(resMonth == "2"){
+            mon = "February";
+        }else if(resMonth == "3"){
+            mon = "March";
+        }else if(resMonth == "4"){
+            mon = "April";
+        }else if(resMonth == "5"){
+            mon = "May";
+        }else if(resMonth == "6"){
+            mon = "June";
+        }else if(resMonth == "7"){
+            mon = "July";
+        }else if(resMonth == "8"){
+            mon = "August";
+        }else if(resMonth == "9"){
+            mon = "September";
+        }else if(resMonth == "10"){
+            mon = "October";
+        }else if(resMonth == "11"){
+            mon = "November";
+        }else if(resMonth == "12"){
+            mon = "December";
+        }else{
+            return;
+        }
+        
+        int m = Integer.parseInt(resMonth);
+        
+        championExercise(m);
+        
+        lblExeReport.setText(mon + " Champion Exercise Report");
+        pgExerciseReport.setVisible(true);
+        
+    }
+    
+    private void studentsRecordsClicked(){
+        
+        //Panel color
+        resetPanelColor(btnDashboard);
+        resetPanelColor(btnBook);
+        resetPanelColor(btnAttend);
+        resetPanelColor(btnBooking);
+        resetPanelColor(btnLessonReport);
+        resetPanelColor(btnExerciseReport);
+        setPanelColor(btnStudents);
+        
+        //pages
+        pgAllTimeTable.setVisible(false);
+        pgSaturday.setVisible(false);
+        pgDashboard.setVisible(false);
+        pgAttend.setVisible(false);
+        pgBookings.setVisible(false);
+        pgLessonReport.setVisible(false);
+        pgExerciseReport.setVisible(false);
+        pgStudents.setVisible(true);
+        pgYoga.setVisible(false);
+        pgSunday.setVisible(false);
+        pgZumba.setVisible(false);
+        pgBoxFit.setVisible(false);
+        pgBodyBlitz.setVisible(false);
+    }
+    
     private boolean isStudent(int StudentID){
         
         for (Students s : student){
@@ -908,7 +1250,6 @@ public class Homepage extends javax.swing.JFrame {
                         pgAttend.setVisible(true);
                         pgSaturday.setVisible(false);
                         pgDashboard.setVisible(false);
-                        pgBook.setVisible(false);
                         pgBookings.setVisible(false);
                         pgLessonReport.setVisible(false);
                         pgExerciseReport.setVisible(false);
@@ -1122,7 +1463,6 @@ public class Homepage extends javax.swing.JFrame {
             pgAllTimeTable.setVisible(false);
             pgSaturday.setVisible(false);
             pgDashboard.setVisible(false);
-            pgBook.setVisible(false);
             pgAttend.setVisible(true);
             pgBookings.setVisible(false);
             pgLessonReport.setVisible(false);
@@ -1931,15 +2271,16 @@ public class Homepage extends javax.swing.JFrame {
         btnStudents = new javax.swing.JPanel();
         lblStudents = new javax.swing.JLabel();
         pgDashboard = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jpDate = new javax.swing.JPanel();
         lblDateTime = new javax.swing.JLabel();
+        btnBookingHistory = new javax.swing.JButton();
+        btnBookLesson = new javax.swing.JButton();
+        btnManageBookings = new javax.swing.JButton();
+        btnLesReport = new javax.swing.JButton();
+        btnChampReport = new javax.swing.JButton();
+        btnRecords = new javax.swing.JButton();
         jpTitle = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        pgBook = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jpDate1 = new javax.swing.JPanel();
-        lblDateTime1 = new javax.swing.JLabel();
         pgAttend = new javax.swing.JPanel();
         jpDate2 = new javax.swing.JPanel();
         lblDateTime2 = new javax.swing.JLabel();
@@ -2025,11 +2366,6 @@ public class Homepage extends javax.swing.JFrame {
         jpSidebar.setBackground(new java.awt.Color(54, 33, 89));
 
         btnDashboard.setBackground(new java.awt.Color(122, 72, 221));
-        btnDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDashboardMouseClicked(evt);
-            }
-        });
         btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashboard.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -2045,11 +2381,6 @@ public class Homepage extends javax.swing.JFrame {
         btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 275, 50));
 
         btnBook.setBackground(new java.awt.Color(54, 33, 89));
-        btnBook.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBookMouseClicked(evt);
-            }
-        });
         btnBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblBook.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
@@ -2174,10 +2505,6 @@ public class Homepage extends javax.swing.JFrame {
 
         pgDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel13.setText("Dashboard");
-        pgDashboard.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
-
         jpDate.setBackground(new java.awt.Color(122, 72, 221));
         jpDate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2187,6 +2514,102 @@ public class Homepage extends javax.swing.JFrame {
         jpDate.add(lblDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
 
         pgDashboard.add(jpDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+
+        btnBookingHistory.setBackground(new java.awt.Color(122, 72, 221));
+        btnBookingHistory.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnBookingHistory.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookingHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/manage200.png"))); // NOI18N
+        btnBookingHistory.setText("Booking History");
+        btnBookingHistory.setToolTipText("Booking History");
+        btnBookingHistory.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBookingHistory.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBookingHistory.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBookingHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBookingHistoryMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnBookingHistory, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 320, 270));
+
+        btnBookLesson.setBackground(new java.awt.Color(122, 72, 221));
+        btnBookLesson.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnBookLesson.setForeground(new java.awt.Color(255, 255, 255));
+        btnBookLesson.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/addlist200.png"))); // NOI18N
+        btnBookLesson.setText("Book a Lesson");
+        btnBookLesson.setToolTipText("Book a Lesson");
+        btnBookLesson.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBookLesson.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnBookLesson.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnBookLesson.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBookLessonMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnBookLesson, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 270));
+
+        btnManageBookings.setBackground(new java.awt.Color(122, 72, 221));
+        btnManageBookings.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnManageBookings.setForeground(new java.awt.Color(255, 255, 255));
+        btnManageBookings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/attend200.png"))); // NOI18N
+        btnManageBookings.setText("Manage Bookings");
+        btnManageBookings.setToolTipText("Manage Bookings");
+        btnManageBookings.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnManageBookings.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnManageBookings.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnManageBookings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManageBookingsMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnManageBookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 320, 270));
+
+        btnLesReport.setBackground(new java.awt.Color(122, 72, 221));
+        btnLesReport.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnLesReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnLesReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report200.png"))); // NOI18N
+        btnLesReport.setText("Lesson Report");
+        btnLesReport.setToolTipText("Lesson Report");
+        btnLesReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLesReport.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnLesReport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnLesReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLesReportMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnLesReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 320, 270));
+
+        btnChampReport.setBackground(new java.awt.Color(122, 72, 221));
+        btnChampReport.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnChampReport.setForeground(new java.awt.Color(255, 255, 255));
+        btnChampReport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/report200.png"))); // NOI18N
+        btnChampReport.setText("Champion Report");
+        btnChampReport.setToolTipText("Champion Report");
+        btnChampReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnChampReport.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnChampReport.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnChampReport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnChampReportMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnChampReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 320, 270));
+
+        btnRecords.setBackground(new java.awt.Color(122, 72, 221));
+        btnRecords.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        btnRecords.setForeground(new java.awt.Color(255, 255, 255));
+        btnRecords.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/user200.png"))); // NOI18N
+        btnRecords.setText("Student's Records");
+        btnRecords.setToolTipText("Student's Records");
+        btnRecords.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRecords.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnRecords.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRecordsMouseClicked(evt);
+            }
+        });
+        pgDashboard.add(btnRecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 320, 270));
 
         jPanel1.add(pgDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
@@ -2201,24 +2624,6 @@ public class Homepage extends javax.swing.JFrame {
         jpTitle.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
 
         jPanel1.add(jpTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 100));
-
-        pgBook.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel14.setText("Book a Lesson");
-        pgBook.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
-
-        jpDate1.setBackground(new java.awt.Color(122, 72, 221));
-        jpDate1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblDateTime1.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
-        lblDateTime1.setForeground(new java.awt.Color(255, 255, 255));
-        lblDateTime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate1.add(lblDateTime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
-
-        pgBook.add(jpDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
-
-        jPanel1.add(pgBook, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
         pgAttend.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -2444,11 +2849,6 @@ public class Homepage extends javax.swing.JFrame {
         });
         jtReport.setRowHeight(45);
         jtReport.getTableHeader().setReorderingAllowed(false);
-        jtReport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtReportMouseClicked(evt);
-            }
-        });
         jScrollPane10.setViewportView(jtReport);
         if (jtReport.getColumnModel().getColumnCount() > 0) {
             jtReport.getColumnModel().getColumn(0).setResizable(false);
@@ -2469,6 +2869,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgLessonReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgExerciseReport.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgExerciseReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate5.setBackground(new java.awt.Color(122, 72, 221));
@@ -2499,11 +2900,6 @@ public class Homepage extends javax.swing.JFrame {
         });
         jtExeReport.setRowHeight(45);
         jtExeReport.getTableHeader().setReorderingAllowed(false);
-        jtExeReport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtExeReportMouseClicked(evt);
-            }
-        });
         jScrollPane11.setViewportView(jtExeReport);
         if (jtExeReport.getColumnModel().getColumnCount() > 0) {
             jtExeReport.getColumnModel().getColumn(0).setResizable(false);
@@ -2526,6 +2922,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgExerciseReport, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgStudents.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgStudents.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate6.setBackground(new java.awt.Color(122, 72, 221));
@@ -2591,6 +2988,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgYoga.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgYoga.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate7.setBackground(new java.awt.Color(122, 72, 221));
@@ -2628,19 +3026,17 @@ public class Homepage extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jtYoga);
         if (jtYoga.getColumnModel().getColumnCount() > 0) {
             jtYoga.getColumnModel().getColumn(0).setResizable(false);
-            jtYoga.getColumnModel().getColumn(0).setPreferredWidth(80);
+            jtYoga.getColumnModel().getColumn(0).setPreferredWidth(170);
             jtYoga.getColumnModel().getColumn(1).setResizable(false);
-            jtYoga.getColumnModel().getColumn(1).setPreferredWidth(250);
+            jtYoga.getColumnModel().getColumn(1).setPreferredWidth(270);
             jtYoga.getColumnModel().getColumn(2).setResizable(false);
-            jtYoga.getColumnModel().getColumn(2).setPreferredWidth(250);
+            jtYoga.getColumnModel().getColumn(2).setPreferredWidth(270);
             jtYoga.getColumnModel().getColumn(3).setResizable(false);
-            jtYoga.getColumnModel().getColumn(3).setPreferredWidth(200);
+            jtYoga.getColumnModel().getColumn(3).setPreferredWidth(100);
             jtYoga.getColumnModel().getColumn(4).setResizable(false);
             jtYoga.getColumnModel().getColumn(4).setPreferredWidth(70);
-            jtYoga.getColumnModel().getColumn(4).setHeaderValue("Slot");
             jtYoga.getColumnModel().getColumn(5).setResizable(false);
             jtYoga.getColumnModel().getColumn(5).setPreferredWidth(100);
-            jtYoga.getColumnModel().getColumn(5).setHeaderValue("Action");
         }
 
         pgYoga.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));
@@ -2652,6 +3048,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgYoga, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgSaturday.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgSaturday.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate8.setBackground(new java.awt.Color(122, 72, 221));
@@ -2711,6 +3108,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgSaturday, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgSunday.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgSunday.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate9.setBackground(new java.awt.Color(122, 72, 221));
@@ -2770,6 +3168,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgSunday, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgZumba.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgZumba.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate10.setBackground(new java.awt.Color(122, 72, 221));
@@ -2830,6 +3229,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgZumba, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgBoxFit.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgBoxFit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate11.setBackground(new java.awt.Color(122, 72, 221));
@@ -2890,6 +3290,7 @@ public class Homepage extends javax.swing.JFrame {
 
         jPanel1.add(pgBoxFit, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 1000, 620));
 
+        pgBodyBlitz.setFont(new java.awt.Font("Tahoma", 0, 30)); // NOI18N
         pgBodyBlitz.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpDate12.setBackground(new java.awt.Color(122, 72, 221));
@@ -2965,15 +3366,6 @@ public class Homepage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnDashboardMouseClicked
-
-    private void btnBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBookMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBookMouseClicked
-
     private void lblDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblDashboardMouseClicked
         // TODO add your handling code here:
         //Panel color
@@ -2989,7 +3381,6 @@ public class Homepage extends javax.swing.JFrame {
         pgAllTimeTable.setVisible(false);
         pgSaturday.setVisible(false);
         pgDashboard.setVisible(true);
-        pgBook.setVisible(false);
         pgAttend.setVisible(false);
         pgBookings.setVisible(false);
         pgLessonReport.setVisible(false);
@@ -3005,321 +3396,27 @@ public class Homepage extends javax.swing.JFrame {
 
     private void lblBookMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        setPanelColor(btnBook);
-        resetPanelColor(btnAttend);
-        resetPanelColor(btnBooking);
-        resetPanelColor(btnLessonReport);
-        resetPanelColor(btnExerciseReport);
-        resetPanelColor(btnStudents);
-        
-        //pages
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        pgAllTimeTable.setVisible(false);
-        
-        //Dialog
-        String[] responses = {"By Day", "By Lesson"};
-        int ans = JOptionPane.showOptionDialog(rootPane, "How do you want to check the timetable?", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, responses, 0);
-        
-        if (ans == 0){
-            String[] responses1 = {"Saturday", "Sunday"};
-            int ans1 = JOptionPane.showOptionDialog(rootPane, "Select Day", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses1, 0);
-            
-            if (ans1 == 0){
-                pgSaturday.setVisible(true);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgAllTimeTable.setVisible(false);
-                
-            }else if (ans1 == 1){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(true);
-                pgAllTimeTable.setVisible(false);
-                
-            }
-            
-        }else if(ans == 1){
-            String[] responses2 = {"Yoga", "Zumba", "Box Fit", "Body Blitz"};
-            int ans2 = JOptionPane.showOptionDialog(rootPane, "Select Lesson", "Check Timetable", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses2, 0);
-            
-            if (ans2 == 0){
-                
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(true);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
-            }else if (ans2 == 1){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(true);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
-            }else if (ans2 == 2){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(true);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
-            }else if (ans2 == 3){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgBook.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(true);
-                pgAllTimeTable.setVisible(false);
-            }
-        }
-        
+        bookClicked();
     }//GEN-LAST:event_lblBookMouseClicked
 
     private void lblAttendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAttendMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        resetPanelColor(btnBook);
-        setPanelColor(btnAttend);
-        resetPanelColor(btnBooking);
-        resetPanelColor(btnLessonReport);
-        resetPanelColor(btnExerciseReport);
-        resetPanelColor(btnStudents);
-        
-        //pages
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(true);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
+        manageBookingsClicked();
     }//GEN-LAST:event_lblAttendMouseClicked
 
     private void lblBookingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBookingMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        resetPanelColor(btnBook);
-        resetPanelColor(btnAttend);
-        setPanelColor(btnBooking);
-        resetPanelColor(btnLessonReport);
-        resetPanelColor(btnExerciseReport);
-        resetPanelColor(btnStudents);
-        
-        //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(true);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        bookingHistoryClicked();
     }//GEN-LAST:event_lblBookingMouseClicked
 
     private void lblLessonReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLessonReportMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        resetPanelColor(btnBook);
-        resetPanelColor(btnAttend);
-        resetPanelColor(btnBooking);
-        setPanelColor(btnLessonReport);
-        resetPanelColor(btnStudents);
-        resetPanelColor(btnExerciseReport);
-        
-        //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        
-        //Select Month
-        String mon = "";
-        String[] rate = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-        String resMonth = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical month.", "Select a Month", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
-        //int Month = Integer.valueOf(resMonth);
-        if(resMonth == "1"){
-            mon = "January";
-        }else if(resMonth == "2"){
-            mon = "February";
-        }else if(resMonth == "3"){
-            mon = "March";
-        }else if(resMonth == "4"){
-            mon = "April";
-        }else if(resMonth == "5"){
-            mon = "May";
-        }else if(resMonth == "6"){
-            mon = "June";
-        }else if(resMonth == "7"){
-            mon = "July";
-        }else if(resMonth == "8"){
-            mon = "August";
-        }else if(resMonth == "9"){
-            mon = "September";
-        }else if(resMonth == "10"){
-            mon = "October";
-        }else if(resMonth == "11"){
-            mon = "November";
-        }else if(resMonth == "12"){
-            mon = "December";
-        }else{
-            return;
-        }
-        
-        int m = Integer.parseInt(resMonth);
-        
-        monthlyReport(m);
-        
-        lblReport.setText(mon + " Lesson Report");
-        pgLessonReport.setVisible(true);
-        
+        lessonReportClicked();
     }//GEN-LAST:event_lblLessonReportMouseClicked
 
     private void lblExerciseReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblExerciseReportMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        resetPanelColor(btnBook);
-        resetPanelColor(btnAttend);
-        resetPanelColor(btnBooking);
-        resetPanelColor(btnLessonReport);
-        resetPanelColor(btnStudents);
-        setPanelColor(btnExerciseReport);
-        
-        //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        
-        //Select Month
-        String mon = "";
-        String[] rate = {"", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-        String resMonth = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical month.", "Select a Month", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
-        //int Month = Integer.valueOf(resMonth);
-        if(resMonth == "1"){
-            mon = "January";
-        }else if(resMonth == "2"){
-            mon = "February";
-        }else if(resMonth == "3"){
-            mon = "March";
-        }else if(resMonth == "4"){
-            mon = "April";
-        }else if(resMonth == "5"){
-            mon = "May";
-        }else if(resMonth == "6"){
-            mon = "June";
-        }else if(resMonth == "7"){
-            mon = "July";
-        }else if(resMonth == "8"){
-            mon = "August";
-        }else if(resMonth == "9"){
-            mon = "September";
-        }else if(resMonth == "10"){
-            mon = "October";
-        }else if(resMonth == "11"){
-            mon = "November";
-        }else if(resMonth == "12"){
-            mon = "December";
-        }else{
-            return;
-        }
-        
-        int m = Integer.parseInt(resMonth);
-        
-        championExercise(m);
-        
-        lblExeReport.setText(mon + " Champion Exercise Report");
-        pgExerciseReport.setVisible(true);
-        
+        championExerciseReportClicked();
     }//GEN-LAST:event_lblExerciseReportMouseClicked
 
     private void jtSaturdayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtSaturdayMouseClicked
@@ -3490,7 +3587,6 @@ public class Homepage extends javax.swing.JFrame {
                         pgAttend.setVisible(false);
                         pgSaturday.setVisible(false);
                         pgDashboard.setVisible(false);
-                        pgBook.setVisible(false);
                         pgAttend.setVisible(false);
                         pgBookings.setVisible(false);
                         pgLessonReport.setVisible(false);
@@ -3539,47 +3635,45 @@ public class Homepage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtAllTimeTableMouseClicked
 
-    private void jtReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtReportMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtReportMouseClicked
-
-    private void jtExeReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtExeReportMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtExeReportMouseClicked
-
     private void lblStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentsMouseClicked
         // TODO add your handling code here:
-        //Panel color
-        resetPanelColor(btnDashboard);
-        resetPanelColor(btnBook);
-        resetPanelColor(btnAttend);
-        resetPanelColor(btnBooking);
-        resetPanelColor(btnLessonReport);
-        resetPanelColor(btnExerciseReport);
-        setPanelColor(btnStudents);
-        
-        //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgBook.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(true);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        
+        studentsRecordsClicked();
     }//GEN-LAST:event_lblStudentsMouseClicked
 
     private void btnAddStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddStudentMouseClicked
         // TODO add your handling code here:       
         newStudent();
     }//GEN-LAST:event_btnAddStudentMouseClicked
+
+    private void btnBookLessonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBookLessonMouseClicked
+        // TODO add your handling code here:
+        bookClicked();
+    }//GEN-LAST:event_btnBookLessonMouseClicked
+
+    private void btnManageBookingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManageBookingsMouseClicked
+        // TODO add your handling code here:
+        manageBookingsClicked();
+    }//GEN-LAST:event_btnManageBookingsMouseClicked
+
+    private void btnBookingHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBookingHistoryMouseClicked
+        // TODO add your handling code here:
+        bookingHistoryClicked();
+    }//GEN-LAST:event_btnBookingHistoryMouseClicked
+
+    private void btnLesReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLesReportMouseClicked
+        // TODO add your handling code here:
+        lessonReportClicked();
+    }//GEN-LAST:event_btnLesReportMouseClicked
+
+    private void btnChampReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnChampReportMouseClicked
+        // TODO add your handling code here:
+        championExerciseReportClicked();
+    }//GEN-LAST:event_btnChampReportMouseClicked
+
+    private void btnRecordsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecordsMouseClicked
+        // TODO add your handling code here:
+        studentsRecordsClicked();
+    }//GEN-LAST:event_btnRecordsMouseClicked
 
     
     //Set Colour
@@ -3603,7 +3697,6 @@ public class Homepage extends javax.swing.JFrame {
                 String tt = st.format(d);
                 String dst = dd + ".  " + tt;
                 lblDateTime.setText(dst);
-                lblDateTime1.setText(dst);
                 lblDateTime2.setText(dst);
                 lblDateTime3.setText(dst);
                 lblDateTime4.setText(dst);
@@ -3661,16 +3754,20 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JPanel btnAttend;
     private javax.swing.JPanel btnBook;
+    private javax.swing.JButton btnBookLesson;
     private javax.swing.JPanel btnBooking;
+    private javax.swing.JButton btnBookingHistory;
+    private javax.swing.JButton btnChampReport;
     private javax.swing.JPanel btnDashboard;
     private javax.swing.JPanel btnExerciseReport;
+    private javax.swing.JButton btnLesReport;
     private javax.swing.JPanel btnLessonReport;
+    private javax.swing.JButton btnManageBookings;
+    private javax.swing.JButton btnRecords;
     private javax.swing.JPanel btnStudents;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -3693,7 +3790,6 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPanel jpDate;
-    private javax.swing.JPanel jpDate1;
     private javax.swing.JPanel jpDate10;
     private javax.swing.JPanel jpDate11;
     private javax.swing.JPanel jpDate12;
@@ -3726,7 +3822,6 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JLabel lblBooking;
     private javax.swing.JLabel lblDashboard;
     private javax.swing.JLabel lblDateTime;
-    private javax.swing.JLabel lblDateTime1;
     private javax.swing.JLabel lblDateTime10;
     private javax.swing.JLabel lblDateTime11;
     private javax.swing.JLabel lblDateTime12;
@@ -3747,7 +3842,6 @@ public class Homepage extends javax.swing.JFrame {
     private javax.swing.JPanel pgAllTimeTable;
     private javax.swing.JPanel pgAttend;
     private javax.swing.JPanel pgBodyBlitz;
-    private javax.swing.JPanel pgBook;
     private javax.swing.JPanel pgBookings;
     private javax.swing.JPanel pgBoxFit;
     private javax.swing.JPanel pgDashboard;
