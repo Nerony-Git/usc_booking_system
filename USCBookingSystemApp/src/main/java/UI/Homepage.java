@@ -3404,7 +3404,7 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jtReportMouseClicked
 
     private void jtExeReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtExeReportMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtExeReportMouseClicked
 
     private void lblStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentsMouseClicked
