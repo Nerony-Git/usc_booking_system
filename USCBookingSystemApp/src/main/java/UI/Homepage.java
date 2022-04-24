@@ -14,10 +14,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import UI.Lesson;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;  
 
 /**
@@ -45,7 +48,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
-    public ArrayList listOfStudents(){
+    private ArrayList listOfStudents(){
         ArrayList<Students> student = new ArrayList<Students>();
         student.add( new Students(208947, 20, "James", "Fox", 'M'));
         student.add( new Students(208948, 21, "John", "Doe", 'M'));
@@ -66,7 +69,7 @@ public class Homepage extends javax.swing.JFrame {
         return student;
     }
     
-    public ArrayList listOfSaturdayLessons(){
+    private ArrayList listOfSaturdayLessons(){
         ArrayList<Lesson> saturdayLessons = new ArrayList<Lesson>();
         saturdayLessons.add( new Lesson("Week 1","Yoga","Saturday","Morning",12.86,0));
         saturdayLessons.add( new Lesson("Week 1","Zumba","Saturday","Afternoon",15.78,1));
@@ -96,7 +99,7 @@ public class Homepage extends javax.swing.JFrame {
         return saturdayLessons;
     }
     
-    public ArrayList listofSundayLessons(){
+    private ArrayList listofSundayLessons(){
         ArrayList<Lesson> sundayLessons = new ArrayList<Lesson>();
         sundayLessons.add( new Lesson("Week 1","Yoga","Sunday","Morning",12.86,4));
         sundayLessons.add( new Lesson("Week 1","Zumba","Sunday","Afternoon",15.78,0));
@@ -126,7 +129,7 @@ public class Homepage extends javax.swing.JFrame {
         return sundayLessons;
     }
     
-    public ArrayList listofAllLessons(){
+    private ArrayList listofAllLessons(){
         ArrayList<Lesson> allLessons = new ArrayList<Lesson>();
         allLessons.addAll(saturdayLessons);
         allLessons.addAll(sundayLessons);
@@ -134,7 +137,7 @@ public class Homepage extends javax.swing.JFrame {
         return allLessons;
     }
     
-    public ArrayList listofYogaLessons(){
+    private ArrayList listofYogaLessons(){
         ArrayList<Lesson> yogaLessons = new ArrayList<Lesson>();
         yogaLessons.add( new Lesson("Week 1","Yoga","Saturday","Morning",12.86,0));
         yogaLessons.add( new Lesson("Week 2","Yoga","Saturday","Afternoon",12.86,4));
@@ -152,7 +155,7 @@ public class Homepage extends javax.swing.JFrame {
         return yogaLessons;
     }
     
-    public ArrayList listofZumbaLessons(){
+    private ArrayList listofZumbaLessons(){
         ArrayList<Lesson> zumbaLessons = new ArrayList<Lesson>();
         zumbaLessons.add( new Lesson("Week 1","Zumba","Saturday","Afternoon",15.78,1));
         zumbaLessons.add( new Lesson("Week 2","Zumba","Saturday","Evening",15.78,0));
@@ -170,7 +173,7 @@ public class Homepage extends javax.swing.JFrame {
         return zumbaLessons;
     }
     
-    public ArrayList listofBoxFitLessons(){
+    private ArrayList listofBoxFitLessons(){
         ArrayList<Lesson> boxfitLessons = new ArrayList<Lesson>();
         boxfitLessons.add( new Lesson("Week 1","Box Fit","Saturday","Evening",17.93,2));
         boxfitLessons.add( new Lesson("Week 3","Box Fit","Saturday","Morning",17.93,1));
@@ -188,7 +191,7 @@ public class Homepage extends javax.swing.JFrame {
         return boxfitLessons;
     }
     
-    public ArrayList listofBodyBlitzLessons(){
+    private ArrayList listofBodyBlitzLessons(){
         ArrayList<Lesson> bodyblitzLessons = new ArrayList<Lesson>();
         bodyblitzLessons.add( new Lesson("Week 2","Body Blitz","Saturday","Morning",20.74,3));
         bodyblitzLessons.add( new Lesson("Week 3","Body Blitz","Saturday","Afternoon",20.74,2));
@@ -206,27 +209,115 @@ public class Homepage extends javax.swing.JFrame {
         return bodyblitzLessons;
     }
     
-    public ArrayList listOfBookings(){
+    private ArrayList listOfBookings(){
         ArrayList<Booking> bookings = new ArrayList<Booking>();
-        bookings.add( new Booking("BIYG001", 208950, "James", "Bull", 22, 'M', "Yoga", "Week 1", "Sunday", "Morning", "Cancelled", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG002", 208949, "Sarah", "James", 19, 'F', "Yoga", "Week 1", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG003", 197890, "James", "Bull", 22, 'M', "Yoga", "Week 1", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG004", 208950, "James", "Bull", 22, 'M', "Yoga", "Week 2", "Sunday", "Morning", "Attended", "", 2, 5, 40.23));
-        bookings.add( new Booking("BIYG005", 208949, "Sarah", "James", 19, 'F', "Yoga", "Week 2", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG006", 197890, "James", "Bull", 22, 'M', "Yoga", "Week 2", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG007", 208950, "James", "Bull", 22, 'M', "Yoga", "Week 3", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIYG008", 208949, "Sarah", "James", 19, 'F', "Yoga", "Week 3", "Sunday", "Morning", "Attended", "", 2, 5, 40.23));
-        bookings.add( new Booking("BIYG009", 197890, "James", "Bull", 22, 'M', "Yoga", "Week 3", "Sunday", "Morning", "Booked", "", 2, 9, 40.23));
-        bookings.add( new Booking("BIBF001", 208950, "James", "Bull", 22, 'M', "Box Fit", "Week 1", "Sunday", "Morning", "Booked", "", 2, 9, 30.45));
-        bookings.add( new Booking("BIBF002", 208949, "Sarah", "James", 19, 'F', "Box Fit", "Week 1", "Sunday", "Morning", "Attended", "", 2, 5, 30.45));
-        bookings.add( new Booking("BIBF003", 197890, "James", "Bull", 22, 'M', "Box Fit", "Week 1", "Sunday", "Morning", "Booked", "", 2, 9, 30.45));
-        bookings.add( new Booking("BIZB001", 208950, "James", "Bull", 22, 'M', "Zumba", "Week 2", "Sunday", "Morning", "Booked", "", 2, 9, 60.50));
-        bookings.add( new Booking("BIZB002", 208949, "Sarah", "James", 19, 'F', "Zumba", "Week 2", "Sunday", "Morning", "Attended", "", 2, 5, 60.50));
-        bookings.add( new Booking("BIZB003", 197890, "James", "Bull", 22, 'M', "Zumba", "Week 2", "Sunday", "Morning", "Booked", "", 2, 9, 60.50));
-        bookings.add( new Booking("BIBB001", 208950, "James", "Bull", 22, 'M', "Body Blitz", "Week 3", "Sunday", "Morning", "Booked", "", 2, 9, 20.73));
-        bookings.add( new Booking("BIBB002", 208949, "Sarah", "James", 19, 'F', "Body Blitz", "Week 3", "Sunday", "Morning", "Attended", "", 2, 9, 20.73));
-        bookings.add( new Booking("BIBB003", 197890, "James", "Bull", 22, 'M', "Body Blitz", "Week 3", "Sunday", "Morning", "Booked", "", 2, 9, 20.73));
-        
+        bookings.add( new Booking("BIYG001", 208947, "James", "Fox", 20, 'M', "Yoga", "Week 1", "Saturday", "Morning", "Attended", "Very Satisfied.", 5, 4, 12.86));
+        bookings.add( new Booking("BIYG002", 208948, "John", "Doe", 21, 'M', "Yoga", "Week 1", "Saturday", "Morning", "Attended", "Lesson was Great.", 5, 4, 12.86));
+        bookings.add( new Booking("BIYG003", 208949, "Sarah", "James", 19, 'F', "Yoga", "Week 1", "Saturday", "Morning", "Attended", "Very Satisfied.", 5, 4, 12.86));
+        bookings.add( new Booking("BIYG004", 208950, "James", "Bull", 22, 'M', "Yoga", "Week 1", "Saturday", "Morning", "Attended", "Lesson was as expected.", 5, 4, 12.86));
+        bookings.add( new Booking("BIZB001", 208951, "Michael", "Jones", 19, 'M', "Zumba", "Week 1", "Saturday", "Afternoon", "Attended", "Great.", 4, 4, 15.78));
+        bookings.add( new Booking("BIZB002", 208952, "Ivan", "Rictish", 21, 'M', "Zumba", "Week 1", "Saturday", "Afternoon", "Attended", "Lesson was Great.", 5, 4, 15.78));
+        bookings.add( new Booking("BIZB003", 208953, "Mary", "King", 19, 'F', "Zumba", "Week 1", "Saturday", "Afternoon", "Attended", "OK.", 4, 4, 15.78));
+        bookings.add( new Booking("BIBF001", 208954, "Will", "Smith", 20, 'M', "Box Fit", "Week 1", "Saturday", "Evening", "Changed", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF002", 208955, "Vivian", "Jones", 19, 'F', "Box Fit", "Week 1", "Saturday", "Evening", "Attended", "The equipments were broken.", 2, 4, 17.93));
+        bookings.add( new Booking("BIBB001", 208956, "Jane", "Jackson", 20, 'F', "Body Blitz", "Week 2", "Saturday", "Morning", "Attended", "Lesson was great but started a bit late.", 3, 4, 20.74));
+        bookings.add( new Booking("BIZB004", 208957, "Elizaberth", "Brown", 20, 'F', "Zumba", "Week 2", "Saturday", "Evening", "Attended", "Very Satisfied.", 5, 4, 15.78));
+        bookings.add( new Booking("BIZB005", 208958, "Christian", "Bill", 21, 'M', "Zumba", "Week 2", "Saturday", "Evening", "Attended", "Lesson was as expected.", 5, 4, 15.78));
+        bookings.add( new Booking("BIZB006", 208959, "Sharon", "Stone", 19, 'F', "Zumba", "Week 2", "Saturday", "Evening", "Attended", "Lesson was Fun.", 5, 4, 15.78));
+        bookings.add( new Booking("BIZB007", 208960, "Hipsy", "Cone", 22, 'F', "Zumba", "Week 2", "Saturday", "Evening", "Attended", "Was Great.", 4, 4, 15.78));
+        bookings.add( new Booking("BIBF003", 208961, "Paul", "Walker", 19, 'M', "Box Fit", "Week 3", "Saturday", "Morning", "Attended", "Lesson was Great.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBF004", 208947, "James", "Fox", 20, 'M', "Box Fit", "Week 3", "Saturday", "Morning", "Attended", "The lesson wasn't as expected.", 1, 4, 17.93));
+        bookings.add( new Booking("BIBF005", 208948, "John", "Doe", 21, 'M', "Box Fit", "Week 3", "Saturday", "Morning", "Attended", "Lesson was as expected.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBB002", 208949, "Sarah", "James", 19, 'F', "Body Blitz", "Week 3", "Saturday", "Afternoon", "Attended", "Lesson was Fun.", 5, 4, 20.74));
+        bookings.add( new Booking("BIBB003", 208950, "James", "Bull", 22, 'M', "Body Blitz", "Week 3", "Saturday", "Afternoon", "Attended", "Inadequate equipments.", 2, 4, 20.74));
+        bookings.add( new Booking("BIYG005", 208951, "Michael", "Jones", 19, 'M', "Yoga", "Week 3", "Saturday", "Evening", "Attended", "Lesson was as expected.", 5, 4, 12.86));
+        bookings.add( new Booking("BIBF006", 208952, "Ivan", "Rictish", 21, 'M', "Box Fit", "Week 4", "Saturday", "Afternoon", "Attended", "Very Satisfied.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBF007", 208953, "Mary", "King", 19, 'F', "Box Fit", "Week 4", "Saturday", "Afternoon", "Attended", "Great.", 4, 4, 17.93));
+        bookings.add( new Booking("BIBF008", 208954, "Will", "Smith", 20, 'M', "Box Fit", "Week 4", "Saturday", "Afternoon", "Changed", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF009", 208950, "James", "Bull", 22, 'M', "Box Fit", "Week 8", "Saturday", "Afternoon", "Cancelled", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF010", 208955, "Vivian", "Jones", 19, 'F', "Box Fit", "Week 4", "Saturday", "Afternoon", "Attended", "Very Satisfied.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBB004", 208956, "Jane", "Jackson", 20, 'F', "Body Blitz", "Week 4", "Saturday", "Evening", "Attended", "OK.", 4, 4, 20.74));
+        bookings.add( new Booking("BIBB005", 208957, "Elizaberth", "Brown", 20, 'F', "Body Blitz", "Week 4", "Saturday", "Evening", "Attended", "Inadequate equipments.", 1, 4, 20.74));
+        bookings.add( new Booking("BIBB006", 208958, "Christian", "Bill", 21, 'M', "Body Blitz", "Week 4", "Saturday", "Evening", "Attended", "Very Satisfied.", 5, 4, 20.74));
+        bookings.add( new Booking("BIYG006", 208959, "Sharon", "Stone", 19, 'F', "Yoga", "Week 5", "Saturday", "Morning", "Attended", "Lesson was Great.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG007", 208960, "Hipsy", "Cone", 22, 'F', "Yoga", "Week 5", "Saturday", "Morning", "Attended", "Lesson was OK but not to my expectations.", 3, 5, 12.86));
+        bookings.add( new Booking("BIZB008", 208961, "Paul", "Walker", 19, 'M', "Zumba", "Week 5", "Saturday", "Afternoon", "Attended", "Lesson was as expected.", 5, 5, 15.78));
+        bookings.add( new Booking("BIBB007", 208947, "James", "Fox", 20, 'M', "Body Blitz", "Week 6", "Saturday", "Morning", "Attended", "Lesson was as expected.", 5, 5, 20.74));
+        bookings.add( new Booking("BIBB008", 208948, "John", "Doe", 21, 'M', "Body Blitz", "Week 6", "Saturday", "Morning", "Attended", "Lesson was Great.", 5, 5, 20.74));
+        bookings.add( new Booking("BIBB009", 208951, "Michael", "Jones", 19, 'M', "Body Blitz", "Week 8", "Sunday", "Evening", "Cancelled", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIBB010", 208959, "Sharon", "Stone", 19, 'F', "Body Blitz", "Week 4", "Sunday", "Evening", "Cancelled", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIBB011", 208949, "Sarah", "James", 19, 'F', "Body Blitz", "Week 6", "Saturday", "Morning", "Attended", "Lesson was Fun.", 5, 5, 20.74));
+        bookings.add( new Booking("BIBB012", 208950, "James", "Bull", 22, 'M', "Body Blitz", "Week 6", "Saturday", "Morning", "Attended", "Lesson was great but more room for improvements.", 3, 5, 20.74));
+        bookings.add( new Booking("BIYG008", 208951, "Michael", "Jones", 19, 'M', "Yoga", "Week 6", "Saturday", "Afternoon", "Attended", "Lesson was as expected.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG009", 208952, "Ivan", "Rictish", 21, 'M', "Yoga", "Week 6", "Saturday", "Afternoon", "Changed", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG010", 208953, "Mary", "King", 19, 'F', "Yoga", "Week 6", "Saturday", "Afternoon", "Attended", "The lesson wasn't as expected.", 2, 5, 12.86));
+        bookings.add( new Booking("BIZB009", 208954, "Will", "Smith", 20, 'M', "Zumba", "Week 6", "Saturday", "Evening", "Attended", "OK.", 4, 5, 15.78));
+        bookings.add( new Booking("BIZB010", 208955, "Vivian", "Jones", 19, 'F', "Zumba", "Week 6", "Saturday", "Evening", "Attended", "Lesson was Great.", 5, 5, 15.78));
+        bookings.add( new Booking("BIBF011", 208956, "Jane", "Jackson", 20, 'F', "Box Fit", "Week 7", "Saturday", "Morning", "Attended", "Lesson was OK but not to my expectations.", 4, 5, 17.93));
+        bookings.add( new Booking("BIYG011", 208957, "Elizaberth", "Brown", 20, 'F', "Yoga", "Week 7", "Saturday", "Evening", "Attended", "Lesson was Fun.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG012", 208958, "Christian", "Bill", 21, 'M', "Yoga", "Week 7", "Saturday", "Evening", "Cancelled", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG013", 208958, "Christian", "Bill", 21, 'M', "Yoga", "Week 7", "Saturday", "Evening", "Attended", "Very Satisfied.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG014", 208959, "Sharon", "Stone", 19, 'F', "Yoga", "Week 7", "Saturday", "Evening", "Attended", "Very Satisfied.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG015", 208960, "Hipsy", "Cone", 22, 'F', "Yoga", "Week 7", "Saturday", "Evening", "Attended", "Lesson was Great.", 5, 5, 12.86));
+        bookings.add( new Booking("BIZB011", 208961, "Paul", "Walker", 19, 'M', "Zumba", "Week 8", "Saturday", "Morning", "Attended", "Great.", 4, 5, 15.78));
+        bookings.add( new Booking("BIZB012", 208947, "James", "Fox", 20, 'M', "Zumba", "Week 8", "Saturday", "Morning", "Attended", "Lesson was Great.", 5, 5, 15.78));
+        bookings.add( new Booking("BIZB013", 208948, "John", "Doe", 21, 'M', "Zumba", "Week 8", "Saturday", "Morning", "Attended", "Very Satisfied.", 5, 5, 15.78));
+        bookings.add( new Booking("BIBF012", 208949, "Sarah", "James", 19, 'F', "Box Fit", "Week 8", "Saturday", "Afternoon", "Attended", "Lesson started late.", 1, 5, 17.93));
+        bookings.add( new Booking("BIBF013", 208950, "James", "Bull", 22, 'M', "Box Fit", "Week 8", "Saturday", "Afternoon", "Attended", "Lesson was as expected.", 5, 5, 17.93));
+        bookings.add( new Booking("BIBB013", 208953, "Mary", "King", 19, 'F', "Body Blitz", "Week 3", "Sunday", "Afternoon", "Cancelled", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIBB014", 208951, "Michael", "Jones", 19, 'M', "Body Blitz", "Week 8", "Saturday", "Evening", "Attended", "Lesson was Great.", 5, 5, 20.74));
+        bookings.add( new Booking("BIZB015", 208952, "Ivan", "Rictish", 21, 'M', "Zumba", "Week 1", "Sunday", "Afternoon", "Attended", "I will rate a 5 star if a specialised trainee is hired to assist us.", 3, 4, 15.78));
+        bookings.add( new Booking("BIZB014", 208952, "Ivan", "Rictish", 21, 'M', "Zumba", "Week 1", "Sunday", "Afternoon", "Cancelled", "", 0, 0, 15.78));
+        bookings.add( new Booking("BIZB016", 208953, "Mary", "King", 19, 'F', "Zumba", "Week 1", "Sunday", "Afternoon", "Attended", "Lesson was Fun.", 5, 4, 15.78));
+        bookings.add( new Booking("BIZB017", 208954, "Will", "Smith", 20, 'M', "Zumba", "Week 1", "Sunday", "Afternoon", "Attended", "OK.", 4, 4, 15.78));
+        bookings.add( new Booking("BIZB018", 208955, "Vivian", "Jones", 19, 'F', "Zumba", "Week 1", "Sunday", "Afternoon", "Attended", "Lesson was Great.", 5, 4, 15.78));
+        bookings.add( new Booking("BIBF014", 208956, "Jane", "Jackson", 20, 'F', "Box Fit", "Week 1", "Sunday", "Evening", "Attended", "Lesson was as expected.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBF015", 208957, "Elizaberth", "Brown", 20, 'F', "Box Fit", "Week 1", "Sunday", "Evening", "Changed", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF016", 208958, "Christian", "Bill", 21, 'M', "Box Fit", "Week 1", "Sunday", "Evening", "Attended", "Very Satisfied.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBB015", 208959, "Sharon", "Stone", 19, 'F', "Body Blitz", "Week 2", "Sunday", "Morning", "Attended", "Lesson was Great.", 5, 4, 20.74));
+        bookings.add( new Booking("BIBB016", 208960, "Hipsy", "Cone", 22, 'F', "Body Blitz", "Week 2", "Sunday", "Morning", "Attended", "Great.", 4, 4, 20.74));
+        bookings.add( new Booking("BIYG016", 208961, "Paul", "Walker", 19, 'M', "Yoga", "Week 2", "Sunday", "Afternoon", "Attended", "Very Satisfied.", 5, 4, 12.86));
+        bookings.add( new Booking("BIBF017", 208960, "Hipsy", "Cone", 22, 'F', "Box Fit", "Week 7", "Sunday", "Morning", "Cancelled", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF018", 208947, "James", "Fox", 20, 'M', "Box Fit", "Week 3", "Sunday", "Morning", "Attended", "The equipments were broken.", 1, 4, 17.93));
+        bookings.add( new Booking("BIBF019", 208948, "John", "Doe", 21, 'M', "Box Fit", "Week 3", "Sunday", "Morning", "Booked", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF020", 208959, "Sharon", "Stone", 19, 'F', "Box Fit", "Week 7", "Sunday", "Morning", "Cancelled", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBF021", 208949, "Sarah", "James", 19, 'F', "Box Fit", "Week 3", "Sunday", "Morning", "Attended", "Lesson was Fun.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBF022", 208950, "James", "Bull", 22, 'M', "Box Fit", "Week 3", "Sunday", "Morning", "Attended", "Lesson was Great.", 5, 4, 17.93));
+        bookings.add( new Booking("BIBB017", 208951, "Michael", "Jones", 19, 'M', "Body Blitz", "Week 3", "Sunday", "Afternoon", "Attended", "Lesson was OK but not to my expectations.", 3, 4, 20.74));
+        bookings.add( new Booking("BIBB018", 208952, "Ivan", "Rictish", 21, 'M', "Body Blitz", "Week 3", "Sunday", "Afternoon", "Attended", "Lesson was Fun.", 5, 4, 20.74));
+        bookings.add( new Booking("BIBB019", 208953, "Mary", "King", 19, 'F', "Body Blitz", "Week 3", "Sunday", "Afternoon", "Attended", "Lesson was Fun.", 5, 4, 20.74));
+        bookings.add( new Booking("BIYG017", 208954, "Will", "Smith", 20, 'M', "Yoga", "Week 3", "Sunday", "Evening", "Attended", "Great.", 4, 4, 12.86));
+        bookings.add( new Booking("BIYG018", 208955, "Vivian", "Jones", 19, 'F', "Yoga", "Week 3", "Sunday", "Evening", "Attended", "Lesson started late.", 2, 4, 12.86));
+        bookings.add( new Booking("BIZB019", 208956, "Jane", "Jackson", 20, 'F', "Zumba", "Week 4", "Sunday", "Morning", "Attended", "Lesson was as expected.", 5, 4, 15.78));
+        bookings.add( new Booking("BIBB020", 208957, "Elizaberth", "Brown", 20, 'F', "Body Blitz", "Week 4", "Sunday", "Evening", "Attended", "OK.", 4, 4, 20.74));
+        bookings.add( new Booking("BIBB021", 208958, "Christian", "Bill", 21, 'M', "Body Blitz", "Week 4", "Sunday", "Evening", "Attended", "Very Satisfied.", 5, 4, 20.74));
+        bookings.add( new Booking("BIBB022", 208959, "Sharon", "Stone", 19, 'F', "Body Blitz", "Week 4", "Sunday", "Evening", "Booked", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIBB023", 208960, "Hipsy", "Cone", 22, 'F', "Body Blitz", "Week 4", "Sunday", "Evening", "Attended", "Lesson was Great.", 5, 4, 20.74));
+        bookings.add( new Booking("BIYG019", 208961, "Paul", "Walker", 19, 'M', "Yoga", "Week 5", "Sunday", "Morning", "Booked", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG020", 208947, "James", "Fox", 20, 'M', "Yoga", "Week 5", "Sunday", "Morning", "Attended", "Lesson was great but started a bit late.", 3, 5, 12.86));
+        bookings.add( new Booking("BIYG021", 208948, "John", "Doe", 21, 'M', "Yoga", "Week 5", "Sunday", "Morning", "Attended", "Lesson was Fun.", 5, 5, 12.86));
+        bookings.add( new Booking("BIZB020", 208949, "Sarah", "James", 19, 'F', "Zumba", "Week 5", "Sunday", "Afternoon", "Cancelled", "", 0, 0, 15.78));
+        bookings.add( new Booking("BIZB021", 208949, "Sarah", "James", 19, 'F', "Zumba", "Week 5", "Sunday", "Afternoon", "Attended", "The lesson wasn't as expected.", 2, 5, 15.78));
+        bookings.add( new Booking("BIZB022", 208950, "James", "Bull", 22, 'M', "Zumba", "Week 5", "Sunday", "Afternoon", "Booked", "", 0, 0, 15.78));
+        bookings.add( new Booking("BIBF023", 208951, "Michael", "Jones", 19, 'M', "Box Fit", "Week 5", "Sunday", "Evening", "Attended", "Very Satisfied.", 5, 5, 17.93));
+        bookings.add( new Booking("BIYG022", 208952, "Ivan", "Rictish", 21, 'M', "Yoga", "Week 6", "Sunday", "Afternoon", "Changed", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG023", 208953, "Mary", "King", 19, 'F', "Yoga", "Week 6", "Sunday", "Afternoon", "Attended", "Lesson was as expected.", 5, 5, 12.86));
+        bookings.add( new Booking("BIYG024", 208954, "Will", "Smith", 20, 'M', "Yoga", "Week 6", "Sunday", "Afternoon", "Booked", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG025", 208955, "Vivian", "Jones", 19, 'F', "Yoga", "Week 6", "Sunday", "Afternoon", "Cancelled", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIYG026", 208955, "Vivian", "Jones", 19, 'F', "Yoga", "Week 6", "Sunday", "Afternoon", "Booked", "", 0, 0, 12.86));
+        bookings.add( new Booking("BIZB023", 208956, "Jane", "Jackson", 20, 'F', "Zumba", "Week 6", "Sunday", "Evening", "Attended", "Lesson was great but more room for improvements.", 3, 5, 15.78));
+        bookings.add( new Booking("BIZB024", 208957, "Elizaberth", "Brown", 20, 'F', "Zumba", "Week 6", "Sunday", "Evening", "Attended", "Lesson was Fun.", 5, 5, 15.78));
+        bookings.add( new Booking("BIZB025", 208958, "Christian", "Bill", 21, 'M', "Zumba", "Week 6", "Sunday", "Evening", "Booked", "", 0, 0, 15.78));
+        bookings.add( new Booking("BIBF024", 208959, "Sharon", "Stone", 19, 'F', "Box Fit", "Week 7", "Sunday", "Morning", "Attended", "Lesson was Great.", 5, 5, 17.93));
+        bookings.add( new Booking("BIBF025", 208960, "Hipsy", "Cone", 22, 'F', "Box Fit", "Week 7", "Sunday", "Morning", "Booked", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBB024", 208961, "Paul", "Walker", 19, 'M', "Body Blitz", "Week 7", "Sunday", "Afternoon", "Booked", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIZB026", 208947, "James", "Fox", 20, 'M', "Zumba", "Week 8", "Sunday", "Morning", "Attended", "Great.", 4, 5, 15.78));
+        bookings.add( new Booking("BIZB027", 208948, "John", "Doe", 21, 'M', "Zumba", "Week 8", "Sunday", "Morning", "Booked", "", 0, 0, 15.78));
+        bookings.add( new Booking("BIBF026", 208949, "Sarah", "James", 19, 'F', "Box Fit", "Week 8", "Sunday", "Afternoon", "Booked", "", 0, 0, 17.93));
+        bookings.add( new Booking("BIBB025", 208950, "James", "Bull", 22, 'M', "Body Blitz", "Week 8", "Sunday", "Evening", "Attended", "Lesson was Great.", 5, 5, 20.74));
+        bookings.add( new Booking("BIBB026", 208951, "Michael", "Jones", 19, 'M', "Body Blitz", "Week 8", "Sunday", "Evening", "Booked", "", 0, 0, 20.74));
+        bookings.add( new Booking("BIBB027", 208952, "Ivan", "Rictish", 21, 'M', "Body Blitz", "Week 8", "Sunday", "Evening", "Attended", "Very Satisfied.", 5, 5, 20.74));
+
         return bookings;
     }
     
@@ -245,7 +336,7 @@ public class Homepage extends javax.swing.JFrame {
     ArrayList<Booking> bookingBodyBlitz = new ArrayList<Booking>();
     
     
-    public void addRowToSaturdayTable(){
+    private void addRowToSaturdayTable(){
         
         jtSaturday.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -267,7 +358,7 @@ public class Homepage extends javax.swing.JFrame {
         jtSaturday.setRowHeight(30);
     }
     
-    public void addRowToSundayTable(){
+    private void addRowToSundayTable(){
         
         jtSunday.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -289,7 +380,7 @@ public class Homepage extends javax.swing.JFrame {
         jtSunday.setRowHeight(30);
     }
     
-    public void addRowToAllLessonsTable(){
+    private void addRowToAllLessonsTable(){
         jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
         JButton btnzy = new JButton("Book");
         btnzy.setName("b");
@@ -311,7 +402,7 @@ public class Homepage extends javax.swing.JFrame {
         jtAllTimeTable.setRowHeight(30);
     }
     
-    public void addRowToYogaTable(){
+    private void addRowToYogaTable(){
         
         jtYoga.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -333,7 +424,7 @@ public class Homepage extends javax.swing.JFrame {
         jtYoga.setRowHeight(30);
     }
     
-    public void addRowToZumbaTable(){
+    private void addRowToZumbaTable(){
         
         jtZumba.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -355,7 +446,7 @@ public class Homepage extends javax.swing.JFrame {
         jtZumba.setRowHeight(30);
     }
     
-    public void addRowToBoxFitTable(){
+    private void addRowToBoxFitTable(){
         
         jtBoxFit.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -377,7 +468,7 @@ public class Homepage extends javax.swing.JFrame {
         jtBoxFit.setRowHeight(30);
     }
     
-    public void addRowToBodyBlitzTable(){
+    private void addRowToBodyBlitzTable(){
         
         jtBodyBlitz.setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
@@ -399,7 +490,7 @@ public class Homepage extends javax.swing.JFrame {
         jtBodyBlitz.setRowHeight(30);
     }
     
-    public void addRowToBooked(){
+    private void addRowToBooked(){
         jtAttend.setDefaultRenderer(Object.class, new Render());
         JButton btn2 = new JButton("Attend");
         btn2.setName("at");
@@ -442,7 +533,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
-    public void addRowToBookingHistory(){
+    private void addRowToBookingHistory(){
         DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
         Object rowHistoryData[] = new Object[bookings.size()];
         for (int i = 0; i < bookings.size(); i++){
@@ -460,8 +551,16 @@ public class Homepage extends javax.swing.JFrame {
         jtBookings.setRowHeight(30);
     }
     
-    public void addRowToStudents(){
+    private void addRowToStudents(){
         DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        
+        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
         Object rowStudentData[] = new Object[student.size()];
         for (int i = 0; i < student.size(); i++){
             rowStudentData[0] = i + 1;
@@ -476,7 +575,7 @@ public class Homepage extends javax.swing.JFrame {
         jtStudents.setRowHeight(30);
     }
     
-    public boolean isStudent(int StudentID){
+    private boolean isStudent(int StudentID){
         
         for (Students s : student){
             if(s.getStudenID() == StudentID){
@@ -486,7 +585,7 @@ public class Homepage extends javax.swing.JFrame {
         return false;
     }
     
-    public boolean canBookLesson(int StudentID, String LessonName, String LessonWeek, String LessonPeriod, String LessonDay){
+    private boolean canBookLesson(int StudentID, String LessonName, String LessonWeek, String LessonPeriod, String LessonDay){
         
         for (Booking b : bookings){
             if(b.getStudentID() == StudentID && b.getLessonName() == LessonName && b.getLessonWeek() == LessonWeek && b.getLessonPeriod() == LessonPeriod && b.getLessonDay() == LessonDay){
@@ -496,7 +595,7 @@ public class Homepage extends javax.swing.JFrame {
         return true;
     }
     
-    public boolean isStudentFree(int StudentID, String LessonWeek, String LessonPeriod, String LessonDay){
+    private boolean isStudentFree(int StudentID, String LessonWeek, String LessonPeriod, String LessonDay){
         
         for(Booking b : bookings){
             if(b.getStudentID() == StudentID && b.getLessonWeek() == LessonWeek && b.getLessonDay() == LessonDay && b.getLessonPeriod() == LessonPeriod && b.getLessonStatus() == "Booked"){
@@ -507,7 +606,7 @@ public class Homepage extends javax.swing.JFrame {
         return true;
     }
     
-    public void attendLesson(int a){
+    private void attendLesson(int a){
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to attend " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson?", "Attend Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
             String userReview = JOptionPane.showInputDialog(rootPane, bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Lesson has been attended Sucessfuly. Please leave a review.", "Lesson attended successfuly.", JOptionPane.INFORMATION_MESSAGE);
@@ -571,7 +670,7 @@ public class Homepage extends javax.swing.JFrame {
         }
     }
         
-    public void changeLesson(int a, int remSlot, String bkID){
+    private void changeLesson(int a, int remSlot, String bkID){
         if(remSlot <= 4 && remSlot != 0){
             String LesName, LesWeek, LesPeriod, LesDay, LName = "", LDay = "", LWeek = "", LPeriod = "";
             int studentID = 0;
@@ -834,7 +933,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }
         
-    public void cancelLesson(int a){
+    private void cancelLesson(int a){
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to cancel " + bookings.get(a).getLessonPeriod() + " " + bookings.get(a).getLessonName() + " Booking?", "Cancel Bookings", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
             JTable jt = jtAttend, jt2 = jt; 
@@ -1040,7 +1139,7 @@ public class Homepage extends javax.swing.JFrame {
         }
     }
     
-    public void mayBook(int a, int remSlot, JTable jt, ArrayList<Lesson> listArray, String LesDay ){
+    private void mayBook(int a, int remSlot, JTable jt, ArrayList<Lesson> listArray, String LesDay ){
         if(remSlot <= 4 && remSlot != 0){
         //Validate Student with student's ID
         String sid = JOptionPane.showInputDialog(rootPane, "Please enter the student's ID.", "Input Student ID", JOptionPane.QUESTION_MESSAGE);
@@ -1358,7 +1457,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }
         
-    public void increaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
+    private void increaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
         
         for(Lesson l : listArray){
             if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
@@ -1370,7 +1469,7 @@ public class Homepage extends javax.swing.JFrame {
         }        
     }
     
-    public void decreaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
+    private void decreaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
         
         for(Lesson l : listArray){
             if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
@@ -1382,7 +1481,11 @@ public class Homepage extends javax.swing.JFrame {
         }
     }
     
-    public void monthlyReport(int m){
+    private static final DecimalFormat df = new DecimalFormat("0.0");
+    
+    private static final DecimalFormat df2 = new DecimalFormat("0.00");
+    
+    private void monthlyReport(int m){
         
         double averageYoga = 0;
         int countYoga = 0;
@@ -1434,20 +1537,32 @@ public class Homepage extends javax.swing.JFrame {
             averageTotal = 0;
         }
         
+        
+        
+        DefaultTableModel model = (DefaultTableModel) jtReport.getModel();        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        
+        jtReport.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jtReport.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        jtReport.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        
         jtReport.setValueAt(countBodyBlitz, 0, 2);
-        jtReport.setValueAt(averageBodyBlitz, 0, 3);
+        jtReport.setValueAt(df.format(averageBodyBlitz), 0, 3);
         jtReport.setValueAt(countBoxFit, 1, 2);
-        jtReport.setValueAt(averageBoxFit, 1, 3);
+        jtReport.setValueAt(df.format(averageBoxFit), 1, 3);
         jtReport.setValueAt(countYoga, 2, 2);
-        jtReport.setValueAt(averageYoga, 2, 3);
+        jtReport.setValueAt(df.format(averageYoga), 2, 3);
         jtReport.setValueAt(countZumba, 3, 2);
-        jtReport.setValueAt(averageZumba, 3, 3);
+        jtReport.setValueAt(df.format(averageZumba), 3, 3);
         jtReport.setValueAt(countBodyBlitz + countBoxFit + countYoga + countZumba, 4, 2);
-        jtReport.setValueAt(averageTotal, 4, 3);
+        jtReport.setValueAt(df.format(averageTotal), 4, 3);
         
     }
     
-    public void championExercise(int m){
+    private void championExercise(int m){
         
         double incomeYoga = 0;
         int countYoga = 0;
@@ -1481,48 +1596,58 @@ public class Homepage extends javax.swing.JFrame {
         incomeBoxFit = countBoxFit * 17.93;
         incomeBodyBlitz = countBodyBlitz * 20.74;
         
+        DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        
+        jtExeReport.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jtExeReport.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        jtExeReport.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        jtExeReport.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
+        
         if (incomeYoga > incomeZumba && incomeYoga > incomeBoxFit && incomeYoga > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             jtExeReport.setValueAt("1.", 0, 0);
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
         }else if (incomeZumba > incomeYoga && incomeZumba > incomeBoxFit && incomeZumba > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             jtExeReport.setValueAt("1.", 0, 0);
             jtExeReport.setValueAt("Zumba", 0, 1);
             jtExeReport.setValueAt(countZumba, 0, 2);
             jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(incomeZumba, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 0, 4);
             
         }else if (incomeBoxFit > incomeYoga && incomeBoxFit > incomeZumba && incomeBoxFit > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             jtExeReport.setValueAt("1.", 0, 0);
             jtExeReport.setValueAt("Box Fit", 0, 1);
             jtExeReport.setValueAt(countBoxFit, 0, 2);
             jtExeReport.setValueAt(17.93, 0, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 0, 4);
             
         }else if (incomeBodyBlitz > incomeYoga && incomeBodyBlitz > incomeZumba && incomeBodyBlitz > incomeBoxFit){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             jtExeReport.setValueAt("1.", 0, 0);
             jtExeReport.setValueAt("Body Blitz", 0, 1);
             jtExeReport.setValueAt(countBodyBlitz, 0, 2);
             jtExeReport.setValueAt(20.74, 0, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 0, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga > incomeBoxFit && incomeYoga > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1531,16 +1656,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Zumba", 1, 1);
             jtExeReport.setValueAt(countZumba, 1, 2);
             jtExeReport.setValueAt(15.78, 1, 3);
-            jtExeReport.setValueAt(incomeZumba, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 1, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga == incomeBoxFit && incomeYoga > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1549,16 +1674,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Box Fit", 1, 1);
             jtExeReport.setValueAt(countBoxFit, 1, 2);
             jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 1, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga > incomeBoxFit && incomeYoga == incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1567,16 +1692,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Body Blitz", 1, 1);
             jtExeReport.setValueAt(countBodyBlitz, 1, 2);
             jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeZumba == incomeBoxFit && incomeZumba > incomeBodyBlitz && incomeZumba > incomeYoga){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1585,16 +1710,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Zumba", 0, 1);
             jtExeReport.setValueAt(countZumba, 0, 2);
             jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(incomeZumba, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Box Fit", 1, 1);
             jtExeReport.setValueAt(countBoxFit, 1, 2);
             jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 1, 4);
             
         }else if (incomeZumba > incomeBoxFit && incomeZumba == incomeBodyBlitz && incomeZumba > incomeYoga){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1603,16 +1728,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Zumba", 0, 1);
             jtExeReport.setValueAt(countZumba, 0, 2);
             jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(incomeZumba, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Body Blitz", 1, 1);
             jtExeReport.setValueAt(countBodyBlitz, 1, 2);
             jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeBoxFit > incomeYoga && incomeBoxFit == incomeBodyBlitz && incomeBoxFit > incomeZumba){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1621,16 +1746,16 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Box Fit", 0, 1);
             jtExeReport.setValueAt(countBoxFit, 0, 2);
             jtExeReport.setValueAt(17.93, 0, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Body Blitz", 1, 1);
             jtExeReport.setValueAt(countBodyBlitz, 1, 2);
             jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga > incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1640,22 +1765,22 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Zumba", 1, 1);
             jtExeReport.setValueAt(countZumba, 1, 2);
             jtExeReport.setValueAt(15.78, 1, 3);
-            jtExeReport.setValueAt(incomeZumba, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 1, 4);
             
             jtExeReport.setValueAt("3.", 2, 0);
             jtExeReport.setValueAt("Box Fit", 2, 1);
             jtExeReport.setValueAt(countBoxFit, 2, 2);
             jtExeReport.setValueAt(17.93, 2, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 2, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 2, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1665,22 +1790,22 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Box Fit", 1, 1);
             jtExeReport.setValueAt(countBoxFit, 1, 2);
             jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 1, 4);
             
             jtExeReport.setValueAt("3.", 2, 0);
             jtExeReport.setValueAt("Body Blitz", 2, 1);
             jtExeReport.setValueAt(countBodyBlitz, 2, 2);
             jtExeReport.setValueAt(20.74, 2, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 2, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 2, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz && incomeYoga != 0){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
@@ -1691,28 +1816,28 @@ public class Homepage extends javax.swing.JFrame {
             jtExeReport.setValueAt("Yoga", 0, 1);
             jtExeReport.setValueAt(countYoga, 0, 2);
             jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(incomeYoga, 0, 4);
+            jtExeReport.setValueAt(df2.format(incomeYoga), 0, 4);
             
             jtExeReport.setValueAt("2.", 1, 0);
             jtExeReport.setValueAt("Box Fit", 1, 1);
             jtExeReport.setValueAt(countBoxFit, 1, 2);
             jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(incomeBoxFit, 1, 4);
+            jtExeReport.setValueAt(df2.format(incomeBoxFit), 1, 4);
             
             jtExeReport.setValueAt("3.", 2, 0);
             jtExeReport.setValueAt("Body Blitz", 2, 1);
             jtExeReport.setValueAt(countBodyBlitz, 2, 2);
             jtExeReport.setValueAt(20.74, 2, 3);
-            jtExeReport.setValueAt(incomeBodyBlitz, 2, 4);
+            jtExeReport.setValueAt(df2.format(incomeBodyBlitz), 2, 4);
             
             jtExeReport.setValueAt("4.", 3, 0);
             jtExeReport.setValueAt("Zumba", 3, 1);
             jtExeReport.setValueAt(countZumba, 3, 2);
             jtExeReport.setValueAt(15.78, 3, 3);
-            jtExeReport.setValueAt(incomeZumba, 3, 4);
+            jtExeReport.setValueAt(df2.format(incomeZumba), 3, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz && incomeYoga == 0){
-            DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
+            //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
@@ -1726,7 +1851,7 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
-    public void newStudent(){
+    private void newStudent(){
         
         JTextField sFirstName = new JTextField();
         JTextField sLastName = new JTextField();
@@ -1751,10 +1876,20 @@ public class Homepage extends javax.swing.JFrame {
             
             student.add(new Students(newStudentID, Integer.parseInt(sAge.getText()), sFirstName.getText(), sLastName.getText(), sSex.charAt(0)));
             
+        }else{
+            return;
         }
         
         DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
-        modelStudents.setRowCount(0);
+        modelStudents.setRowCount(0);        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        
+        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
         Object[] rowStudentData = new Object[student.size()];
         for (int i = 0; i < student.size(); i++){
             rowStudentData[0] = i + 1;
@@ -2851,6 +2986,7 @@ public class Homepage extends javax.swing.JFrame {
         resetPanelColor(btnStudents);
         
         //pages
+        pgAllTimeTable.setVisible(false);
         pgSaturday.setVisible(false);
         pgDashboard.setVisible(true);
         pgBook.setVisible(false);
@@ -3104,6 +3240,8 @@ public class Homepage extends javax.swing.JFrame {
             mon = "November";
         }else if(resMonth == "12"){
             mon = "December";
+        }else{
+            return;
         }
         
         int m = Integer.parseInt(resMonth);
@@ -3171,6 +3309,8 @@ public class Homepage extends javax.swing.JFrame {
             mon = "November";
         }else if(resMonth == "12"){
             mon = "December";
+        }else{
+            return;
         }
         
         int m = Integer.parseInt(resMonth);
@@ -3404,7 +3544,7 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_jtReportMouseClicked
 
     private void jtExeReportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtExeReportMouseClicked
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jtExeReportMouseClicked
 
     private void lblStudentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentsMouseClicked
