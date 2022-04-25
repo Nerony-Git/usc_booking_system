@@ -21,7 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;  
+import javax.swing.table.DefaultTableModel; 
+import Data.HomepageData;
 
 /**
  *
@@ -32,6 +33,9 @@ public class Homepage extends javax.swing.JFrame {
     /**
      * Creates new form Homepage
      */
+    
+    HomepageData homeData = new HomepageData();
+    
     public Homepage() {
         initComponents();
         dt();
@@ -504,27 +508,28 @@ public class Homepage extends javax.swing.JFrame {
         DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
         Object rowData[] = new Object[bookings.size()];
         for (int i = 0; i < bookings.size(); i++){
-            rowData[0] = bookings.get(i).getBookingID();
-            rowData[1] = bookings.get(i).getLessonName();
-            rowData[2] = bookings.get(i).getLessonWeek();
-            rowData[3] = bookings.get(i).getLessonDay();
-            rowData[4] = bookings.get(i).getLessonPeriod();
-            rowData[5] = bookings.get(i).getLessonStatus();
+            rowData[0] = i + 1;
+            rowData[1] = bookings.get(i).getBookingID();
+            rowData[2] = bookings.get(i).getLessonName();
+            rowData[3] = bookings.get(i).getLessonWeek();
+            rowData[4] = bookings.get(i).getLessonDay();
+            rowData[5] = bookings.get(i).getLessonPeriod();
+            rowData[6] = bookings.get(i).getLessonStatus();
             
             if (bookings.get(i).getLessonStatus() == "Attended"){
-                    rowData[6] = "";
                     rowData[7] = "";
                     rowData[8] = "";
+                    rowData[9] = "";
 
                 }else if (bookings.get(i).getLessonStatus() == "Cancelled"){
-                    rowData[6] = "";
                     rowData[7] = "";
                     rowData[8] = "";
+                    rowData[9] = "";
 
                 }else{
-                    rowData[6] = btn2;
-                    rowData[7] = btn3;
-                    rowData[8] = btn4;
+                    rowData[7] = btn2;
+                    rowData[8] = btn3;
+                    rowData[9] = btn4;
                 }
             
             modelBook.addRow(rowData);
@@ -537,14 +542,15 @@ public class Homepage extends javax.swing.JFrame {
         DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
         Object rowHistoryData[] = new Object[bookings.size()];
         for (int i = 0; i < bookings.size(); i++){
-            rowHistoryData[0] = bookings.get(i).getBookingID();
-            rowHistoryData[1] = bookings.get(i).getStudentID();
-            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
-            rowHistoryData[3] = bookings.get(i).getLessonName();
-            rowHistoryData[4] = bookings.get(i).getLessonWeek();
-            rowHistoryData[5] = bookings.get(i).getLessonDay();
-            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
-            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+            rowHistoryData[0] = i + 1;
+            rowHistoryData[1] = bookings.get(i).getBookingID();
+            rowHistoryData[2] = bookings.get(i).getStudentID();
+            rowHistoryData[3] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+            rowHistoryData[4] = bookings.get(i).getLessonName();
+            rowHistoryData[5] = bookings.get(i).getLessonWeek();
+            rowHistoryData[6] = bookings.get(i).getLessonDay();
+            rowHistoryData[7] = bookings.get(i).getLessonPeriod();
+            rowHistoryData[8] = bookings.get(i).getLessonStatus();
             
             modelHistory.addRow(rowHistoryData);
         }
@@ -976,27 +982,28 @@ public class Homepage extends javax.swing.JFrame {
 
             Object rowBookData[] = new Object[bookings.size()];
             for (int k = 0; k < bookings.size(); k++){
-                rowBookData[0] = bookings.get(k).getBookingID();
-                rowBookData[1] = bookings.get(k).getLessonName();
-                rowBookData[2] = bookings.get(k).getLessonWeek();
-                rowBookData[3] = bookings.get(k).getLessonDay();
-                rowBookData[4] = bookings.get(k).getLessonPeriod();
-                rowBookData[5] = bookings.get(k).getLessonStatus();
+                rowBookData[0] = k + 1;
+                rowBookData[1] = bookings.get(k).getBookingID();
+                rowBookData[2] = bookings.get(k).getLessonName();
+                rowBookData[3] = bookings.get(k).getLessonWeek();
+                rowBookData[4] = bookings.get(k).getLessonDay();
+                rowBookData[5] = bookings.get(k).getLessonPeriod();
+                rowBookData[6] = bookings.get(k).getLessonStatus();
 
                 if (bookings.get(k).getLessonStatus() == "Attended"){
-                    rowBookData[6] = "";
                     rowBookData[7] = "";
                     rowBookData[8] = "";
+                    rowBookData[9] = "";
 
                 }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
-                    rowBookData[6] = "";
                     rowBookData[7] = "";
                     rowBookData[8] = "";
+                    rowBookData[9] = "";
 
                 }else{
-                    rowBookData[6] = btn2;
-                    rowBookData[7] = btn3;
-                    rowBookData[8] = btn4;
+                    rowBookData[7] = btn2;
+                    rowBookData[8] = btn3;
+                    rowBookData[9] = btn4;
                 }
 
 
@@ -1169,16 +1176,18 @@ public class Homepage extends javax.swing.JFrame {
                         }
                         
                         DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+                        modelHistory.setRowCount(0);
                         Object rowHistoryData[] = new Object[bookings.size()];
                         for (int i = 0; i < bookings.size(); i++){
-                            rowHistoryData[0] = bookings.get(i).getBookingID();
-                            rowHistoryData[1] = bookings.get(i).getStudentID();
-                            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
-                            rowHistoryData[3] = bookings.get(i).getLessonName();
-                            rowHistoryData[4] = bookings.get(i).getLessonWeek();
-                            rowHistoryData[5] = bookings.get(i).getLessonDay();
-                            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
-                            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+                            rowHistoryData[0] = i + 1;
+                            rowHistoryData[1] = bookings.get(i).getBookingID();
+                            rowHistoryData[2] = bookings.get(i).getStudentID();
+                            rowHistoryData[3] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                            rowHistoryData[4] = bookings.get(i).getLessonName();
+                            rowHistoryData[5] = bookings.get(i).getLessonWeek();
+                            rowHistoryData[6] = bookings.get(i).getLessonDay();
+                            rowHistoryData[7] = bookings.get(i).getLessonPeriod();
+                            rowHistoryData[8] = bookings.get(i).getLessonStatus();
 
                             modelHistory.addRow(rowHistoryData);
                         }
@@ -1217,27 +1226,28 @@ public class Homepage extends javax.swing.JFrame {
 
                         Object rowBookData[] = new Object[bookings.size()];
                         for (int k = 0; k < bookings.size(); k++){
-                            rowBookData[0] = bookings.get(k).getBookingID();
-                            rowBookData[1] = bookings.get(k).getLessonName();
-                            rowBookData[2] = bookings.get(k).getLessonWeek();
-                            rowBookData[3] = bookings.get(k).getLessonDay();
-                            rowBookData[4] = bookings.get(k).getLessonPeriod();
-                            rowBookData[5] = bookings.get(k).getLessonStatus();
+                            rowBookData[0] = k + 1;
+                            rowBookData[1] = bookings.get(k).getBookingID();
+                            rowBookData[2] = bookings.get(k).getLessonName();
+                            rowBookData[3] = bookings.get(k).getLessonWeek();
+                            rowBookData[4] = bookings.get(k).getLessonDay();
+                            rowBookData[5] = bookings.get(k).getLessonPeriod();
+                            rowBookData[6] = bookings.get(k).getLessonStatus();
 
                             if (bookings.get(k).getLessonStatus() == "Attended"){
-                                rowBookData[6] = "";
                                 rowBookData[7] = "";
                                 rowBookData[8] = "";
+                                rowBookData[9] = "";
 
                             }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
-                                rowBookData[6] = "";
                                 rowBookData[7] = "";
                                 rowBookData[8] = "";
+                                rowBookData[9] = "";
 
                             }else{
-                                rowBookData[6] = btn2;
-                                rowBookData[7] = btn3;
-                                rowBookData[8] = btn4;
+                                rowBookData[7] = btn2;
+                                rowBookData[8] = btn3;
+                                rowBookData[9] = btn4;
                             }
 
 
@@ -1382,16 +1392,18 @@ public class Homepage extends javax.swing.JFrame {
             }
             
             DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+            modelHistory.setRowCount(0);
             Object rowHistoryData[] = new Object[bookings.size()];
             for (int i = 0; i < bookings.size(); i++){
-                rowHistoryData[0] = bookings.get(i).getBookingID();
-                rowHistoryData[1] = bookings.get(i).getStudentID();
-                rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
-                rowHistoryData[3] = bookings.get(i).getLessonName();
-                rowHistoryData[4] = bookings.get(i).getLessonWeek();
-                rowHistoryData[5] = bookings.get(i).getLessonDay();
-                rowHistoryData[6] = bookings.get(i).getLessonPeriod();
-                rowHistoryData[7] = bookings.get(i).getLessonStatus();
+                rowHistoryData[0] = i + 1;
+                rowHistoryData[1] = bookings.get(i).getBookingID();
+                rowHistoryData[2] = bookings.get(i).getStudentID();
+                rowHistoryData[3] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                rowHistoryData[4] = bookings.get(i).getLessonName();
+                rowHistoryData[5] = bookings.get(i).getLessonWeek();
+                rowHistoryData[6] = bookings.get(i).getLessonDay();
+                rowHistoryData[7] = bookings.get(i).getLessonPeriod();
+                rowHistoryData[8] = bookings.get(i).getLessonStatus();
 
                 modelHistory.addRow(rowHistoryData);
             }
@@ -1430,27 +1442,28 @@ public class Homepage extends javax.swing.JFrame {
 
             Object rowBookData[] = new Object[bookings.size()];
             for (int k = 0; k < bookings.size(); k++){
-                rowBookData[0] = bookings.get(k).getBookingID();
-                rowBookData[1] = bookings.get(k).getLessonName();
-                rowBookData[2] = bookings.get(k).getLessonWeek();
-                rowBookData[3] = bookings.get(k).getLessonDay();
-                rowBookData[4] = bookings.get(k).getLessonPeriod();
-                rowBookData[5] = bookings.get(k).getLessonStatus();
+                rowBookData[0] = k + 1;
+                rowBookData[1] = bookings.get(k).getBookingID();
+                rowBookData[2] = bookings.get(k).getLessonName();
+                rowBookData[3] = bookings.get(k).getLessonWeek();
+                rowBookData[4] = bookings.get(k).getLessonDay();
+                rowBookData[5] = bookings.get(k).getLessonPeriod();
+                rowBookData[6] = bookings.get(k).getLessonStatus();
 
                 if (bookings.get(k).getLessonStatus() == "Attended"){
-                    rowBookData[6] = "";
                     rowBookData[7] = "";
                     rowBookData[8] = "";
+                    rowBookData[9] = "";
 
                 }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
-                    rowBookData[6] = "";
                     rowBookData[7] = "";
                     rowBookData[8] = "";
+                    rowBookData[9] = "";
 
                 }else{
-                    rowBookData[6] = btn2;
-                    rowBookData[7] = btn3;
-                    rowBookData[8] = btn4;
+                    rowBookData[7] = btn2;
+                    rowBookData[8] = btn3;
+                    rowBookData[9] = btn4;
                 }
 
 
@@ -1724,16 +1737,18 @@ public class Homepage extends javax.swing.JFrame {
                         }
                         
                         DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+                        modelHistory.setRowCount(0);
                         Object rowHistoryData[] = new Object[bookings.size()];
                         for (int i = 0; i < bookings.size(); i++){
-                            rowHistoryData[0] = bookings.get(i).getBookingID();
-                            rowHistoryData[1] = bookings.get(i).getStudentID();
-                            rowHistoryData[2] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
-                            rowHistoryData[3] = bookings.get(i).getLessonName();
-                            rowHistoryData[4] = bookings.get(i).getLessonWeek();
-                            rowHistoryData[5] = bookings.get(i).getLessonDay();
-                            rowHistoryData[6] = bookings.get(i).getLessonPeriod();
-                            rowHistoryData[7] = bookings.get(i).getLessonStatus();
+                            rowHistoryData[0] = i + 1;
+                            rowHistoryData[1] = bookings.get(i).getBookingID();
+                            rowHistoryData[2] = bookings.get(i).getStudentID();
+                            rowHistoryData[3] = bookings.get(i).getStudentFName() + " " + bookings.get(i).getStudentLName();
+                            rowHistoryData[4] = bookings.get(i).getLessonName();
+                            rowHistoryData[5] = bookings.get(i).getLessonWeek();
+                            rowHistoryData[6] = bookings.get(i).getLessonDay();
+                            rowHistoryData[7] = bookings.get(i).getLessonPeriod();
+                            rowHistoryData[8] = bookings.get(i).getLessonStatus();
 
                             modelHistory.addRow(rowHistoryData);
                         }
@@ -1753,27 +1768,28 @@ public class Homepage extends javax.swing.JFrame {
 
                         Object rowBookData[] = new Object[bookings.size()];
                         for (int k = 0; k < bookings.size(); k++){
-                            rowBookData[0] = bookings.get(k).getBookingID();
-                            rowBookData[1] = bookings.get(k).getLessonName();
-                            rowBookData[2] = bookings.get(k).getLessonWeek();
-                            rowBookData[3] = bookings.get(k).getLessonDay();
-                            rowBookData[4] = bookings.get(k).getLessonPeriod();
-                            rowBookData[5] = bookings.get(k).getLessonStatus();
+                            rowBookData[0] = k + 1;
+                            rowBookData[1] = bookings.get(k).getBookingID();
+                            rowBookData[2] = bookings.get(k).getLessonName();
+                            rowBookData[3] = bookings.get(k).getLessonWeek();
+                            rowBookData[4] = bookings.get(k).getLessonDay();
+                            rowBookData[5] = bookings.get(k).getLessonPeriod();
+                            rowBookData[6] = bookings.get(k).getLessonStatus();
 
                             if (bookings.get(k).getLessonStatus() == "Attended"){
-                                rowBookData[6] = "";
                                 rowBookData[7] = "";
                                 rowBookData[8] = "";
+                                rowBookData[9] = "";
 
                             }else if (bookings.get(k).getLessonStatus() == "Cancelled"){
-                                rowBookData[6] = "";
                                 rowBookData[7] = "";
                                 rowBookData[8] = "";
+                                rowBookData[9] = "";
 
                             }else{
-                                rowBookData[6] = btn2;
-                                rowBookData[7] = btn3;
-                                rowBookData[8] = btn4;
+                                rowBookData[7] = btn2;
+                                rowBookData[8] = btn3;
+                                rowBookData[9] = btn4;
                             }
                             
                             modelBook.addRow(rowBookData);
@@ -2642,11 +2658,11 @@ public class Homepage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Booking ID", "Lesson", "Week", "Day", "Period", "Status", "Attend", "Change", "Cancel"
+                "S/N.", "Booking ID", "Lesson", "Week", "Day", "Period", "Status", "Attend", "Change", "Cancel"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2663,23 +2679,25 @@ public class Homepage extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jtAttend);
         if (jtAttend.getColumnModel().getColumnCount() > 0) {
             jtAttend.getColumnModel().getColumn(0).setResizable(false);
-            jtAttend.getColumnModel().getColumn(0).setPreferredWidth(150);
+            jtAttend.getColumnModel().getColumn(0).setPreferredWidth(80);
             jtAttend.getColumnModel().getColumn(1).setResizable(false);
-            jtAttend.getColumnModel().getColumn(1).setPreferredWidth(200);
+            jtAttend.getColumnModel().getColumn(1).setPreferredWidth(150);
             jtAttend.getColumnModel().getColumn(2).setResizable(false);
-            jtAttend.getColumnModel().getColumn(2).setPreferredWidth(100);
+            jtAttend.getColumnModel().getColumn(2).setPreferredWidth(200);
             jtAttend.getColumnModel().getColumn(3).setResizable(false);
-            jtAttend.getColumnModel().getColumn(3).setPreferredWidth(150);
+            jtAttend.getColumnModel().getColumn(3).setPreferredWidth(100);
             jtAttend.getColumnModel().getColumn(4).setResizable(false);
             jtAttend.getColumnModel().getColumn(4).setPreferredWidth(150);
             jtAttend.getColumnModel().getColumn(5).setResizable(false);
-            jtAttend.getColumnModel().getColumn(5).setPreferredWidth(120);
+            jtAttend.getColumnModel().getColumn(5).setPreferredWidth(150);
             jtAttend.getColumnModel().getColumn(6).setResizable(false);
             jtAttend.getColumnModel().getColumn(6).setPreferredWidth(120);
             jtAttend.getColumnModel().getColumn(7).setResizable(false);
-            jtAttend.getColumnModel().getColumn(7).setPreferredWidth(150);
+            jtAttend.getColumnModel().getColumn(7).setPreferredWidth(120);
             jtAttend.getColumnModel().getColumn(8).setResizable(false);
-            jtAttend.getColumnModel().getColumn(8).setPreferredWidth(120);
+            jtAttend.getColumnModel().getColumn(8).setPreferredWidth(150);
+            jtAttend.getColumnModel().getColumn(9).setResizable(false);
+            jtAttend.getColumnModel().getColumn(9).setPreferredWidth(120);
         }
 
         pgAttend.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));
@@ -2773,11 +2791,11 @@ public class Homepage extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Booking ID", "Student ID", "Student Name", "Lesson", "Week", "Day", "Period", "Status"
+                "S/N.", "Booking ID", "Student ID", "Student Name", "Lesson", "Week", "Day", "Period", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2789,21 +2807,23 @@ public class Homepage extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jtBookings);
         if (jtBookings.getColumnModel().getColumnCount() > 0) {
             jtBookings.getColumnModel().getColumn(0).setResizable(false);
-            jtBookings.getColumnModel().getColumn(0).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(0).setPreferredWidth(80);
             jtBookings.getColumnModel().getColumn(1).setResizable(false);
             jtBookings.getColumnModel().getColumn(1).setPreferredWidth(150);
             jtBookings.getColumnModel().getColumn(2).setResizable(false);
-            jtBookings.getColumnModel().getColumn(2).setPreferredWidth(250);
+            jtBookings.getColumnModel().getColumn(2).setPreferredWidth(150);
             jtBookings.getColumnModel().getColumn(3).setResizable(false);
-            jtBookings.getColumnModel().getColumn(3).setPreferredWidth(180);
+            jtBookings.getColumnModel().getColumn(3).setPreferredWidth(250);
             jtBookings.getColumnModel().getColumn(4).setResizable(false);
-            jtBookings.getColumnModel().getColumn(4).setPreferredWidth(100);
+            jtBookings.getColumnModel().getColumn(4).setPreferredWidth(180);
             jtBookings.getColumnModel().getColumn(5).setResizable(false);
-            jtBookings.getColumnModel().getColumn(5).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(5).setPreferredWidth(100);
             jtBookings.getColumnModel().getColumn(6).setResizable(false);
             jtBookings.getColumnModel().getColumn(6).setPreferredWidth(150);
             jtBookings.getColumnModel().getColumn(7).setResizable(false);
             jtBookings.getColumnModel().getColumn(7).setPreferredWidth(150);
+            jtBookings.getColumnModel().getColumn(8).setResizable(false);
+            jtBookings.getColumnModel().getColumn(8).setPreferredWidth(150);
         }
 
         pgBookings.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 980, 490));

@@ -671,7 +671,8 @@
                 <Component class="javax.swing.JTable" name="jtAttend">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="9" rowCount="0">
+                      <Table columnCount="10" rowCount="0">
+                        <Column editable="false" title="S/N." type="java.lang.Object"/>
                         <Column editable="false" title="Booking ID" type="java.lang.Object"/>
                         <Column editable="false" title="Lesson" type="java.lang.Object"/>
                         <Column editable="false" title="Week" type="java.lang.Object"/>
@@ -686,6 +687,11 @@
                     <Property name="autoResizeMode" type="int" value="0"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="80" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="false">
                           <Title/>
                           <Editor/>
@@ -972,7 +978,8 @@
                 <Component class="javax.swing.JTable" name="jtBookings">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="0">
+                      <Table columnCount="9" rowCount="0">
+                        <Column editable="false" title="S/N." type="java.lang.Object"/>
                         <Column editable="false" title="Booking ID" type="java.lang.Object"/>
                         <Column editable="false" title="Student ID" type="java.lang.Object"/>
                         <Column editable="false" title="Student Name" type="java.lang.Object"/>
@@ -986,6 +993,11 @@
                     <Property name="autoResizeMode" type="int" value="0"/>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="80" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="150" resizable="false">
                           <Title/>
                           <Editor/>
