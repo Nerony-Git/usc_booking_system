@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel; 
 import Data.HomepageData;
+import Data.LessonData;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Homepage extends javax.swing.JFrame {
      */
     
     HomepageData homeData = new HomepageData();
+    LessonData lData = new LessonData();
     
     public Homepage() {
         initComponents();
@@ -634,7 +636,7 @@ public class Homepage extends javax.swing.JFrame {
         pgBoxFit.setVisible(false);
         pgBodyBlitz.setVisible(false);
     }
-    
+        
     private void attendLesson(int a){
         int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to attend " + homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson?", "Attend Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(opt == 0){
@@ -644,9 +646,7 @@ public class Homepage extends javax.swing.JFrame {
             String ratings = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical ratings for the lesson. \n 1: Very dissatisfied  \n 2: Dissatisfied \n 3: Ok \n 4: Satisfied \n 5: Very Satisfied \n", "Lesson Ratings", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
             int rating = Integer.valueOf(ratings);
             
-            homeData.bookings.get(a).setLessonStatus("Attended");
-            homeData.bookings.get(a).setLessonReview(userReview);
-            homeData.bookings.get(a).setLessonRating(rating);
+            homeData.lessonAttended(a, userReview, rating, this);
             
             DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
             modelBook.setRowCount(0);
@@ -735,206 +735,51 @@ public class Homepage extends javax.swing.JFrame {
                             }
                         }
                         
-                        if(LesName == "Yoga" && LesDay == "Saturday"){
-                            decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Yoga" && LesDay == "Sunday"){
-                            decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Zumba" && LesDay == "Saturday"){
-                            decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Zumba" && LesDay == "Sunday"){
-                            decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
-                            decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
-                            decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Box Fit" && LesDay == "Saturday"){
-                            decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }else if(LesName == "Box Fit" && LesDay == "Sunday"){
-                            decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                            decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                        }
-                        
+                        homeData.lessonChanged(LesName, LesWeek, LesPeriod, LesDay, LName, LWeek, LPeriod, LDay, this);
                         
                         if(LName == "Yoga" && LDay == "Saturday"){
-                            increaseSlot(homeData.saturdayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.yogaLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSaturday;
                             jt2 = jtYoga;
                             listArray = homeData.saturdayLessons;
                             listArray2 = homeData.yogaLessons;
                         }else if(LName == "Yoga" && LDay == "Sunday"){
-                            increaseSlot(homeData.sundayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.yogaLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSunday;
                             jt2 = jtYoga;
                             listArray = homeData.sundayLessons;
                             listArray2 = homeData.yogaLessons;
                         }else if(LName == "Zumba" && LDay == "Saturday"){
-                            increaseSlot(homeData.saturdayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.zumbaLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSaturday;
                             jt2 = jtZumba;
                             listArray = homeData.saturdayLessons;
                             listArray2 = homeData.zumbaLessons;
                         }else if(LName == "Zumba" && LDay == "Sunday"){
-                            increaseSlot(homeData.sundayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.zumbaLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSunday;
                             jt2 = jtZumba;
                             listArray = homeData.sundayLessons;
                             listArray2 = homeData.zumbaLessons;
                         }else if(LName == "Body Blitz" && LDay == "Saturday"){
-                            increaseSlot(homeData.saturdayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.bodyblitzLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSaturday;
                             jt2 = jtBodyBlitz;
                             listArray = homeData.saturdayLessons;
                             listArray2 = homeData.bodyblitzLessons;
                         }else if(LName == "Body Blitz" && LDay == "Sunday"){
-                            increaseSlot(homeData.sundayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.bodyblitzLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSunday;
                             jt2 = jtBodyBlitz;
                             listArray = homeData.sundayLessons;
                             listArray2 = homeData.bodyblitzLessons;
                         }else if(LName == "Box Fit" && LDay == "Saturday"){
-                            increaseSlot(homeData.saturdayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.boxfitLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSaturday;
                             jt2 = jtBoxFit;
                             listArray = homeData.saturdayLessons;
                             listArray2 = homeData.boxfitLessons;
                         }else if(LName == "Box Fit" && LDay == "Sunday"){
-                            increaseSlot(homeData.sundayLessons, LName, LDay, LWeek, LPeriod);
-                            increaseSlot(homeData.boxfitLessons, LName, LDay, LWeek, LPeriod);
                             jt = jtSunday;
                             jt2 = jtBoxFit;
                             listArray = homeData.sundayLessons;
                             listArray2 = homeData.boxfitLessons;
                         }
                         
-                        DefaultTableModel model = (DefaultTableModel) jt.getModel();
-                        model.setRowCount(0);
-                        jt.setDefaultRenderer(Object.class, new Render());
-                        JButton btn1 = new JButton("Book");
-                        btn1.setName("b");
-
-                        Object[] rowData = new Object[listArray.size()];
-                        for (int j = 0; j < listArray.size(); j++){
-                            rowData[0] = listArray.get(j).getWeek();
-                            rowData[1] = listArray.get(j).getName();                            
-                            rowData[2] = listArray.get(j).getPeriod();
-                            rowData[3] = listArray.get(j).getPrice();
-                            rowData[4] = listArray.get(j).getSlot();
-                            rowData[5] = btn1;  
-
-                            model.addRow(rowData);
-                        }
-
-                        DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
-                        model2.setRowCount(0);
-                        jt2.setDefaultRenderer(Object.class, new Render());
-                        JButton btn1a = new JButton("Book");
-                        btn1a.setName("b");
-
-                        Object[] rowData2 = new Object[listArray2.size()];
-                        for (int m = 0; m < listArray2.size(); m++){
-                            rowData2[0] = listArray2.get(m).getWeek();
-                            rowData2[1] = listArray2.get(m).getDay();
-                            rowData2[2] = listArray2.get(m).getPeriod();
-                            rowData2[3] = listArray2.get(m).getPrice();
-                            rowData2[4] = listArray2.get(m).getSlot();
-                            rowData2[5] = btn1a;  
-
-                            model2.addRow(rowData2);
-                        }
-                        
-                        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
-                        modelHistory.setRowCount(0);
-                        Object rowHistoryData[] = new Object[homeData.bookings.size()];
-                        for (int i = 0; i < homeData.bookings.size(); i++){
-                            rowHistoryData[0] = i + 1;
-                            rowHistoryData[1] = homeData.bookings.get(i).getBookingID();
-                            rowHistoryData[2] = homeData.bookings.get(i).getStudentID();
-                            rowHistoryData[3] = homeData.bookings.get(i).getStudentFName() + " " + homeData.bookings.get(i).getStudentLName();
-                            rowHistoryData[4] = homeData.bookings.get(i).getLessonName();
-                            rowHistoryData[5] = homeData.bookings.get(i).getLessonWeek();
-                            rowHistoryData[6] = homeData.bookings.get(i).getLessonDay();
-                            rowHistoryData[7] = homeData.bookings.get(i).getLessonPeriod();
-                            rowHistoryData[8] = homeData.bookings.get(i).getLessonStatus();
-
-                            modelHistory.addRow(rowHistoryData);
-                        }
-
-                        DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
-                        modelAllLessons.setRowCount(0);
-                        jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
-                        JButton btnzy = new JButton("Book");
-                        btnzy.setName("b");
-
-                        Object[] rowData3 = new Object[homeData.allLessons.size()];
-                        for (int i = 0; i < homeData.allLessons.size(); i++){
-                            rowData3[0] = homeData.allLessons.get(i).getWeek();
-                            rowData3[1] = homeData.allLessons.get(i).getDay();
-                            rowData3[2] = homeData.allLessons.get(i).getPeriod();
-                            rowData3[3] = homeData.allLessons.get(i).getName();
-                            rowData3[4] = homeData.allLessons.get(i).getPrice();
-                            rowData3[5] = homeData.allLessons.get(i).getSlot();
-                            rowData3[6] = btnzy;
-
-                            modelAllLessons.addRow(rowData3);
-                        }
-
-                        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
-                        modelBook.setRowCount(0);
-                        jtAttend.setDefaultRenderer(Object.class, new Render());
-                        JButton btn2 = new JButton("Attend");
-                        btn2.setName("at");
-
-                        JButton btn3 = new JButton("Change");
-                        btn3.setName("ch");
-
-                        JButton btn4 = new JButton("Cancel");
-                        btn4.setName("x");
-
-
-                        Object rowBookData[] = new Object[homeData.bookings.size()];
-                        for (int k = 0; k < homeData.bookings.size(); k++){
-                            rowBookData[0] = k + 1;
-                            rowBookData[1] = homeData.bookings.get(k).getBookingID();
-                            rowBookData[2] = homeData.bookings.get(k).getLessonName();
-                            rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
-                            rowBookData[4] = homeData.bookings.get(k).getLessonDay();
-                            rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
-                            rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
-
-                            if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
-                                rowBookData[7] = "";
-                                rowBookData[8] = "";
-                                rowBookData[9] = "";
-
-                            }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
-                                rowBookData[7] = "";
-                                rowBookData[8] = "";
-                                rowBookData[9] = "";
-
-                            }else{
-                                rowBookData[7] = btn2;
-                                rowBookData[8] = btn3;
-                                rowBookData[9] = btn4;
-                            }
-
-
-
-                            modelBook.addRow(rowBookData);
-                        }
+                        updateTables(jt, jt2, listArray, listArray2);
 
                         JOptionPane.showMessageDialog(rootPane, "Booking with ID: " + bkID + " was Changed from " + LPeriod + " " + LName + " Lesson" + " to " + LesPeriod + " " + LesName + " Lesson Successfully", "Booking Changed", JOptionPane.INFORMATION_MESSAGE);
                         pgAllTimeTable.setVisible(false);
@@ -975,182 +820,51 @@ public class Homepage extends javax.swing.JFrame {
             String LesPeriod = homeData.bookings.get(a).getLessonPeriod();
             String LesWeek = homeData.bookings.get(a).getLessonWeek();
             
-            homeData.bookings.get(a).setLessonStatus("Cancelled");
-            increaseSlot(homeData.allLessons, LesName, LesDay, LesWeek, LesPeriod);
+            homeData.lessonCancelled(a, LesName, LesDay, LesWeek, LesPeriod, this);
             
             if(LesName == "Yoga" && LesDay == "Saturday"){
-                //increaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSaturday;
                 jt2 = jtYoga;
                 listArray = homeData.saturdayLessons;
                 listArray2 = homeData.yogaLessons;
             }else if(LesName == "Yoga" && LesDay == "Sunday"){
-                //increaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSunday;
                 jt2 = jtYoga;
                 listArray = homeData.sundayLessons;
                 listArray2 = homeData.yogaLessons;
             }else if(LesName == "Zumba" && LesDay == "Saturday"){
-                //increaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSaturday;
                 jt2 = jtZumba;
                 listArray = homeData.saturdayLessons;
                 listArray2 = homeData.zumbaLessons;
             }else if(LesName == "Zumba" && LesDay == "Sunday"){
-                //increaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSunday;
                 jt2 = jtZumba;
                 listArray = homeData.sundayLessons;
                 listArray2 = homeData.zumbaLessons;
             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
-                //increaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSaturday;
                 jt2 = jtBodyBlitz;
                 listArray = homeData.saturdayLessons;
                 listArray2 = homeData.bodyblitzLessons;
             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
-                //increaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSunday;
                 jt2 = jtBodyBlitz;
                 listArray = homeData.sundayLessons;
                 listArray2 = homeData.bodyblitzLessons;
             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
-                //increaseSlot(saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSaturday;
                 jt2 = jtBoxFit;
                 listArray = homeData.saturdayLessons;
                 listArray2 = homeData.boxfitLessons;
             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
-                //increaseSlot(sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                increaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                 jt = jtSunday;
                 jt2 = jtBoxFit;
                 listArray = homeData.sundayLessons;
                 listArray2 = homeData.boxfitLessons;
             }
             
-            DefaultTableModel model = (DefaultTableModel) jt.getModel();
-            model.setRowCount(0);
-            jt.setDefaultRenderer(Object.class, new Render());
-            JButton btn1 = new JButton("Book");
-            btn1.setName("b");
-
-            Object[] rowData = new Object[listArray.size()];
-            for (int j = 0; j < listArray.size(); j++){
-                rowData[0] = listArray.get(j).getWeek();
-                rowData[1] = listArray.get(j).getName();                            
-                rowData[2] = listArray.get(j).getPeriod();
-                rowData[3] = listArray.get(j).getPrice();
-                rowData[4] = listArray.get(j).getSlot();
-                rowData[5] = btn1;  
-
-                model.addRow(rowData);
-            }
-
-            DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
-            model2.setRowCount(0);
-            jt2.setDefaultRenderer(Object.class, new Render());
-            JButton btn1a = new JButton("Book");
-            btn1a.setName("b");
-
-            Object[] rowData2 = new Object[listArray2.size()];
-            for (int m = 0; m < listArray2.size(); m++){
-                rowData2[0] = listArray2.get(m).getWeek();
-                rowData2[1] = listArray2.get(m).getDay();
-                rowData2[2] = listArray2.get(m).getPeriod();
-                rowData2[3] = listArray2.get(m).getPrice();
-                rowData2[4] = listArray2.get(m).getSlot();
-                rowData2[5] = btn1a;  
-
-                model2.addRow(rowData2);
-            }
-            
-            DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
-            modelHistory.setRowCount(0);
-            Object rowHistoryData[] = new Object[homeData.bookings.size()];
-            for (int i = 0; i < homeData.bookings.size(); i++){
-                rowHistoryData[0] = i + 1;
-                rowHistoryData[1] = homeData.bookings.get(i).getBookingID();
-                rowHistoryData[2] = homeData.bookings.get(i).getStudentID();
-                rowHistoryData[3] = homeData.bookings.get(i).getStudentFName() + " " + homeData.bookings.get(i).getStudentLName();
-                rowHistoryData[4] = homeData.bookings.get(i).getLessonName();
-                rowHistoryData[5] = homeData.bookings.get(i).getLessonWeek();
-                rowHistoryData[6] = homeData.bookings.get(i).getLessonDay();
-                rowHistoryData[7] = homeData.bookings.get(i).getLessonPeriod();
-                rowHistoryData[8] = homeData.bookings.get(i).getLessonStatus();
-
-                modelHistory.addRow(rowHistoryData);
-            }
-            
-            DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
-            modelAllLessons.setRowCount(0);
-            jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
-            JButton btnzy = new JButton("Book");
-            btnzy.setName("b");
-
-            Object[] rowData3 = new Object[homeData.allLessons.size()];
-            for (int i = 0; i < homeData.allLessons.size(); i++){
-                rowData3[0] = homeData.allLessons.get(i).getWeek();
-                rowData3[1] = homeData.allLessons.get(i).getDay();
-                rowData3[2] = homeData.allLessons.get(i).getPeriod();
-                rowData3[3] = homeData.allLessons.get(i).getName();
-                rowData3[4] = homeData.allLessons.get(i).getPrice();
-                rowData3[5] = homeData.allLessons.get(i).getSlot();
-                rowData3[6] = btnzy;
-
-                modelAllLessons.addRow(rowData3);
-            }
-
-            DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
-            modelBook.setRowCount(0);
-            jtAttend.setDefaultRenderer(Object.class, new Render());
-            JButton btn2 = new JButton("Attend");
-            btn2.setName("at");
-
-            JButton btn3 = new JButton("Change");
-            btn3.setName("ch");
-
-            JButton btn4 = new JButton("Cancel");
-            btn4.setName("x");
-
-
-            Object rowBookData[] = new Object[homeData.bookings.size()];
-            for (int k = 0; k < homeData.bookings.size(); k++){
-                rowBookData[0] = k + 1;
-                rowBookData[1] = homeData.bookings.get(k).getBookingID();
-                rowBookData[2] = homeData.bookings.get(k).getLessonName();
-                rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
-                rowBookData[4] = homeData.bookings.get(k).getLessonDay();
-                rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
-                rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
-
-                if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
-                    rowBookData[7] = "";
-                    rowBookData[8] = "";
-                    rowBookData[9] = "";
-
-                }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
-                    rowBookData[7] = "";
-                    rowBookData[8] = "";
-                    rowBookData[9] = "";
-
-                }else{
-                    rowBookData[7] = btn2;
-                    rowBookData[8] = btn3;
-                    rowBookData[9] = btn4;
-                }
-
-
-
-                modelBook.addRow(rowBookData);
-            }
+            updateTables(jt, jt2, listArray, listArray2);
 
             JOptionPane.showMessageDialog(rootPane, homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson has being Cancelled Successfully", "Booking Cancelled", JOptionPane.INFORMATION_MESSAGE);
             
@@ -1265,7 +979,7 @@ public class Homepage extends javax.swing.JFrame {
                             mont = 5;
                         }
 
-                        homeData.bookings.add(new Booking(bookID, studentID, FName, LName, Age, Sex, LesName, LesWeek, LesDay, LesPeriod, "Booked", "", 0, mont, LesPrice));
+                            homeData.newBooking(bookID, studentID, FName, LName, Age, Sex, LesName, LesWeek, LesDay, LesPeriod, "Booked", "", 0, mont, LesPrice, this);
 
                         JTable jt2 = jt; 
                         ArrayList<Lesson> listArray2 = listArray;
@@ -1273,213 +987,92 @@ public class Homepage extends javax.swing.JFrame {
                         if(listArray == homeData.saturdayLessons || listArray == homeData.sundayLessons){
                             
                             if(LesName == "Yoga" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtYoga;
                                 listArray2 = homeData.yogaLessons;
                             }else if(LesName == "Yoga" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtYoga;
                                 listArray2 = homeData.yogaLessons;
                             }else if(LesName == "Zumba" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtZumba;
                                 listArray2 = homeData.zumbaLessons;
                             }else if(LesName == "Zumba" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtZumba;
                                 listArray2 = homeData.zumbaLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtBodyBlitz;
                                 listArray2 = homeData.bodyblitzLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtBodyBlitz;
                                 listArray2 = homeData.bodyblitzLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtBoxFit;
                                 listArray2 = homeData.boxfitLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtBoxFit;
                                 listArray2 = homeData.boxfitLessons;
                             }
                             
                         }else if(listArray == homeData.yogaLessons || listArray == homeData.zumbaLessons || listArray == homeData.bodyblitzLessons || listArray == homeData.boxfitLessons){
                             if(LesName == "Yoga" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSaturday;
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Yoga" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSunday;
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Zumba" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSaturday;
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Zumba" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSunday;
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSaturday;
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSunday;
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
-                                decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSaturday;
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
-                                decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
+                                    homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
                                 jt2 = jtSunday;
                                 listArray2 = homeData.sundayLessons;
                             }
                         }
                         
-                                                
-                        DefaultTableModel model = (DefaultTableModel) jt.getModel();
-                        model.setRowCount(0);
-                        jt.setDefaultRenderer(Object.class, new Render());
-                        JButton btn1 = new JButton("Book");
-                        btn1.setName("b");
-
-                        Object[] rowData = new Object[listArray.size()];
-                        for (int j = 0; j < listArray.size(); j++){
-                            rowData[0] = listArray.get(j).getWeek();
-                            if(jt == jtSaturday || jt == jtSunday){
-                                rowData[1] = listArray.get(j).getName();
-                            }else{
-                                rowData[1] = listArray.get(j).getDay();
-                            }                            
-                            rowData[2] = listArray.get(j).getPeriod();
-                            rowData[3] = listArray.get(j).getPrice();
-                            rowData[4] = listArray.get(j).getSlot();
-                            rowData[5] = btn1;  
-
-                            model.addRow(rowData);
-                        }
-                        
-                        DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
-                        model2.setRowCount(0);
-                        jt2.setDefaultRenderer(Object.class, new Render());
-                        JButton btn1a = new JButton("Book");
-                        btn1a.setName("b");
-
-                        Object[] rowData2 = new Object[listArray2.size()];
-                        for (int m = 0; m < listArray2.size(); m++){
-                            rowData2[0] = listArray2.get(m).getWeek();
-                            if(jt2 == jtSaturday || jt2 == jtSunday){
-                                rowData2[1] = listArray2.get(m).getName();
-                            }else{
-                                rowData2[1] = listArray2.get(m).getDay();
-                            }
-                            rowData2[2] = listArray2.get(m).getPeriod();
-                            rowData2[3] = listArray2.get(m).getPrice();
-                            rowData2[4] = listArray2.get(m).getSlot();
-                            rowData2[5] = btn1a;  
-
-                            model2.addRow(rowData2);
-                        }
-
-                        DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
-                        modelAllLessons.setRowCount(0);
-                        jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
-                        JButton btnzy = new JButton("Book");
-                        btnzy.setName("b");
-
-                        Object[] rowData3 = new Object[homeData.allLessons.size()];
-                        for (int i = 0; i < homeData.allLessons.size(); i++){
-                            rowData3[0] = homeData.allLessons.get(i).getWeek();
-                            rowData3[1] = homeData.allLessons.get(i).getDay();
-                            rowData3[2] = homeData.allLessons.get(i).getPeriod();
-                            rowData3[3] = homeData.allLessons.get(i).getName();
-                            rowData3[4] = homeData.allLessons.get(i).getPrice();
-                            rowData3[5] = homeData.allLessons.get(i).getSlot();
-                            rowData3[6] = btnzy;
-
-                            modelAllLessons.addRow(rowData3);
-                        }
-                        
-                        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
-                        modelHistory.setRowCount(0);
-                        Object rowHistoryData[] = new Object[homeData.bookings.size()];
-                        for (int i = 0; i < homeData.bookings.size(); i++){
-                            rowHistoryData[0] = i + 1;
-                            rowHistoryData[1] = homeData.bookings.get(i).getBookingID();
-                            rowHistoryData[2] = homeData.bookings.get(i).getStudentID();
-                            rowHistoryData[3] = homeData.bookings.get(i).getStudentFName() + " " + homeData.bookings.get(i).getStudentLName();
-                            rowHistoryData[4] = homeData.bookings.get(i).getLessonName();
-                            rowHistoryData[5] = homeData.bookings.get(i).getLessonWeek();
-                            rowHistoryData[6] = homeData.bookings.get(i).getLessonDay();
-                            rowHistoryData[7] = homeData.bookings.get(i).getLessonPeriod();
-                            rowHistoryData[8] = homeData.bookings.get(i).getLessonStatus();
-
-                            modelHistory.addRow(rowHistoryData);
-                        }
-
-                        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
-                        modelBook.setRowCount(0);
-                        jtAttend.setDefaultRenderer(Object.class, new Render());
-                        JButton btn2 = new JButton("Attend");
-                        btn2.setName("at");
-
-                        JButton btn3 = new JButton("Change");
-                        btn3.setName("ch");
-
-                        JButton btn4 = new JButton("Cancel");
-                        btn4.setName("x");
-
-
-                        Object rowBookData[] = new Object[homeData.bookings.size()];
-                        for (int k = 0; k < homeData.bookings.size(); k++){
-                            rowBookData[0] = k + 1;
-                            rowBookData[1] = homeData.bookings.get(k).getBookingID();
-                            rowBookData[2] = homeData.bookings.get(k).getLessonName();
-                            rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
-                            rowBookData[4] = homeData.bookings.get(k).getLessonDay();
-                            rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
-                            rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
-
-                            if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
-                                rowBookData[7] = "";
-                                rowBookData[8] = "";
-                                rowBookData[9] = "";
-
-                            }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
-                                rowBookData[7] = "";
-                                rowBookData[8] = "";
-                                rowBookData[9] = "";
-
-                            }else{
-                                rowBookData[7] = btn2;
-                                rowBookData[8] = btn3;
-                                rowBookData[9] = btn4;
-                            }
-                            
-                            modelBook.addRow(rowBookData);
-                        }
+                        updateTables(jt, jt2, listArray, listArray2);
 
                         JOptionPane.showMessageDialog(rootPane, listArray.get(a).getPeriod() + " " + listArray.get(a).getName() + " Lesson has being booked Successfully", "Booking Completed", JOptionPane.INFORMATION_MESSAGE);
                     }
@@ -1497,30 +1090,6 @@ public class Homepage extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Sorry, This Lesson has no slot available at this Week and Period.", "Slot Fully Booked", JOptionPane.ERROR_MESSAGE);
     }
         
-    }
-        
-    private void increaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
-        
-        for(Lesson l : listArray){
-            if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
-                int remslot = l.getSlot();
-                remslot = remslot + 1;
-                l.setSlot(remslot);
-                
-            }
-        }        
-    }
-    
-    private void decreaseSlot(ArrayList<Lesson> listArray, String LesName, String LesDay, String LesWeek, String LesPeriod){
-        
-        for(Lesson l : listArray){
-            if(l.getName() == LesName && l.getWeek() == LesWeek && l.getDay() == LesDay && l.getPeriod() == LesPeriod){
-                int remslot = l.getSlot();
-                remslot = remslot - 1;
-                l.setSlot(remslot);
-                
-            }
-        }
     }
     
     private void monthlyReport(int m){
@@ -1889,58 +1458,133 @@ public class Homepage extends javax.swing.JFrame {
         
     }
     
-    private void newStudent(){
+    private void updateTables(JTable jt, JTable jt2, ArrayList<Lesson> listArray, ArrayList<Lesson> listArray2){
         
-        JTextField sFirstName = new JTextField();
-        JTextField sLastName = new JTextField();
-        JTextField sAge = new JTextField();
-        String sSex = "";
-        //JTextField sSex = new JTextField();
-        
-        Object[] fields = {
-            "First Name: ", sFirstName,
-            "Last Name: ", sLastName,
-            "Age: ", sAge
-        };
-        
-        int newStudentID = homeData.student.get(homeData.student.size() - 1).getStudenID() + 1;
-        
-        String[] responses = {"Next", "Cancel"};
-        String[] responses2 = {"Add New", "Cancel"};
-        String[] stuSex = {"", "M", "F"};
-        int ans = JOptionPane.showOptionDialog(rootPane, fields, "Add New Student", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, responses, 0);
-        if (ans == 0){
-            sSex = (String) JOptionPane.showInputDialog(rootPane, "Please select Gender of Student.", "Select a Gender", JOptionPane.QUESTION_MESSAGE, null, stuSex, stuSex[0]);
-            
-            homeData.student.add(new Students(newStudentID, Integer.parseInt(sAge.getText()), sFirstName.getText(), sLastName.getText(), sSex.charAt(0)));
-            
-        }else{
-            return;
+
+        DefaultTableModel model = (DefaultTableModel) jt.getModel();
+        model.setRowCount(0);
+        jt.setDefaultRenderer(Object.class, new Render());
+        JButton btn1 = new JButton("Book");
+        btn1.setName("b");
+
+        Object[] rowData = new Object[listArray.size()];
+        for (int j = 0; j < listArray.size(); j++){
+            rowData[0] = listArray.get(j).getWeek();
+            if(jt == jtSaturday || jt == jtSunday){
+                rowData[1] = listArray.get(j).getName();
+            }else{
+                rowData[1] = listArray.get(j).getDay();
+            }                            
+            rowData[2] = listArray.get(j).getPeriod();
+            rowData[3] = listArray.get(j).getPrice();
+            rowData[4] = listArray.get(j).getSlot();
+            rowData[5] = btn1;  
+
+            model.addRow(rowData);
         }
-        
-        DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
-        modelStudents.setRowCount(0);        
-        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
-        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-        
-        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
-        Object[] rowStudentData = new Object[homeData.student.size()];
-        for (int i = 0; i < homeData.student.size(); i++){
-            rowStudentData[0] = i + 1;
-            rowStudentData[1] = homeData.student.get(i).getStudenID();
-            rowStudentData[2] = homeData.student.get(i).getStudentFName();
-            rowStudentData[3] = homeData.student.get(i).getStudentLName();
-            rowStudentData[4] = homeData.student.get(i).getStudentAge();
-            rowStudentData[5] = homeData.student.get(i).getStudentSex();
-            
-            modelStudents.addRow(rowStudentData);
+
+        DefaultTableModel model2 = (DefaultTableModel) jt2.getModel();
+        model2.setRowCount(0);
+        jt2.setDefaultRenderer(Object.class, new Render());
+        JButton btn1a = new JButton("Book");
+        btn1a.setName("b");
+
+        Object[] rowData2 = new Object[listArray2.size()];
+        for (int m = 0; m < listArray2.size(); m++){
+            rowData2[0] = listArray2.get(m).getWeek();
+            if(jt2 == jtSaturday || jt2 == jtSunday){
+                rowData2[1] = listArray2.get(m).getName();
+            }else{
+                rowData2[1] = listArray2.get(m).getDay();
+            }
+            rowData2[2] = listArray2.get(m).getPeriod();
+            rowData2[3] = listArray2.get(m).getPrice();
+            rowData2[4] = listArray2.get(m).getSlot();
+            rowData2[5] = btn1a;  
+
+            model2.addRow(rowData2);
+        }
+
+        DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
+        modelAllLessons.setRowCount(0);
+        jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
+        JButton btnzy = new JButton("Book");
+        btnzy.setName("b");
+
+        Object[] rowData3 = new Object[homeData.allLessons.size()];
+        for (int i = 0; i < homeData.allLessons.size(); i++){
+            rowData3[0] = homeData.allLessons.get(i).getWeek();
+            rowData3[1] = homeData.allLessons.get(i).getDay();
+            rowData3[2] = homeData.allLessons.get(i).getPeriod();
+            rowData3[3] = homeData.allLessons.get(i).getName();
+            rowData3[4] = homeData.allLessons.get(i).getPrice();
+            rowData3[5] = homeData.allLessons.get(i).getSlot();
+            rowData3[6] = btnzy;
+
+            modelAllLessons.addRow(rowData3);
+        }
+
+        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+        modelHistory.setRowCount(0);
+        Object rowHistoryData[] = new Object[homeData.bookings.size()];
+        for (int i = 0; i < homeData.bookings.size(); i++){
+            rowHistoryData[0] = i + 1;
+            rowHistoryData[1] = homeData.bookings.get(i).getBookingID();
+            rowHistoryData[2] = homeData.bookings.get(i).getStudentID();
+            rowHistoryData[3] = homeData.bookings.get(i).getStudentFName() + " " + homeData.bookings.get(i).getStudentLName();
+            rowHistoryData[4] = homeData.bookings.get(i).getLessonName();
+            rowHistoryData[5] = homeData.bookings.get(i).getLessonWeek();
+            rowHistoryData[6] = homeData.bookings.get(i).getLessonDay();
+            rowHistoryData[7] = homeData.bookings.get(i).getLessonPeriod();
+            rowHistoryData[8] = homeData.bookings.get(i).getLessonStatus();
+
+            modelHistory.addRow(rowHistoryData);
+        }
+
+        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+        modelBook.setRowCount(0);
+        jtAttend.setDefaultRenderer(Object.class, new Render());
+        JButton btn2 = new JButton("Attend");
+        btn2.setName("at");
+
+        JButton btn3 = new JButton("Change");
+        btn3.setName("ch");
+
+        JButton btn4 = new JButton("Cancel");
+        btn4.setName("x");
+
+
+        Object rowBookData[] = new Object[homeData.bookings.size()];
+        for (int k = 0; k < homeData.bookings.size(); k++){
+            rowBookData[0] = k + 1;
+            rowBookData[1] = homeData.bookings.get(k).getBookingID();
+            rowBookData[2] = homeData.bookings.get(k).getLessonName();
+            rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
+            rowBookData[4] = homeData.bookings.get(k).getLessonDay();
+            rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
+            rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
+
+            if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
+                rowBookData[7] = "";
+                rowBookData[8] = "";
+                rowBookData[9] = "";
+
+            }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
+                rowBookData[7] = "";
+                rowBookData[8] = "";
+                rowBookData[9] = "";
+
+            }else{
+                rowBookData[7] = btn2;
+                rowBookData[8] = btn3;
+                rowBookData[9] = btn4;
+            }
+
+            modelBook.addRow(rowBookData);
         }
         
     }
+    
 
 
     /**
@@ -3343,8 +2987,53 @@ public class Homepage extends javax.swing.JFrame {
     }//GEN-LAST:event_lblStudentsMouseClicked
 
     private void btnAddStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddStudentMouseClicked
-        // TODO add your handling code here:       
-        newStudent();
+        // TODO add your handling code here:    
+        JTextField sFirstName = new JTextField();
+        JTextField sLastName = new JTextField();
+        JTextField sAge = new JTextField();
+        String sSex = "";
+        
+        Object[] fields = {
+            "First Name: ", sFirstName,
+            "Last Name: ", sLastName,
+            "Age: ", sAge
+        };
+        
+        int newStudentID = homeData.student.get(homeData.student.size() - 1).getStudenID() + 1;
+        
+        String[] responses = {"Next", "Cancel"};
+        String[] responses2 = {"Add New", "Cancel"};
+        String[] stuSex = {"", "M", "F"};
+        int ans = JOptionPane.showOptionDialog(rootPane, fields, "Add New Student", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, responses, 0);
+        if (ans == 0){
+            sSex = (String) JOptionPane.showInputDialog(rootPane, "Please select Gender of Student.", "Select a Gender", JOptionPane.QUESTION_MESSAGE, null, stuSex, stuSex[0]);
+            homeData.newStudent(newStudentID, Integer.parseInt(sAge.getText()), sFirstName.getText(), sLastName.getText(), sSex.charAt(0), this);
+            
+        }else{
+            return;
+        }
+        
+        DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
+        modelStudents.setRowCount(0);        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
+        DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+        
+        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        Object[] rowStudentData = new Object[homeData.student.size()];
+        for (int i = 0; i < homeData.student.size(); i++){
+            rowStudentData[0] = i + 1;
+            rowStudentData[1] = homeData.student.get(i).getStudenID();
+            rowStudentData[2] = homeData.student.get(i).getStudentFName();
+            rowStudentData[3] = homeData.student.get(i).getStudentLName();
+            rowStudentData[4] = homeData.student.get(i).getStudentAge();
+            rowStudentData[5] = homeData.student.get(i).getStudentSex();
+            
+            modelStudents.addRow(rowStudentData);
+        }
     }//GEN-LAST:event_btnAddStudentMouseClicked
 
     private void btnBookLessonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBookLessonMouseClicked
