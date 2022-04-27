@@ -32,6 +32,356 @@ import Data.LessonData;
 public class Homepage extends javax.swing.JFrame {
 
     /**
+     * @return the pgAllTimeTable
+     */
+    public javax.swing.JPanel getPgAllTimeTable() {
+        return pgAllTimeTable;
+    }
+
+    /**
+     * @param pgAllTimeTable the pgAllTimeTable to set
+     */
+    public void setPgAllTimeTable(javax.swing.JPanel pgAllTimeTable) {
+        this.pgAllTimeTable = pgAllTimeTable;
+    }
+
+    /**
+     * @return the pgAttend
+     */
+    public javax.swing.JPanel getPgAttend() {
+        return pgAttend;
+    }
+
+    /**
+     * @param pgAttend the pgAttend to set
+     */
+    public void setPgAttend(javax.swing.JPanel pgAttend) {
+        this.pgAttend = pgAttend;
+    }
+
+    /**
+     * @return the pgBodyBlitz
+     */
+    public javax.swing.JPanel getPgBodyBlitz() {
+        return pgBodyBlitz;
+    }
+
+    /**
+     * @param pgBodyBlitz the pgBodyBlitz to set
+     */
+    public void setPgBodyBlitz(javax.swing.JPanel pgBodyBlitz) {
+        this.pgBodyBlitz = pgBodyBlitz;
+    }
+
+    /**
+     * @return the pgBookings
+     */
+    public javax.swing.JPanel getPgBookings() {
+        return pgBookings;
+    }
+
+    /**
+     * @param pgBookings the pgBookings to set
+     */
+    public void setPgBookings(javax.swing.JPanel pgBookings) {
+        this.pgBookings = pgBookings;
+    }
+
+    /**
+     * @return the pgBoxFit
+     */
+    public javax.swing.JPanel getPgBoxFit() {
+        return pgBoxFit;
+    }
+
+    /**
+     * @param pgBoxFit the pgBoxFit to set
+     */
+    public void setPgBoxFit(javax.swing.JPanel pgBoxFit) {
+        this.pgBoxFit = pgBoxFit;
+    }
+
+    /**
+     * @return the pgDashboard
+     */
+    public javax.swing.JPanel getPgDashboard() {
+        return pgDashboard;
+    }
+
+    /**
+     * @param pgDashboard the pgDashboard to set
+     */
+    public void setPgDashboard(javax.swing.JPanel pgDashboard) {
+        this.pgDashboard = pgDashboard;
+    }
+
+    /**
+     * @return the pgExerciseReport
+     */
+    public javax.swing.JPanel getPgExerciseReport() {
+        return pgExerciseReport;
+    }
+
+    /**
+     * @param pgExerciseReport the pgExerciseReport to set
+     */
+    public void setPgExerciseReport(javax.swing.JPanel pgExerciseReport) {
+        this.pgExerciseReport = pgExerciseReport;
+    }
+
+    /**
+     * @return the pgLessonReport
+     */
+    public javax.swing.JPanel getPgLessonReport() {
+        return pgLessonReport;
+    }
+
+    /**
+     * @param pgLessonReport the pgLessonReport to set
+     */
+    public void setPgLessonReport(javax.swing.JPanel pgLessonReport) {
+        this.pgLessonReport = pgLessonReport;
+    }
+
+    /**
+     * @return the pgSaturday
+     */
+    public javax.swing.JPanel getPgSaturday() {
+        return pgSaturday;
+    }
+
+    /**
+     * @param pgSaturday the pgSaturday to set
+     */
+    public void setPgSaturday(javax.swing.JPanel pgSaturday) {
+        this.pgSaturday = pgSaturday;
+    }
+
+    /**
+     * @return the pgStudents
+     */
+    public javax.swing.JPanel getPgStudents() {
+        return pgStudents;
+    }
+
+    /**
+     * @param pgStudents the pgStudents to set
+     */
+    public void setPgStudents(javax.swing.JPanel pgStudents) {
+        this.pgStudents = pgStudents;
+    }
+
+    /**
+     * @return the pgSunday
+     */
+    public javax.swing.JPanel getPgSunday() {
+        return pgSunday;
+    }
+
+    /**
+     * @param pgSunday the pgSunday to set
+     */
+    public void setPgSunday(javax.swing.JPanel pgSunday) {
+        this.pgSunday = pgSunday;
+    }
+
+    /**
+     * @return the pgYoga
+     */
+    public javax.swing.JPanel getPgYoga() {
+        return pgYoga;
+    }
+
+    /**
+     * @param pgYoga the pgYoga to set
+     */
+    public void setPgYoga(javax.swing.JPanel pgYoga) {
+        this.pgYoga = pgYoga;
+    }
+
+    /**
+     * @return the pgZumba
+     */
+    public javax.swing.JPanel getPgZumba() {
+        return pgZumba;
+    }
+
+    /**
+     * @param pgZumba the pgZumba to set
+     */
+    public void setPgZumba(javax.swing.JPanel pgZumba) {
+        this.pgZumba = pgZumba;
+    }
+
+    /**
+     * @return the jtAllTimeTable
+     */
+    public javax.swing.JTable getJtAllTimeTable() {
+        return jtAllTimeTable;
+    }
+
+    /**
+     * @param jtAllTimeTable the jtAllTimeTable to set
+     */
+    public void setJtAllTimeTable(javax.swing.JTable jtAllTimeTable) {
+        this.jtAllTimeTable = jtAllTimeTable;
+    }
+
+    /**
+     * @return the jtBodyBlitz
+     */
+    public javax.swing.JTable getJtBodyBlitz() {
+        return jtBodyBlitz;
+    }
+
+    /**
+     * @param jtBodyBlitz the jtBodyBlitz to set
+     */
+    public void setJtBodyBlitz(javax.swing.JTable jtBodyBlitz) {
+        this.jtBodyBlitz = jtBodyBlitz;
+    }
+
+    /**
+     * @return the jtBookings
+     */
+    public javax.swing.JTable getJtBookings() {
+        return jtBookings;
+    }
+
+    /**
+     * @param jtBookings the jtBookings to set
+     */
+    public void setJtBookings(javax.swing.JTable jtBookings) {
+        this.jtBookings = jtBookings;
+    }
+
+    /**
+     * @return the jtBoxFit
+     */
+    public javax.swing.JTable getJtBoxFit() {
+        return jtBoxFit;
+    }
+
+    /**
+     * @param jtBoxFit the jtBoxFit to set
+     */
+    public void setJtBoxFit(javax.swing.JTable jtBoxFit) {
+        this.jtBoxFit = jtBoxFit;
+    }
+
+    /**
+     * @return the jtExeReport
+     */
+    public javax.swing.JTable getJtExeReport() {
+        return jtExeReport;
+    }
+
+    /**
+     * @param jtExeReport the jtExeReport to set
+     */
+    public void setJtExeReport(javax.swing.JTable jtExeReport) {
+        this.jtExeReport = jtExeReport;
+    }
+
+    /**
+     * @return the jtReport
+     */
+    public javax.swing.JTable getJtReport() {
+        return jtReport;
+    }
+
+    /**
+     * @param jtReport the jtReport to set
+     */
+    public void setJtReport(javax.swing.JTable jtReport) {
+        this.jtReport = jtReport;
+    }
+
+    /**
+     * @return the jtSaturday
+     */
+    public javax.swing.JTable getJtSaturday() {
+        return jtSaturday;
+    }
+
+    /**
+     * @param jtSaturday the jtSaturday to set
+     */
+    public void setJtSaturday(javax.swing.JTable jtSaturday) {
+        this.jtSaturday = jtSaturday;
+    }
+
+    /**
+     * @return the jtStudents
+     */
+    public javax.swing.JTable getJtStudents() {
+        return jtStudents;
+    }
+
+    /**
+     * @param jtStudents the jtStudents to set
+     */
+    public void setJtStudents(javax.swing.JTable jtStudents) {
+        this.jtStudents = jtStudents;
+    }
+
+    /**
+     * @return the jtSunday
+     */
+    public javax.swing.JTable getJtSunday() {
+        return jtSunday;
+    }
+
+    /**
+     * @param jtSunday the jtSunday to set
+     */
+    public void setJtSunday(javax.swing.JTable jtSunday) {
+        this.jtSunday = jtSunday;
+    }
+
+    /**
+     * @return the jtYoga
+     */
+    public javax.swing.JTable getJtYoga() {
+        return jtYoga;
+    }
+
+    /**
+     * @param jtYoga the jtYoga to set
+     */
+    public void setJtYoga(javax.swing.JTable jtYoga) {
+        this.jtYoga = jtYoga;
+    }
+
+    /**
+     * @return the jtZumba
+     */
+    public javax.swing.JTable getJtZumba() {
+        return jtZumba;
+    }
+
+    /**
+     * @param jtZumba the jtZumba to set
+     */
+    public void setJtZumba(javax.swing.JTable jtZumba) {
+        this.jtZumba = jtZumba;
+    }
+
+    /**
+     * @return the jtAttend
+     */
+    public javax.swing.JTable getJtAttend() {
+        return jtAttend;
+    }
+
+    /**
+     * @param jtAttend the jtAttend to set
+     */
+    public void setJtAttend(javax.swing.JTable jtAttend) {
+        this.jtAttend = jtAttend;
+    }
+
+    /**
      * Creates new form Homepage
      */
     
@@ -56,11 +406,11 @@ public class Homepage extends javax.swing.JFrame {
     
     private void addRowToSaturdayTable(){
         
-        jtSaturday.setDefaultRenderer(Object.class, new Render());
+        getJtSaturday().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelSaturday = (DefaultTableModel) jtSaturday.getModel();
+        DefaultTableModel modelSaturday = (DefaultTableModel) getJtSaturday().getModel();
         Object rowData[] = new Object[homeData.saturdayLessons.size()];
         for (int i = 0; i < homeData.saturdayLessons.size(); i++){
             rowData[0] = homeData.saturdayLessons.get(i).getWeek();
@@ -73,16 +423,16 @@ public class Homepage extends javax.swing.JFrame {
             modelSaturday.addRow(rowData);
         }
         
-        jtSaturday.setRowHeight(30);
+        getJtSaturday().setRowHeight(30);
     }
     
     private void addRowToSundayTable(){
         
-        jtSunday.setDefaultRenderer(Object.class, new Render());
+        getJtSunday().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelSunday = (DefaultTableModel) jtSunday.getModel();
+        DefaultTableModel modelSunday = (DefaultTableModel) getJtSunday().getModel();
         Object rowData[] = new Object[homeData.sundayLessons.size()];
         for (int i = 0; i < homeData.sundayLessons.size(); i++){
             rowData[0] = homeData.sundayLessons.get(i).getWeek();
@@ -95,15 +445,15 @@ public class Homepage extends javax.swing.JFrame {
             modelSunday.addRow(rowData);
         }
         
-        jtSunday.setRowHeight(30);
+        getJtSunday().setRowHeight(30);
     }
     
     private void addRowToAllLessonsTable(){
-        jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
+        getJtAllTimeTable().setDefaultRenderer(Object.class, new Render());
         JButton btnzy = new JButton("Book");
         btnzy.setName("b");
         
-        DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();
+        DefaultTableModel modelAllLessons = (DefaultTableModel) getJtAllTimeTable().getModel();
         Object rowData[] = new Object[homeData.allLessons.size()];
         for (int i = 0; i < homeData.allLessons.size(); i++){
             rowData[0] = homeData.allLessons.get(i).getWeek();
@@ -117,16 +467,16 @@ public class Homepage extends javax.swing.JFrame {
             modelAllLessons.addRow(rowData);
         }
         
-        jtAllTimeTable.setRowHeight(30);
+        getJtAllTimeTable().setRowHeight(30);
     }
     
     private void addRowToYogaTable(){
         
-        jtYoga.setDefaultRenderer(Object.class, new Render());
+        getJtYoga().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelYoga = (DefaultTableModel) jtYoga.getModel();
+        DefaultTableModel modelYoga = (DefaultTableModel) getJtYoga().getModel();
         Object rowData[] = new Object[homeData.yogaLessons.size()];
         for (int i = 0; i < homeData.yogaLessons.size(); i++){
             rowData[0] = homeData.yogaLessons.get(i).getWeek();
@@ -139,16 +489,16 @@ public class Homepage extends javax.swing.JFrame {
             modelYoga.addRow(rowData);
         }
         
-        jtYoga.setRowHeight(30);
+        getJtYoga().setRowHeight(30);
     }
     
     private void addRowToZumbaTable(){
         
-        jtZumba.setDefaultRenderer(Object.class, new Render());
+        getJtZumba().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelZumba = (DefaultTableModel) jtZumba.getModel();
+        DefaultTableModel modelZumba = (DefaultTableModel) getJtZumba().getModel();
         Object rowData[] = new Object[homeData.zumbaLessons.size()];
         for (int i = 0; i < homeData.zumbaLessons.size(); i++){
             rowData[0] = homeData.zumbaLessons.get(i).getWeek();
@@ -161,16 +511,16 @@ public class Homepage extends javax.swing.JFrame {
             modelZumba.addRow(rowData);
         }
         
-        jtZumba.setRowHeight(30);
+        getJtZumba().setRowHeight(30);
     }
     
     private void addRowToBoxFitTable(){
         
-        jtBoxFit.setDefaultRenderer(Object.class, new Render());
+        getJtBoxFit().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelBoxFit = (DefaultTableModel) jtBoxFit.getModel();
+        DefaultTableModel modelBoxFit = (DefaultTableModel) getJtBoxFit().getModel();
         Object rowData[] = new Object[homeData.boxfitLessons.size()];
         for (int i = 0; i < homeData.boxfitLessons.size(); i++){
             rowData[0] = homeData.boxfitLessons.get(i).getWeek();
@@ -183,16 +533,16 @@ public class Homepage extends javax.swing.JFrame {
             modelBoxFit.addRow(rowData);
         }
         
-        jtBoxFit.setRowHeight(30);
+        getJtBoxFit().setRowHeight(30);
     }
     
     private void addRowToBodyBlitzTable(){
         
-        jtBodyBlitz.setDefaultRenderer(Object.class, new Render());
+        getJtBodyBlitz().setDefaultRenderer(Object.class, new Render());
         JButton btn1 = new JButton("Book");
         btn1.setName("b");
         
-        DefaultTableModel modelBodyBlitz = (DefaultTableModel) jtBodyBlitz.getModel();
+        DefaultTableModel modelBodyBlitz = (DefaultTableModel) getJtBodyBlitz().getModel();
         Object rowData[] = new Object[homeData.bodyblitzLessons.size()];
         for (int i = 0; i < homeData.bodyblitzLessons.size(); i++){
             rowData[0] = homeData.bodyblitzLessons.get(i).getWeek();
@@ -205,11 +555,11 @@ public class Homepage extends javax.swing.JFrame {
             modelBodyBlitz.addRow(rowData);
         }
         
-        jtBodyBlitz.setRowHeight(30);
+        getJtBodyBlitz().setRowHeight(30);
     }
     
     private void addRowToBooked(){
-        jtAttend.setDefaultRenderer(Object.class, new Render());
+        getJtAttend().setDefaultRenderer(Object.class, new Render());
         JButton btn2 = new JButton("Attend");
         btn2.setName("at");
         
@@ -219,7 +569,7 @@ public class Homepage extends javax.swing.JFrame {
         JButton btn4 = new JButton("Cancel");
         btn4.setName("x");
         
-        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+        DefaultTableModel modelBook = (DefaultTableModel) getJtAttend().getModel();
         Object rowData[] = new Object[homeData.bookings.size()];
         for (int i = 0; i < homeData.bookings.size(); i++){
             rowData[0] = i + 1;
@@ -248,12 +598,12 @@ public class Homepage extends javax.swing.JFrame {
             
             modelBook.addRow(rowData);
         }
-        jtAttend.setRowHeight(30);
+        getJtAttend().setRowHeight(30);
         
     }
     
     private void addRowToBookingHistory(){
-        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+        DefaultTableModel modelHistory = (DefaultTableModel) getJtBookings().getModel();
         Object rowHistoryData[] = new Object[homeData.bookings.size()];
         for (int i = 0; i < homeData.bookings.size(); i++){
             rowHistoryData[0] = i + 1;
@@ -268,19 +618,19 @@ public class Homepage extends javax.swing.JFrame {
             
             modelHistory.addRow(rowHistoryData);
         }
-        jtBookings.setRowHeight(30);
+        getJtBookings().setRowHeight(30);
     }
     
     private void addRowToStudents(){
-        DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
+        DefaultTableModel modelStudents = (DefaultTableModel) getJtStudents().getModel();
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         
-        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
         Object rowStudentData[] = new Object[homeData.student.size()];
         for (int i = 0; i < homeData.student.size(); i++){
             rowStudentData[0] = i + 1;
@@ -292,7 +642,7 @@ public class Homepage extends javax.swing.JFrame {
             
             modelStudents.addRow(rowStudentData);
         }
-        jtStudents.setRowHeight(30);
+        getJtStudents().setRowHeight(30);
     }
     
     private void bookClicked(){
@@ -307,19 +657,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.resetPanelColor(btnStudents);
         
         //pages
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        pgAllTimeTable.setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
+        getPgAllTimeTable().setVisible(false);
         
         //Dialog
         String[] responses = {"By Day", "By Lesson"};
@@ -330,28 +680,28 @@ public class Homepage extends javax.swing.JFrame {
             int ans1 = JOptionPane.showOptionDialog(rootPane, "Select Day", "Check Timetable", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, responses1, 0);
             
             if (ans1 == 0){
-                pgSaturday.setVisible(true);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(true);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(false);
+                getPgSunday().setVisible(false);
+                getPgAllTimeTable().setVisible(false);
                 
             }else if (ans1 == 1){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(true);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(false);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(false);
+                getPgSunday().setVisible(true);
+                getPgAllTimeTable().setVisible(false);
                 
             }
             
@@ -361,61 +711,61 @@ public class Homepage extends javax.swing.JFrame {
             
             if (ans2 == 0){
                 
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(true);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(false);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(true);
+                getPgSunday().setVisible(false);
+                getPgZumba().setVisible(false);
+                getPgBoxFit().setVisible(false);
+                getPgBodyBlitz().setVisible(false);
+                getPgAllTimeTable().setVisible(false);
             }else if (ans2 == 1){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(true);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(false);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(false);
+                getPgSunday().setVisible(false);
+                getPgZumba().setVisible(true);
+                getPgBoxFit().setVisible(false);
+                getPgBodyBlitz().setVisible(false);
+                getPgAllTimeTable().setVisible(false);
             }else if (ans2 == 2){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(true);
-                pgBodyBlitz.setVisible(false);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(false);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(false);
+                getPgSunday().setVisible(false);
+                getPgZumba().setVisible(false);
+                getPgBoxFit().setVisible(true);
+                getPgBodyBlitz().setVisible(false);
+                getPgAllTimeTable().setVisible(false);
             }else if (ans2 == 3){
-                pgSaturday.setVisible(false);
-                pgDashboard.setVisible(false);
-                pgAttend.setVisible(false);
-                pgBookings.setVisible(false);
-                pgLessonReport.setVisible(false);
-                pgExerciseReport.setVisible(false);
-                pgStudents.setVisible(false);
-                pgYoga.setVisible(false);
-                pgSunday.setVisible(false);
-                pgZumba.setVisible(false);
-                pgBoxFit.setVisible(false);
-                pgBodyBlitz.setVisible(true);
-                pgAllTimeTable.setVisible(false);
+                getPgSaturday().setVisible(false);
+                getPgDashboard().setVisible(false);
+                getPgAttend().setVisible(false);
+                getPgBookings().setVisible(false);
+                getPgLessonReport().setVisible(false);
+                getPgExerciseReport().setVisible(false);
+                getPgStudents().setVisible(false);
+                getPgYoga().setVisible(false);
+                getPgSunday().setVisible(false);
+                getPgZumba().setVisible(false);
+                getPgBoxFit().setVisible(false);
+                getPgBodyBlitz().setVisible(true);
+                getPgAllTimeTable().setVisible(false);
             }
         }
     }
@@ -432,19 +782,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.resetPanelColor(btnStudents);
         
         //pages
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(true);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
-        pgAllTimeTable.setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(true);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
+        getPgAllTimeTable().setVisible(false);
     }
     
     private void bookingHistoryClicked(){
@@ -459,19 +809,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.resetPanelColor(btnStudents);
         
         //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(true);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        getPgAllTimeTable().setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(true);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
     }
     
     private void lessonReportClicked(){
@@ -486,19 +836,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.resetPanelColor(btnExerciseReport);
         
         //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        getPgAllTimeTable().setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
         
         //Select Month
         String mon = "";
@@ -538,7 +888,7 @@ public class Homepage extends javax.swing.JFrame {
         monthlyReport(m);
         
         lblReport.setText(mon + " Lesson Report");
-        pgLessonReport.setVisible(true);
+        getPgLessonReport().setVisible(true);
         
     }
     
@@ -554,19 +904,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.setPanelColor(btnExerciseReport);
         
         //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        getPgAllTimeTable().setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
         
         //Select Month
         String mon = "";
@@ -606,7 +956,7 @@ public class Homepage extends javax.swing.JFrame {
         championExercise(m);
         
         lblExeReport.setText(mon + " Champion Exercise Report");
-        pgExerciseReport.setVisible(true);
+        getPgExerciseReport().setVisible(true);
         
     }
     
@@ -622,271 +972,21 @@ public class Homepage extends javax.swing.JFrame {
         homeData.setPanelColor(btnStudents);
         
         //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(false);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(true);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        getPgAllTimeTable().setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(false);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(true);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
     }
-        
-    private void attendLesson(int a){
-        int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to attend " + homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson?", "Attend Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if(opt == 0){
-            String userReview = JOptionPane.showInputDialog(rootPane, homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson has been attended Sucessfuly. Please leave a review.", "Lesson attended successfuly.", JOptionPane.INFORMATION_MESSAGE);
-            
-            String[] rate = {"", "1", "2", "3", "4", "5"};
-            String ratings = (String) JOptionPane.showInputDialog(rootPane, "Please select a numerical ratings for the lesson. \n 1: Very dissatisfied  \n 2: Dissatisfied \n 3: Ok \n 4: Satisfied \n 5: Very Satisfied \n", "Lesson Ratings", JOptionPane.QUESTION_MESSAGE, null, rate, rate[0]);
-            int rating = Integer.valueOf(ratings);
-            
-            homeData.lessonAttended(a, userReview, rating, this);
-            
-            DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
-            modelBook.setRowCount(0);
-            jtAttend.setDefaultRenderer(Object.class, new Render());
-            JButton btn2 = new JButton("Attend");
-            btn2.setName("at");
 
-            JButton btn3 = new JButton("Change");
-            btn3.setName("ch");
-
-            JButton btn4 = new JButton("Cancel");
-            btn4.setName("x");
-
-
-            Object rowBookData[] = new Object[homeData.bookings.size()];
-            for (int k = 0; k < homeData.bookings.size(); k++){
-                rowBookData[0] = k + 1;
-                rowBookData[1] = homeData.bookings.get(k).getBookingID();
-                rowBookData[2] = homeData.bookings.get(k).getLessonName();
-                rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
-                rowBookData[4] = homeData.bookings.get(k).getLessonDay();
-                rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
-                rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
-
-                if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
-                    rowBookData[7] = "";
-                    rowBookData[8] = "";
-                    rowBookData[9] = "";
-
-                }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
-                    rowBookData[7] = "";
-                    rowBookData[8] = "";
-                    rowBookData[9] = "";
-
-                }else{
-                    rowBookData[7] = btn2;
-                    rowBookData[8] = btn3;
-                    rowBookData[9] = btn4;
-                }
-
-
-
-                modelBook.addRow(rowBookData);
-            }
-
-            JOptionPane.showMessageDialog(rootPane, homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson Attended Successfully", "Lesson Attended", JOptionPane.INFORMATION_MESSAGE);
-
-                        
-        }else{
-            return;
-        }
-    }
-        
-    private void changeLesson(int a, int remSlot, String bkID){
-        if(remSlot <= 4 && remSlot != 0){
-            String LesName, LesWeek, LesPeriod, LesDay, LName = "", LDay = "", LWeek = "", LPeriod = "";
-            int studentID = 0;
-            JTable jt = jtAllTimeTable, jt2 = jt; 
-            ArrayList<Lesson> listArray = homeData.allLessons, listArray2 = listArray;
-            LesName = homeData.allLessons.get(a).getName();
-            LesWeek = homeData.allLessons.get(a).getWeek();
-            LesDay = homeData.allLessons.get(a).getDay();
-            LesPeriod = homeData.allLessons.get(a).getPeriod();
-            
-            for (Booking b : homeData.bookings){
-                if(b.getBookingID() == bkID){
-                    studentID = b.getStudentID();
-                    LName = b.getLessonName();
-                    LDay = b.getLessonDay();
-                    LWeek = b.getLessonWeek();
-                    LPeriod = b.getLessonPeriod();
-                }
-            }
-            
-            if(homeData.canBookLesson(studentID, LesName, LesWeek, LesPeriod, LesDay, this)){
-                if(homeData.isStudentFree(studentID, LesWeek, LesPeriod, LesDay, this)){
-                    int opt1 = JOptionPane.showConfirmDialog(rootPane, "Do you want to change Booking with ID: " + bkID + " to " + homeData.allLessons.get(a).getPeriod() + " " + homeData.allLessons.get(a).getName() + " Lessons @ £" + homeData.allLessons.get(a).getPrice() + "?", "Confirm Booking", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                    if(opt1 == 0){
-                        for (Booking bk : homeData.bookings){
-                            if(bk.getBookingID() == bkID){
-                                bk.setLessonWeek(LesWeek);
-                                bk.setLessonDay(LesDay);
-                                bk.setLessonPeriod(LesPeriod);
-                                bk.setLessonName(LesName);
-                                bk.setLessonStatus("Changed");
-                            }
-                        }
-                        
-                        homeData.lessonChanged(LesName, LesWeek, LesPeriod, LesDay, LName, LWeek, LPeriod, LDay, this);
-                        
-                        if(LName == "Yoga" && LDay == "Saturday"){
-                            jt = jtSaturday;
-                            jt2 = jtYoga;
-                            listArray = homeData.saturdayLessons;
-                            listArray2 = homeData.yogaLessons;
-                        }else if(LName == "Yoga" && LDay == "Sunday"){
-                            jt = jtSunday;
-                            jt2 = jtYoga;
-                            listArray = homeData.sundayLessons;
-                            listArray2 = homeData.yogaLessons;
-                        }else if(LName == "Zumba" && LDay == "Saturday"){
-                            jt = jtSaturday;
-                            jt2 = jtZumba;
-                            listArray = homeData.saturdayLessons;
-                            listArray2 = homeData.zumbaLessons;
-                        }else if(LName == "Zumba" && LDay == "Sunday"){
-                            jt = jtSunday;
-                            jt2 = jtZumba;
-                            listArray = homeData.sundayLessons;
-                            listArray2 = homeData.zumbaLessons;
-                        }else if(LName == "Body Blitz" && LDay == "Saturday"){
-                            jt = jtSaturday;
-                            jt2 = jtBodyBlitz;
-                            listArray = homeData.saturdayLessons;
-                            listArray2 = homeData.bodyblitzLessons;
-                        }else if(LName == "Body Blitz" && LDay == "Sunday"){
-                            jt = jtSunday;
-                            jt2 = jtBodyBlitz;
-                            listArray = homeData.sundayLessons;
-                            listArray2 = homeData.bodyblitzLessons;
-                        }else if(LName == "Box Fit" && LDay == "Saturday"){
-                            jt = jtSaturday;
-                            jt2 = jtBoxFit;
-                            listArray = homeData.saturdayLessons;
-                            listArray2 = homeData.boxfitLessons;
-                        }else if(LName == "Box Fit" && LDay == "Sunday"){
-                            jt = jtSunday;
-                            jt2 = jtBoxFit;
-                            listArray = homeData.sundayLessons;
-                            listArray2 = homeData.boxfitLessons;
-                        }
-                        
-                        updateTables(jt, jt2, listArray, listArray2);
-
-                        JOptionPane.showMessageDialog(rootPane, "Booking with ID: " + bkID + " was Changed from " + LPeriod + " " + LName + " Lesson" + " to " + LesPeriod + " " + LesName + " Lesson Successfully", "Booking Changed", JOptionPane.INFORMATION_MESSAGE);
-                        pgAllTimeTable.setVisible(false);
-                        pgAttend.setVisible(true);
-                        pgSaturday.setVisible(false);
-                        pgDashboard.setVisible(false);
-                        pgBookings.setVisible(false);
-                        pgLessonReport.setVisible(false);
-                        pgExerciseReport.setVisible(false);
-                        pgStudents.setVisible(false);
-                        pgYoga.setVisible(false);
-                        pgSunday.setVisible(false);
-                        pgZumba.setVisible(false);
-                        pgBoxFit.setVisible(false);
-                        pgBodyBlitz.setVisible(false);
-                        
-                    }
-                }else{
-                    JOptionPane.showMessageDialog(rootPane, "Sorry, Student with Student ID: " + studentID + " has a Lesson already booked at this particular period.", "Student not Free", JOptionPane.ERROR_MESSAGE);
-                }
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "Sorry, Student with Student ID: " + studentID + " has already booked this lesson.", "Lesson already booked", JOptionPane.ERROR_MESSAGE);
-            }
-            
-        }else if(remSlot <= 0){
-            JOptionPane.showMessageDialog(rootPane, "Sorry, This Lesson has no slot available at this Week and Period.", "Slot Fully Booked", JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }
-        
-    private void cancelLesson(int a){
-        int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to cancel " + homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Booking?", "Cancel Bookings", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if(opt == 0){
-            JTable jt = jtAttend, jt2 = jt; 
-            ArrayList<Lesson> listArray = homeData.yogaLessons, listArray2 = listArray;
-            String LesName = homeData.bookings.get(a).getLessonName();
-            String LesDay = homeData.bookings.get(a).getLessonDay();
-            String LesPeriod = homeData.bookings.get(a).getLessonPeriod();
-            String LesWeek = homeData.bookings.get(a).getLessonWeek();
-            
-            homeData.lessonCancelled(a, LesName, LesDay, LesWeek, LesPeriod, this);
-            
-            if(LesName == "Yoga" && LesDay == "Saturday"){
-                jt = jtSaturday;
-                jt2 = jtYoga;
-                listArray = homeData.saturdayLessons;
-                listArray2 = homeData.yogaLessons;
-            }else if(LesName == "Yoga" && LesDay == "Sunday"){
-                jt = jtSunday;
-                jt2 = jtYoga;
-                listArray = homeData.sundayLessons;
-                listArray2 = homeData.yogaLessons;
-            }else if(LesName == "Zumba" && LesDay == "Saturday"){
-                jt = jtSaturday;
-                jt2 = jtZumba;
-                listArray = homeData.saturdayLessons;
-                listArray2 = homeData.zumbaLessons;
-            }else if(LesName == "Zumba" && LesDay == "Sunday"){
-                jt = jtSunday;
-                jt2 = jtZumba;
-                listArray = homeData.sundayLessons;
-                listArray2 = homeData.zumbaLessons;
-            }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
-                jt = jtSaturday;
-                jt2 = jtBodyBlitz;
-                listArray = homeData.saturdayLessons;
-                listArray2 = homeData.bodyblitzLessons;
-            }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
-                jt = jtSunday;
-                jt2 = jtBodyBlitz;
-                listArray = homeData.sundayLessons;
-                listArray2 = homeData.bodyblitzLessons;
-            }else if(LesName == "Box Fit" && LesDay == "Saturday"){
-                jt = jtSaturday;
-                jt2 = jtBoxFit;
-                listArray = homeData.saturdayLessons;
-                listArray2 = homeData.boxfitLessons;
-            }else if(LesName == "Box Fit" && LesDay == "Sunday"){
-                jt = jtSunday;
-                jt2 = jtBoxFit;
-                listArray = homeData.sundayLessons;
-                listArray2 = homeData.boxfitLessons;
-            }
-            
-            updateTables(jt, jt2, listArray, listArray2);
-
-            JOptionPane.showMessageDialog(rootPane, homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson has being Cancelled Successfully", "Booking Cancelled", JOptionPane.INFORMATION_MESSAGE);
-            
-            pgAllTimeTable.setVisible(false);
-            pgSaturday.setVisible(false);
-            pgDashboard.setVisible(false);
-            pgAttend.setVisible(true);
-            pgBookings.setVisible(false);
-            pgLessonReport.setVisible(false);
-            pgExerciseReport.setVisible(false);
-            pgStudents.setVisible(false);
-            pgYoga.setVisible(false);
-            pgSunday.setVisible(false);
-            pgZumba.setVisible(false);
-            pgBoxFit.setVisible(false);
-            pgBodyBlitz.setVisible(false);
-            
-        }else{
-            return;
-        }
-    }
-    
     private void mayBook(int a, int remSlot, JTable jt, ArrayList<Lesson> listArray, String LesDay ){
         if(remSlot <= 4 && remSlot != 0){
         //Validate Student with student's ID
@@ -989,42 +1089,42 @@ public class Homepage extends javax.swing.JFrame {
                             if(LesName == "Yoga" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtYoga;
+                                jt2 = getJtYoga();
                                 listArray2 = homeData.yogaLessons;
                             }else if(LesName == "Yoga" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtYoga;
+                                jt2 = getJtYoga();
                                 listArray2 = homeData.yogaLessons;
                             }else if(LesName == "Zumba" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtZumba;
+                                jt2 = getJtZumba();
                                 listArray2 = homeData.zumbaLessons;
                             }else if(LesName == "Zumba" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtZumba;
+                                jt2 = getJtZumba();
                                 listArray2 = homeData.zumbaLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtBodyBlitz;
+                                jt2 = getJtBodyBlitz();
                                 listArray2 = homeData.bodyblitzLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtBodyBlitz;
+                                jt2 = getJtBodyBlitz();
                                 listArray2 = homeData.bodyblitzLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtBoxFit;
+                                jt2 = getJtBoxFit();
                                 listArray2 = homeData.boxfitLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtBoxFit;
+                                jt2 = getJtBoxFit();
                                 listArray2 = homeData.boxfitLessons;
                             }
                             
@@ -1032,42 +1132,42 @@ public class Homepage extends javax.swing.JFrame {
                             if(LesName == "Yoga" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSaturday;
+                                jt2 = getJtSaturday();
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Yoga" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.yogaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSunday;
+                                jt2 = getJtSunday();
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Zumba" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSaturday;
+                                jt2 = getJtSaturday();
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Zumba" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.zumbaLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSunday;
+                                jt2 = getJtSunday();
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSaturday;
+                                jt2 = getJtSaturday();
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Body Blitz" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.bodyblitzLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSunday;
+                                jt2 = getJtSunday();
                                 listArray2 = homeData.sundayLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Saturday"){
                                     homeData.decreaseSlot(homeData.saturdayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSaturday;
+                                jt2 = getJtSaturday();
                                 listArray2 = homeData.saturdayLessons;
                             }else if(LesName == "Box Fit" && LesDay == "Sunday"){
                                     homeData.decreaseSlot(homeData.sundayLessons, LesName, LesDay, LesWeek, LesPeriod);
                                     homeData.decreaseSlot(homeData.boxfitLessons, LesName, LesDay, LesWeek, LesPeriod);
-                                jt2 = jtSunday;
+                                jt2 = getJtSunday();
                                 listArray2 = homeData.sundayLessons;
                             }
                         }
@@ -1146,26 +1246,26 @@ public class Homepage extends javax.swing.JFrame {
         
         
         
-        DefaultTableModel model = (DefaultTableModel) jtReport.getModel();        
+        DefaultTableModel model = (DefaultTableModel) getJtReport().getModel();        
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         
-        jtReport.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jtReport.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-        jtReport.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+        getJtReport().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        getJtReport().getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        getJtReport().getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
         
-        jtReport.setValueAt(countBodyBlitz, 0, 2);
-        jtReport.setValueAt(HomepageData.df.format(averageBodyBlitz), 0, 3);
-        jtReport.setValueAt(countBoxFit, 1, 2);
-        jtReport.setValueAt(HomepageData.df.format(averageBoxFit), 1, 3);
-        jtReport.setValueAt(countYoga, 2, 2);
-        jtReport.setValueAt(HomepageData.df.format(averageYoga), 2, 3);
-        jtReport.setValueAt(countZumba, 3, 2);
-        jtReport.setValueAt(HomepageData.df.format(averageZumba), 3, 3);
-        jtReport.setValueAt(countBodyBlitz + countBoxFit + countYoga + countZumba, 4, 2);
-        jtReport.setValueAt(HomepageData.df.format(averageTotal), 4, 3);
+        getJtReport().setValueAt(countBodyBlitz, 0, 2);
+        getJtReport().setValueAt(HomepageData.df.format(averageBodyBlitz), 0, 3);
+        getJtReport().setValueAt(countBoxFit, 1, 2);
+        getJtReport().setValueAt(HomepageData.df.format(averageBoxFit), 1, 3);
+        getJtReport().setValueAt(countYoga, 2, 2);
+        getJtReport().setValueAt(HomepageData.df.format(averageYoga), 2, 3);
+        getJtReport().setValueAt(countZumba, 3, 2);
+        getJtReport().setValueAt(HomepageData.df.format(averageZumba), 3, 3);
+        getJtReport().setValueAt(countBodyBlitz + countBoxFit + countYoga + countZumba, 4, 2);
+        getJtReport().setValueAt(HomepageData.df.format(averageTotal), 4, 3);
         
     }
     
@@ -1203,55 +1303,55 @@ public class Homepage extends javax.swing.JFrame {
         incomeBoxFit = countBoxFit * 17.93;
         incomeBodyBlitz = countBodyBlitz * 20.74;
         
-        DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();        
+        DefaultTableModel model = (DefaultTableModel) getJtExeReport().getModel();        
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         
-        jtExeReport.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jtExeReport.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-        jtExeReport.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
-        jtExeReport.getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
+        getJtExeReport().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        getJtExeReport().getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        getJtExeReport().getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        getJtExeReport().getColumnModel().getColumn(4).setCellRenderer(rightRenderer);
         
         if (incomeYoga > incomeZumba && incomeYoga > incomeBoxFit && incomeYoga > incomeBodyBlitz){
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
         }else if (incomeZumba > incomeYoga && incomeZumba > incomeBoxFit && incomeZumba > incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Zumba", 0, 1);
-            jtExeReport.setValueAt(countZumba, 0, 2);
-            jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Zumba", 0, 1);
+            getJtExeReport().setValueAt(countZumba, 0, 2);
+            getJtExeReport().setValueAt(15.78, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
             
         }else if (incomeBoxFit > incomeYoga && incomeBoxFit > incomeZumba && incomeBoxFit > incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Box Fit", 0, 1);
-            jtExeReport.setValueAt(countBoxFit, 0, 2);
-            jtExeReport.setValueAt(17.93, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Box Fit", 0, 1);
+            getJtExeReport().setValueAt(countBoxFit, 0, 2);
+            getJtExeReport().setValueAt(17.93, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 0, 4);
             
         }else if (incomeBodyBlitz > incomeYoga && incomeBodyBlitz > incomeZumba && incomeBodyBlitz > incomeBoxFit){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Body Blitz", 0, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 0, 2);
-            jtExeReport.setValueAt(20.74, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Body Blitz", 0, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 0, 2);
+            getJtExeReport().setValueAt(20.74, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 0, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga > incomeBoxFit && incomeYoga > incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1259,17 +1359,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Zumba", 1, 1);
-            jtExeReport.setValueAt(countZumba, 1, 2);
-            jtExeReport.setValueAt(15.78, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Zumba", 1, 1);
+            getJtExeReport().setValueAt(countZumba, 1, 2);
+            getJtExeReport().setValueAt(15.78, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 1, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga == incomeBoxFit && incomeYoga > incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1277,17 +1377,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Box Fit", 1, 1);
-            jtExeReport.setValueAt(countBoxFit, 1, 2);
-            jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Box Fit", 1, 1);
+            getJtExeReport().setValueAt(countBoxFit, 1, 2);
+            getJtExeReport().setValueAt(17.93, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga > incomeBoxFit && incomeYoga == incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1295,17 +1395,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Body Blitz", 1, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 1, 2);
-            jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Body Blitz", 1, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 1, 2);
+            getJtExeReport().setValueAt(20.74, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeZumba == incomeBoxFit && incomeZumba > incomeBodyBlitz && incomeZumba > incomeYoga){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1313,17 +1413,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Zumba", 0, 1);
-            jtExeReport.setValueAt(countZumba, 0, 2);
-            jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Zumba", 0, 1);
+            getJtExeReport().setValueAt(countZumba, 0, 2);
+            getJtExeReport().setValueAt(15.78, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Box Fit", 1, 1);
-            jtExeReport.setValueAt(countBoxFit, 1, 2);
-            jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Box Fit", 1, 1);
+            getJtExeReport().setValueAt(countBoxFit, 1, 2);
+            getJtExeReport().setValueAt(17.93, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
             
         }else if (incomeZumba > incomeBoxFit && incomeZumba == incomeBodyBlitz && incomeZumba > incomeYoga){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1331,17 +1431,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Zumba", 0, 1);
-            jtExeReport.setValueAt(countZumba, 0, 2);
-            jtExeReport.setValueAt(15.78, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Zumba", 0, 1);
+            getJtExeReport().setValueAt(countZumba, 0, 2);
+            getJtExeReport().setValueAt(15.78, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Body Blitz", 1, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 1, 2);
-            jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Body Blitz", 1, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 1, 2);
+            getJtExeReport().setValueAt(20.74, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeBoxFit > incomeYoga && incomeBoxFit == incomeBodyBlitz && incomeBoxFit > incomeZumba){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1349,17 +1449,17 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Box Fit", 0, 1);
-            jtExeReport.setValueAt(countBoxFit, 0, 2);
-            jtExeReport.setValueAt(17.93, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Box Fit", 0, 1);
+            getJtExeReport().setValueAt(countBoxFit, 0, 2);
+            getJtExeReport().setValueAt(17.93, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Body Blitz", 1, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 1, 2);
-            jtExeReport.setValueAt(20.74, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Body Blitz", 1, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 1, 2);
+            getJtExeReport().setValueAt(20.74, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 1, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga > incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1368,23 +1468,23 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Zumba", 1, 1);
-            jtExeReport.setValueAt(countZumba, 1, 2);
-            jtExeReport.setValueAt(15.78, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Zumba", 1, 1);
+            getJtExeReport().setValueAt(countZumba, 1, 2);
+            getJtExeReport().setValueAt(15.78, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 1, 4);
             
-            jtExeReport.setValueAt("3.", 2, 0);
-            jtExeReport.setValueAt("Box Fit", 2, 1);
-            jtExeReport.setValueAt(countBoxFit, 2, 2);
-            jtExeReport.setValueAt(17.93, 2, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 2, 4);
+            getJtExeReport().setValueAt("3.", 2, 0);
+            getJtExeReport().setValueAt("Box Fit", 2, 1);
+            getJtExeReport().setValueAt(countBoxFit, 2, 2);
+            getJtExeReport().setValueAt(17.93, 2, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 2, 4);
             
         }else if (incomeYoga > incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1393,23 +1493,23 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Box Fit", 1, 1);
-            jtExeReport.setValueAt(countBoxFit, 1, 2);
-            jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Box Fit", 1, 1);
+            getJtExeReport().setValueAt(countBoxFit, 1, 2);
+            getJtExeReport().setValueAt(17.93, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
             
-            jtExeReport.setValueAt("3.", 2, 0);
-            jtExeReport.setValueAt("Body Blitz", 2, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 2, 2);
-            jtExeReport.setValueAt(20.74, 2, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 2, 4);
+            getJtExeReport().setValueAt("3.", 2, 0);
+            getJtExeReport().setValueAt("Body Blitz", 2, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 2, 2);
+            getJtExeReport().setValueAt(20.74, 2, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 2, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz && incomeYoga != 0){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
@@ -1419,46 +1519,46 @@ public class Homepage extends javax.swing.JFrame {
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("1.", 0, 0);
-            jtExeReport.setValueAt("Yoga", 0, 1);
-            jtExeReport.setValueAt(countYoga, 0, 2);
-            jtExeReport.setValueAt(12.86, 0, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
+            getJtExeReport().setValueAt("1.", 0, 0);
+            getJtExeReport().setValueAt("Yoga", 0, 1);
+            getJtExeReport().setValueAt(countYoga, 0, 2);
+            getJtExeReport().setValueAt(12.86, 0, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeYoga), 0, 4);
             
-            jtExeReport.setValueAt("2.", 1, 0);
-            jtExeReport.setValueAt("Box Fit", 1, 1);
-            jtExeReport.setValueAt(countBoxFit, 1, 2);
-            jtExeReport.setValueAt(17.93, 1, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
+            getJtExeReport().setValueAt("2.", 1, 0);
+            getJtExeReport().setValueAt("Box Fit", 1, 1);
+            getJtExeReport().setValueAt(countBoxFit, 1, 2);
+            getJtExeReport().setValueAt(17.93, 1, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBoxFit), 1, 4);
             
-            jtExeReport.setValueAt("3.", 2, 0);
-            jtExeReport.setValueAt("Body Blitz", 2, 1);
-            jtExeReport.setValueAt(countBodyBlitz, 2, 2);
-            jtExeReport.setValueAt(20.74, 2, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeBodyBlitz), 2, 4);
+            getJtExeReport().setValueAt("3.", 2, 0);
+            getJtExeReport().setValueAt("Body Blitz", 2, 1);
+            getJtExeReport().setValueAt(countBodyBlitz, 2, 2);
+            getJtExeReport().setValueAt(20.74, 2, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeBodyBlitz), 2, 4);
             
-            jtExeReport.setValueAt("4.", 3, 0);
-            jtExeReport.setValueAt("Zumba", 3, 1);
-            jtExeReport.setValueAt(countZumba, 3, 2);
-            jtExeReport.setValueAt(15.78, 3, 3);
-            jtExeReport.setValueAt(HomepageData.df2.format(incomeZumba), 3, 4);
+            getJtExeReport().setValueAt("4.", 3, 0);
+            getJtExeReport().setValueAt("Zumba", 3, 1);
+            getJtExeReport().setValueAt(countZumba, 3, 2);
+            getJtExeReport().setValueAt(15.78, 3, 3);
+            getJtExeReport().setValueAt(HomepageData.df2.format(incomeZumba), 3, 4);
             
         }else if (incomeYoga == incomeZumba && incomeYoga == incomeBoxFit && incomeYoga == incomeBodyBlitz && incomeYoga == 0){
             //DefaultTableModel model = (DefaultTableModel) jtExeReport.getModel();
             model.setRowCount(0);
             model.addRow(new Object[]{"Column 1", "Column 2", "Column 3", "Column 2", "Column 3"});
             
-            jtExeReport.setValueAt("", 0, 0);
-            jtExeReport.setValueAt("", 0, 1);
-            jtExeReport.setValueAt("", 0, 2);
-            jtExeReport.setValueAt("", 0, 3);
-            jtExeReport.setValueAt("", 0, 4);
+            getJtExeReport().setValueAt("", 0, 0);
+            getJtExeReport().setValueAt("", 0, 1);
+            getJtExeReport().setValueAt("", 0, 2);
+            getJtExeReport().setValueAt("", 0, 3);
+            getJtExeReport().setValueAt("", 0, 4);
             
         }
         
     }
     
-    private void updateTables(JTable jt, JTable jt2, ArrayList<Lesson> listArray, ArrayList<Lesson> listArray2){
+    public void updateTables(JTable jt, JTable jt2, ArrayList<Lesson> listArray, ArrayList<Lesson> listArray2){
         
 
         DefaultTableModel model = (DefaultTableModel) jt.getModel();
@@ -1470,7 +1570,7 @@ public class Homepage extends javax.swing.JFrame {
         Object[] rowData = new Object[listArray.size()];
         for (int j = 0; j < listArray.size(); j++){
             rowData[0] = listArray.get(j).getWeek();
-            if(jt == jtSaturday || jt == jtSunday){
+            if(jt == getJtSaturday() || jt == getJtSunday()){
                 rowData[1] = listArray.get(j).getName();
             }else{
                 rowData[1] = listArray.get(j).getDay();
@@ -1492,7 +1592,7 @@ public class Homepage extends javax.swing.JFrame {
         Object[] rowData2 = new Object[listArray2.size()];
         for (int m = 0; m < listArray2.size(); m++){
             rowData2[0] = listArray2.get(m).getWeek();
-            if(jt2 == jtSaturday || jt2 == jtSunday){
+            if(jt2 == getJtSaturday() || jt2 == getJtSunday()){
                 rowData2[1] = listArray2.get(m).getName();
             }else{
                 rowData2[1] = listArray2.get(m).getDay();
@@ -1505,9 +1605,9 @@ public class Homepage extends javax.swing.JFrame {
             model2.addRow(rowData2);
         }
 
-        DefaultTableModel modelAllLessons = (DefaultTableModel) jtAllTimeTable.getModel();            
+        DefaultTableModel modelAllLessons = (DefaultTableModel) getJtAllTimeTable().getModel();            
         modelAllLessons.setRowCount(0);
-        jtAllTimeTable.setDefaultRenderer(Object.class, new Render());
+        getJtAllTimeTable().setDefaultRenderer(Object.class, new Render());
         JButton btnzy = new JButton("Book");
         btnzy.setName("b");
 
@@ -1524,7 +1624,7 @@ public class Homepage extends javax.swing.JFrame {
             modelAllLessons.addRow(rowData3);
         }
 
-        DefaultTableModel modelHistory = (DefaultTableModel) jtBookings.getModel();
+        DefaultTableModel modelHistory = (DefaultTableModel) getJtBookings().getModel();
         modelHistory.setRowCount(0);
         Object rowHistoryData[] = new Object[homeData.bookings.size()];
         for (int i = 0; i < homeData.bookings.size(); i++){
@@ -1541,9 +1641,9 @@ public class Homepage extends javax.swing.JFrame {
             modelHistory.addRow(rowHistoryData);
         }
 
-        DefaultTableModel modelBook = (DefaultTableModel) jtAttend.getModel();
+        DefaultTableModel modelBook = (DefaultTableModel) getJtAttend().getModel();
         modelBook.setRowCount(0);
-        jtAttend.setDefaultRenderer(Object.class, new Render());
+        getJtAttend().setDefaultRenderer(Object.class, new Render());
         JButton btn2 = new JButton("Attend");
         btn2.setName("at");
 
@@ -2724,19 +2824,19 @@ public class Homepage extends javax.swing.JFrame {
         homeData.resetPanelColor(btnStudents);
         
         //pages
-        pgAllTimeTable.setVisible(false);
-        pgSaturday.setVisible(false);
-        pgDashboard.setVisible(true);
-        pgAttend.setVisible(false);
-        pgBookings.setVisible(false);
-        pgLessonReport.setVisible(false);
-        pgExerciseReport.setVisible(false);
-        pgStudents.setVisible(false);
-        pgYoga.setVisible(false);
-        pgSunday.setVisible(false);
-        pgZumba.setVisible(false);
-        pgBoxFit.setVisible(false);
-        pgBodyBlitz.setVisible(false);
+        getPgAllTimeTable().setVisible(false);
+        getPgSaturday().setVisible(false);
+        getPgDashboard().setVisible(true);
+        getPgAttend().setVisible(false);
+        getPgBookings().setVisible(false);
+        getPgLessonReport().setVisible(false);
+        getPgExerciseReport().setVisible(false);
+        getPgStudents().setVisible(false);
+        getPgYoga().setVisible(false);
+        getPgSunday().setVisible(false);
+        getPgZumba().setVisible(false);
+        getPgBoxFit().setVisible(false);
+        getPgBodyBlitz().setVisible(false);
         
     }//GEN-LAST:event_lblDashboardMouseClicked
 
@@ -2767,20 +2867,20 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtSaturdayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtSaturdayMouseClicked
         // TODO add your handling code here:
-        int column = jtSaturday.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtSaturday.getRowHeight();
+        int column = getJtSaturday().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtSaturday().getRowHeight();
         
-        if(row < jtSaturday.getRowCount() && row >= 0 && column < jtSaturday.getColumnCount() && column >= 0){
-            Object value = jtSaturday.getValueAt(row, column);
+        if(row < getJtSaturday().getRowCount() && row >= 0 && column < getJtSaturday().getColumnCount() && column >= 0){
+            Object value = getJtSaturday().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtSaturday.getSelectedRow();
+                    int a = getJtSaturday().getSelectedRow();
                     int remSlot = homeData.saturdayLessons.get(a).getSlot();
-                    mayBook(a, remSlot, jtSaturday, homeData.saturdayLessons, "Saturday");
+                    mayBook(a, remSlot, getJtSaturday(), homeData.saturdayLessons, "Saturday");
                     
                 }
             }
@@ -2789,22 +2889,22 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtYogaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtYogaMouseClicked
         // TODO add your handling code here:
-        int column = jtYoga.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtYoga.getRowHeight();
+        int column = getJtYoga().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtYoga().getRowHeight();
         
-        if(row < jtYoga.getRowCount() && row >= 0 && column < jtYoga.getColumnCount() && column >= 0){
-            Object value = jtYoga.getValueAt(row, column);
+        if(row < getJtYoga().getRowCount() && row >= 0 && column < getJtYoga().getColumnCount() && column >= 0){
+            Object value = getJtYoga().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtYoga.getSelectedRow();
+                    int a = getJtYoga().getSelectedRow();
                     int remSlot = homeData.yogaLessons.get(a).getSlot();
                     String LesDay = homeData.yogaLessons.get(a).getDay();
                     
-                    mayBook(a, remSlot, jtYoga, homeData.yogaLessons, LesDay);
+                    mayBook(a, remSlot, getJtYoga(), homeData.yogaLessons, LesDay);
                     
                 }
             }
@@ -2813,22 +2913,22 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtSundayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtSundayMouseClicked
         // TODO add your handling code here:
-        int column = jtSunday.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtSunday.getRowHeight();
+        int column = getJtSunday().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtSunday().getRowHeight();
         
-        if(row < jtSunday.getRowCount() && row >= 0 && column < jtSunday.getColumnCount() && column >= 0){
-            Object value = jtSunday.getValueAt(row, column);
+        if(row < getJtSunday().getRowCount() && row >= 0 && column < getJtSunday().getColumnCount() && column >= 0){
+            Object value = getJtSunday().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtSunday.getSelectedRow();
+                    int a = getJtSunday().getSelectedRow();
                     int remSlot = homeData.sundayLessons.get(a).getSlot();
                     String LesDay = homeData.sundayLessons.get(a).getDay();
                     
-                    mayBook(a, remSlot, jtSunday, homeData.sundayLessons, LesDay);
+                    mayBook(a, remSlot, getJtSunday(), homeData.sundayLessons, LesDay);
                     
                 }
             }
@@ -2838,22 +2938,22 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtZumbaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtZumbaMouseClicked
         // TODO add your handling code here:
-        int column = jtZumba.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtZumba.getRowHeight();
+        int column = getJtZumba().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtZumba().getRowHeight();
         
-        if(row < jtZumba.getRowCount() && row >= 0 && column < jtZumba.getColumnCount() && column >= 0){
-            Object value = jtZumba.getValueAt(row, column);
+        if(row < getJtZumba().getRowCount() && row >= 0 && column < getJtZumba().getColumnCount() && column >= 0){
+            Object value = getJtZumba().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtZumba.getSelectedRow();
+                    int a = getJtZumba().getSelectedRow();
                     int remSlot = homeData.zumbaLessons.get(a).getSlot();
                     String LesDay = homeData.zumbaLessons.get(a).getDay();
                     
-                    mayBook(a, remSlot, jtZumba, homeData.zumbaLessons, LesDay);
+                    mayBook(a, remSlot, getJtZumba(), homeData.zumbaLessons, LesDay);
                     
                 }
             }
@@ -2862,22 +2962,22 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtBoxFitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBoxFitMouseClicked
         // TODO add your handling code here:
-        int column = jtBoxFit.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtBoxFit.getRowHeight();
+        int column = getJtBoxFit().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtBoxFit().getRowHeight();
         
-        if(row < jtBoxFit.getRowCount() && row >= 0 && column < jtBoxFit.getColumnCount() && column >= 0){
-            Object value = jtBoxFit.getValueAt(row, column);
+        if(row < getJtBoxFit().getRowCount() && row >= 0 && column < getJtBoxFit().getColumnCount() && column >= 0){
+            Object value = getJtBoxFit().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtBoxFit.getSelectedRow();
+                    int a = getJtBoxFit().getSelectedRow();
                     int remSlot = homeData.boxfitLessons.get(a).getSlot();
                     String LesDay = homeData.boxfitLessons.get(a).getDay();
                     
-                    mayBook(a, remSlot, jtBoxFit, homeData.boxfitLessons, LesDay);
+                    mayBook(a, remSlot, getJtBoxFit(), homeData.boxfitLessons, LesDay);
                     
                 }
             }
@@ -2886,22 +2986,22 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtBodyBlitzMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtBodyBlitzMouseClicked
         // TODO add your handling code here:
-        int column = jtBodyBlitz.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtBodyBlitz.getRowHeight();
+        int column = getJtBodyBlitz().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtBodyBlitz().getRowHeight();
         
-        if(row < jtBodyBlitz.getRowCount() && row >= 0 && column < jtBodyBlitz.getColumnCount() && column >= 0){
-            Object value = jtBodyBlitz.getValueAt(row, column);
+        if(row < getJtBodyBlitz().getRowCount() && row >= 0 && column < getJtBodyBlitz().getColumnCount() && column >= 0){
+            Object value = getJtBodyBlitz().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtBodyBlitz.getSelectedRow();
+                    int a = getJtBodyBlitz().getSelectedRow();
                     int remSlot = homeData.bodyblitzLessons.get(a).getSlot();
                     String LesDay = homeData.bodyblitzLessons.get(a).getDay();
                     
-                    mayBook(a, remSlot, jtBodyBlitz, homeData.bodyblitzLessons, LesDay);
+                    mayBook(a, remSlot, getJtBodyBlitz(), homeData.bodyblitzLessons, LesDay);
                     
                 }
             }
@@ -2910,39 +3010,39 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtAttendMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAttendMouseClicked
         // TODO add your handling code here:
-        int column = jtAttend.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtAttend.getRowHeight();
+        int column = getJtAttend().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtAttend().getRowHeight();
         
-        if(row < jtAttend.getRowCount() && row >= 0 && column < jtAttend.getColumnCount() && column >= 0){
-            Object value = jtAttend.getValueAt(row, column);
+        if(row < getJtAttend().getRowCount() && row >= 0 && column < getJtAttend().getColumnCount() && column >= 0){
+            Object value = getJtAttend().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("at")){
-                    int a = jtAttend.getSelectedRow();
-                    attendLesson(a);
+                    int a = getJtAttend().getSelectedRow();
+                    homeData.attendLesson(a, this);
                     
                 }else if(botn.getName().equals("ch")){
-                    int a = jtAttend.getSelectedRow();
+                    int a = getJtAttend().getSelectedRow();
                     String bkID = homeData.bookings.get(a).getBookingID();
                     int opt = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to change " + homeData.bookings.get(a).getLessonPeriod() + " " + homeData.bookings.get(a).getLessonName() + " Lesson?", "Change Lesson", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(opt == 0){
-                        pgAllTimeTable.setVisible(true);
-                        pgAttend.setVisible(false);
-                        pgSaturday.setVisible(false);
-                        pgDashboard.setVisible(false);
-                        pgAttend.setVisible(false);
-                        pgBookings.setVisible(false);
-                        pgLessonReport.setVisible(false);
-                        pgExerciseReport.setVisible(false);
-                        pgStudents.setVisible(false);
-                        pgYoga.setVisible(false);
-                        pgSunday.setVisible(false);
-                        pgZumba.setVisible(false);
-                        pgBoxFit.setVisible(false);
-                        pgBodyBlitz.setVisible(false);
+                        getPgAllTimeTable().setVisible(true);
+                        getPgAttend().setVisible(false);
+                        getPgSaturday().setVisible(false);
+                        getPgDashboard().setVisible(false);
+                        getPgAttend().setVisible(false);
+                        getPgBookings().setVisible(false);
+                        getPgLessonReport().setVisible(false);
+                        getPgExerciseReport().setVisible(false);
+                        getPgStudents().setVisible(false);
+                        getPgYoga().setVisible(false);
+                        getPgSunday().setVisible(false);
+                        getPgZumba().setVisible(false);
+                        getPgBoxFit().setVisible(false);
+                        getPgBodyBlitz().setVisible(false);
                         
                         lblBKID.setText(bkID);
 
@@ -2951,8 +3051,8 @@ public class Homepage extends javax.swing.JFrame {
                     }
                     
                 }else if(botn.getName().equals("x")){
-                    int a = jtAttend.getSelectedRow();
-                    cancelLesson(a);
+                    int a = getJtAttend().getSelectedRow();
+                    homeData.cancelLesson(a, this);
                     
                 }
             }
@@ -2961,21 +3061,21 @@ public class Homepage extends javax.swing.JFrame {
 
     private void jtAllTimeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtAllTimeTableMouseClicked
         // TODO add your handling code here:
-        int column = jtAllTimeTable.getColumnModel().getColumnIndexAtX(evt.getX());
-        int row = evt.getY()/jtAllTimeTable.getRowHeight();
+        int column = getJtAllTimeTable().getColumnModel().getColumnIndexAtX(evt.getX());
+        int row = evt.getY()/getJtAllTimeTable().getRowHeight();
         
-        if(row < jtAllTimeTable.getRowCount() && row >= 0 && column < jtAllTimeTable.getColumnCount() && column >=0){
-            Object value = jtAllTimeTable.getValueAt(row, column);
+        if(row < getJtAllTimeTable().getRowCount() && row >= 0 && column < getJtAllTimeTable().getColumnCount() && column >=0){
+            Object value = getJtAllTimeTable().getValueAt(row, column);
             
             if(value instanceof JButton){
                 ((JButton)value).doClick();
                 JButton botn = (JButton) value;
                 
                 if(botn.getName().equals("b")){
-                    int a = jtAllTimeTable.getSelectedRow();
+                    int a = getJtAllTimeTable().getSelectedRow();
                     int remSlot = homeData.allLessons.get(a).getSlot();
                     String bkID = lblBKID.getText();
-                    changeLesson(a, remSlot, bkID);
+                    homeData.changeLesson(a, remSlot, bkID, this);
                 }
             }
         }
@@ -3013,16 +3113,16 @@ public class Homepage extends javax.swing.JFrame {
             return;
         }
         
-        DefaultTableModel modelStudents = (DefaultTableModel) jtStudents.getModel();
+        DefaultTableModel modelStudents = (DefaultTableModel) getJtStudents().getModel();
         modelStudents.setRowCount(0);        
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();        
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
         
-        jtStudents.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-        jtStudents.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
+        getJtStudents().getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
         Object[] rowStudentData = new Object[homeData.student.size()];
         for (int i = 0; i < homeData.student.size(); i++){
             rowStudentData[0] = i + 1;
