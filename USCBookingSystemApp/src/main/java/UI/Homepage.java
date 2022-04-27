@@ -571,32 +571,27 @@ public class Homepage extends javax.swing.JFrame {
         
         DefaultTableModel modelBook = (DefaultTableModel) getJtAttend().getModel();
         Object rowData[] = new Object[homeData.bookings.size()];
+        int b = 1;
         for (int i = 0; i < homeData.bookings.size(); i++){
-            rowData[0] = i + 1;
-            rowData[1] = homeData.bookings.get(i).getBookingID();
-            rowData[2] = homeData.bookings.get(i).getLessonName();
-            rowData[3] = homeData.bookings.get(i).getLessonWeek();
-            rowData[4] = homeData.bookings.get(i).getLessonDay();
-            rowData[5] = homeData.bookings.get(i).getLessonPeriod();
-            rowData[6] = homeData.bookings.get(i).getLessonStatus();
-            
-            if (homeData.bookings.get(i).getLessonStatus() == "Attended"){
-                    rowData[7] = "";
-                    rowData[8] = "";
-                    rowData[9] = "";
+            if(homeData.bookings.get(i).getLessonStatus() == "Booked"){
+                
+                rowData[0] = b;
+                rowData[1] = homeData.bookings.get(i).getBookingID();
+                rowData[2] = homeData.bookings.get(i).getLessonName();
+                rowData[3] = homeData.bookings.get(i).getLessonWeek();
+                rowData[4] = homeData.bookings.get(i).getLessonDay();
+                rowData[5] = homeData.bookings.get(i).getLessonPeriod();
+                rowData[6] = homeData.bookings.get(i).getLessonStatus();
 
-                }else if (homeData.bookings.get(i).getLessonStatus() == "Cancelled"){
-                    rowData[7] = "";
-                    rowData[8] = "";
-                    rowData[9] = "";
+                rowData[7] = btn2;
+                rowData[8] = btn3;
+                rowData[9] = btn4;
+                
+                b++;
 
-                }else{
-                    rowData[7] = btn2;
-                    rowData[8] = btn3;
-                    rowData[9] = btn4;
-                }
+                modelBook.addRow(rowData);
+            }
             
-            modelBook.addRow(rowData);
         }
         getJtAttend().setRowHeight(30);
         
@@ -1655,32 +1650,27 @@ public class Homepage extends javax.swing.JFrame {
 
 
         Object rowBookData[] = new Object[homeData.bookings.size()];
+        int b = 1;
         for (int k = 0; k < homeData.bookings.size(); k++){
-            rowBookData[0] = k + 1;
-            rowBookData[1] = homeData.bookings.get(k).getBookingID();
-            rowBookData[2] = homeData.bookings.get(k).getLessonName();
-            rowBookData[3] = homeData.bookings.get(k).getLessonWeek();
-            rowBookData[4] = homeData.bookings.get(k).getLessonDay();
-            rowBookData[5] = homeData.bookings.get(k).getLessonPeriod();
-            rowBookData[6] = homeData.bookings.get(k).getLessonStatus();
+            if(homeData.bookings.get(k).getLessonStatus() == "Booked"){
+                
+                rowData[0] = b;
+                rowData[1] = homeData.bookings.get(k).getBookingID();
+                rowData[2] = homeData.bookings.get(k).getLessonName();
+                rowData[3] = homeData.bookings.get(k).getLessonWeek();
+                rowData[4] = homeData.bookings.get(k).getLessonDay();
+                rowData[5] = homeData.bookings.get(k).getLessonPeriod();
+                rowData[6] = homeData.bookings.get(k).getLessonStatus();
 
-            if (homeData.bookings.get(k).getLessonStatus() == "Attended"){
-                rowBookData[7] = "";
-                rowBookData[8] = "";
-                rowBookData[9] = "";
+                rowData[7] = btn2;
+                rowData[8] = btn3;
+                rowData[9] = btn4;
+                
+                b++;
 
-            }else if (homeData.bookings.get(k).getLessonStatus() == "Cancelled"){
-                rowBookData[7] = "";
-                rowBookData[8] = "";
-                rowBookData[9] = "";
-
-            }else{
-                rowBookData[7] = btn2;
-                rowBookData[8] = btn3;
-                rowBookData[9] = btn4;
+                modelBook.addRow(rowData);
             }
-
-            modelBook.addRow(rowBookData);
+            
         }
         
     }
@@ -1953,9 +1943,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate.add(lblDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate.add(lblDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgDashboard.add(jpDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgDashboard.add(jpDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         btnBookingHistory.setBackground(new java.awt.Color(122, 72, 221));
         btnBookingHistory.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
@@ -2075,9 +2065,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime2.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime2.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate2.add(lblDateTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate2.add(lblDateTime2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgAttend.add(jpDate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgAttend.add(jpDate2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtAttend.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2143,9 +2133,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime13.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime13.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate13.add(lblDateTime13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate13.add(lblDateTime13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgAllTimeTable.add(jpDate13, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgAllTimeTable.add(jpDate13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtAllTimeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2208,9 +2198,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime3.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate3.add(lblDateTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate3.add(lblDateTime3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgBookings.add(jpDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgBookings.add(jpDate3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtBookings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2269,9 +2259,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime4.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime4.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate4.add(lblDateTime4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate4.add(lblDateTime4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgLessonReport.add(jpDate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgLessonReport.add(jpDate4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2324,9 +2314,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime5.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate5.add(lblDateTime5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate5.add(lblDateTime5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgExerciseReport.add(jpDate5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgExerciseReport.add(jpDate5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtExeReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2377,9 +2367,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime6.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime6.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate6.add(lblDateTime6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate6.add(lblDateTime6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgStudents.add(jpDate6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgStudents.add(jpDate6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2443,9 +2433,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime7.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime7.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate7.add(lblDateTime7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate7.add(lblDateTime7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgYoga.add(jpDate7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgYoga.add(jpDate7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtYoga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2503,9 +2493,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime8.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime8.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate8.add(lblDateTime8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate8.add(lblDateTime8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgSaturday.add(jpDate8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgSaturday.add(jpDate8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtSaturday.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2563,9 +2553,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime9.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime9.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate9.add(lblDateTime9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate9.add(lblDateTime9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgSunday.add(jpDate9, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgSunday.add(jpDate9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtSunday.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2623,9 +2613,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime10.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime10.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate10.add(lblDateTime10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate10.add(lblDateTime10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgZumba.add(jpDate10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgZumba.add(jpDate10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtZumba.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2684,9 +2674,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime11.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime11.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate11.add(lblDateTime11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate11.add(lblDateTime11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgBoxFit.add(jpDate11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgBoxFit.add(jpDate11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtBoxFit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2745,9 +2735,9 @@ public class Homepage extends javax.swing.JFrame {
         lblDateTime12.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         lblDateTime12.setForeground(new java.awt.Color(255, 255, 255));
         lblDateTime12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calendar.png"))); // NOI18N
-        jpDate12.add(lblDateTime12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 50));
+        jpDate12.add(lblDateTime12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
 
-        pgBodyBlitz.add(jpDate12, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 350, 50));
+        pgBodyBlitz.add(jpDate12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, 400, 50));
 
         jtBodyBlitz.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
